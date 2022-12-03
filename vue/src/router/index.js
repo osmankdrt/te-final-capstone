@@ -52,7 +52,17 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    }
+    },
+    {
+      path: "/decks",
+      name: "decks",
+      component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+  
+  
   ]
 })
 
