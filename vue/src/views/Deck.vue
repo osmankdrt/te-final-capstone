@@ -9,7 +9,8 @@ import DeckList from '../components/DeckList.vue'
 export default {
 components:{
     DeckList
-}
+},
+
 }
 </script>
 

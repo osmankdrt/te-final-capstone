@@ -1,15 +1,24 @@
 <template>
   <div>
-  <card />
+  <card-list />
   </div>
 
 </template>
 
 <script>
-import Card from '../components/Card.vue'
+import CardList from '../components/CardList.vue'
 export default {
 components:{
-    Card
+    CardList
+},
+computed: {
+  card() {
+    return this.$store.getters.card;
+  }
+},
+created() {
+  const activeDeckId = this.$route.params.id;
+  this.$store.commit("SET_ACTIVE_DECK", activeDeckId)
 }
 }
 </script>

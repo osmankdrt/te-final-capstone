@@ -18,6 +18,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    activeDeck: 0,
     token: currentToken || '',
     user: currentUser || {},
     decks: [
@@ -98,6 +99,14 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_ACTIVE_DECK(state, deckID){
+      state.activeDeck = deckID;
+    }
+  },
+  getters: {
+    card(state) {
+      return state.decks.find(p => p.id == state.activeDeck);
     }
   }
 })
