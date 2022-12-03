@@ -25,7 +25,6 @@ public class JdbcUserDao implements UserDao {
     @Override
     public int findIdByUsername(String username) {
         if (username == null) throw new IllegalArgumentException("Username cannot be null");
-
         int userId;
         try {
             userId = jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, username);
