@@ -4,10 +4,7 @@ import com.techelevator.dao.FlashcardsDao;
 import com.techelevator.model.Card;
 import com.techelevator.model.Deck;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +25,8 @@ public class FlashcardsController {
      public List<Card> getCards() {
         return dao.listAllCards();
     }
+
+    @RequestMapping(path = "/cards/{deckID}", method = RequestMethod.GET)
+    public List<Card> getCardsByDeck(@PathVariable int deckID) {
+        return dao.listCardsByDeck(deckID); }
     }

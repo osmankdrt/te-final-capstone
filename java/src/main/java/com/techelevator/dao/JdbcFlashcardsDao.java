@@ -16,6 +16,20 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     public JdbcFlashcardsDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+
+    @Override
+    public List<Card> listCardsByDeck(int deckID) {
+        List<Card> cards = new ArrayList<>();
+        String sql = "SELECT card.card_id, card_title, flashcard_body FROM card " +
+                "JOIN card_deck ON card.card_id = card_deck.card_id WHERE deck_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deckID);
+
+        while (results.next()) {
+            Card card = mapRowToCard(results);
+            cards.add(card);
+        }
+        return cards;
+    }
     @Override
     public List<Deck> listAllDecks() {
         List<Deck> decks = new ArrayList<>();

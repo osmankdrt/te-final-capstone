@@ -9,4 +9,6 @@ public interface FlashcardsDao {
     List<Deck> listAllDecks();
 
     List<Card> listAllCards();
+
+    List<Card> listCardsByDeck(int deckID);
 }
