@@ -1,14 +1,14 @@
 <template>
   <div>
-  <deck />
+  <deck-list />
   </div>
 </template>
 
 <script>
-import Deck from '../components/Deck.vue'
+import DeckList from '../components/DeckList.vue'
 export default {
 components:{
-    Deck
+    DeckList
 }
 }
 </script>

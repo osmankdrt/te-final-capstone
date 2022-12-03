@@ -19,7 +19,68 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    decks: [
+      {
+        id: 1,
+        title: 'Deck 1',
+        description: 'This is Deck 1',
+        cards: [
+          {
+            title: 'A',
+            text: 'Alpha'
+          },
+          {
+            title: 'B',
+            text: 'Bravo'
+          },
+          {
+            title: 'C',
+            text: 'Charlie'
+          },
+        ]
+      },
+      {
+        id: 2,
+        title: 'Deck 2',
+        description: 'This is Deck 2',
+        cards: [
+          {
+            title: 'D',
+            text: 'Delta'
+          },
+          {
+            title: 'E',
+            text: 'Echo'
+          },
+          {
+            title: 'F',
+            text: 'Foxtrot'
+          },
+        ]
+      },
+      {
+        id: 3,
+        title: 'Deck 3',
+        description: 'This is Deck 3',
+        cards: [
+          {
+            title: 'G',
+            text: 'Golf'
+          },
+          {
+            title: 'H',
+            text: 'Hotel'
+          },
+          {
+            title: 'I',
+            text: 'India'
+          },
+        ]
+      }
+    ]
+
+    
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
