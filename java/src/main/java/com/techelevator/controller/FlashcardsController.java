@@ -26,7 +26,7 @@ public class FlashcardsController {
         return dao.listAllCards();
     }
 
-    @RequestMapping(path = "/cards/{deckID}", method = RequestMethod.GET)
+    @RequestMapping(path = "/decks/{deckID}/cards", method = RequestMethod.GET)
     public List<Card> getCardsByDeck(@PathVariable int deckID) {
         return dao.listCardsByDeck(deckID); }
     }
