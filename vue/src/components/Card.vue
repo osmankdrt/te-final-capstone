@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cards">
    <p class="card-title"> {{card.title}} </p>
    <p class="card-text"> {{card.text}} </p>
 

@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div class="decks">
+    <article class ="deck">
      <h1 class="deck-title"> {{deck.title}} </h1>
+     </article>
      <p class = "description"> {{deck.description}} </p>
 
   </div>
@@ -16,6 +18,22 @@ export default {
 }
 </script>
 
-<style>
+<style scoped >
+
+.deck{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 250px;
+    height: 550px;
+    margin: 20px;
+}
+
+
+
+
+
+
+
+
 
 </style>
