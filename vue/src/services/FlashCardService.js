@@ -15,10 +15,10 @@ listDecks() {
 //     return axios.post('/decks')
 // },
 
-// listCards() {
-//     return axios.get('/cards')
+listCards() {
+    return http.get('/cards')
 
-//  },
+ },
 
  getCardsByDeck(deckID) {
     return http.get(`/decks/${deckID}/cards`)
