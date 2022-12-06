@@ -41,7 +41,7 @@ export default {
 }
 .routerview {
   display: flex;
-  grid-area: routerview
+  grid-area: routerview;
 }
 .appfooter {
   grid-area: footer

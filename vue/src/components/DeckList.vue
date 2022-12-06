@@ -38,8 +38,8 @@ export default {
 
 <style scoped>
 .deck{
-  display:flex;
-  height: 15vh;
+  /* display:flex; */
+  /* height: 15vh; */
   
   flex-wrap: wrap;
    
