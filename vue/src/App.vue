@@ -40,7 +40,7 @@ export default {
   grid-area: header
 }
 .routerview {
-  display: flex;
+  /* display: flex; */
   grid-area: routerview;
 }
 .appfooter {
