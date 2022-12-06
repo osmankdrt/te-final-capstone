@@ -1,5 +1,4 @@
 <template>
-
   <div class="decks">
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      <h1 class="deck-title"> {{deck.deckTitle}} </h1>
@@ -16,9 +15,6 @@ export default {
  props: {
    deck: Object,
  },
-
- 
-
 }
 </script>
 
@@ -28,6 +24,7 @@ export default {
     /* display: flex; */
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     border: 2px solid black;
     border-radius: 10px;
     height: 25vh;
@@ -42,10 +39,17 @@ p.description{
 h1.deck-title:hover + p.description {
   display: block;
   color: gray;
+
 }
 
 h1.deck-title {
   text-align: center;
+}
+
+.deck-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 p.description {
