@@ -1,7 +1,7 @@
 <template>
   <div>
-   <p class="card-title"> {{card.title}} </p>
-   <p class="card-text"> {{card.text}} </p>
+   <p class="card-title"> {{card.cardTitle}} </p>
+   <p class="card-text"> {{card.cardText}} </p>
 
   </div>
 </template>

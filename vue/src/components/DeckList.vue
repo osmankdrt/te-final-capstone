@@ -1,24 +1,36 @@
 <template>
   <div>
-    <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.id"/>
+    <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.deckId"/>
   </div>
 </template>
 
 <script>
 import Deck from '../components/Deck.vue'
+import flashCardService from '../services/FlashCardService.js'
 
 export default {
  name: 'deck-list',
+ data() {
+   return {
+     decks: []
+   }
+ },
+ props: {
+   deck: Object,
+ },
  components: {
     Deck
  },
  computed: {
-     decks() {
-         return this.$store.state.decks;
-     },
-
-    
- }
+    //  filteredDecks() {
+    //      return this.$store.state.decks;
+    //  },
+ },
+ created() {
+       flashCardService.listDecks().then( (response) => {
+         this.decks = response.data;
+       });
+  },
 }
 </script>
 

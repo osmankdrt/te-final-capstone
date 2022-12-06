@@ -1,7 +1,7 @@
 <template>
   <div>
-     <h1 class="deck-title"> {{deck.title}} </h1>
-     <p class = "description"> {{deck.description}} </p>
+     <h1 class="deck-title"> {{deck.deckTitle}} </h1>
+     <p class = "description"> {{deck.deckDescription}} </p>
 
   </div>
 </template>
@@ -11,7 +11,8 @@ export default {
  name: 'Deck',
  props: {
    deck: Object,
- }
+ },
+ 
 
 }
 </script>

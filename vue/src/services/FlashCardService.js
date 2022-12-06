@@ -1,10 +1,14 @@
 import axios from 'axios';
 
+const http = axios.create({
+   baseURL: "http://localhost:9000"
+ });
+
 
 export default {
 
 listDecks() {
-   return axios.get('/decks')
+   return http.get('/decks')
 },
 
 // addDecks() {
@@ -16,8 +20,8 @@ listDecks() {
 
 //  },
 
- getCardsByDeck() {
-    return axios.get('/decks/${deckID}/cards')
+ getCardsByDeck(deckID) {
+    return http.get(`/decks/${deckID}/cards`)
  }
 
 }
