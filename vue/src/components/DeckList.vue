@@ -38,11 +38,8 @@ export default {
 
 <style scoped>
 .deck{
-  display:flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 15vh;
-  margin:2%;
+  /* display:flex; */
+  /* height: 15vh; */
   
   flex-wrap: wrap;
    
