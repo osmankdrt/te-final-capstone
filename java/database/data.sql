@@ -6,6 +6,8 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck1', 'This is example 1');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck2', 'This is example 2');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck3', 'This is example 3');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Deck4', 'This is example 4');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Deck5', 'This is example 5');
 
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 1', 'Card Title 1');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 2', 'Card Title 2');
@@ -30,5 +32,13 @@ INSERT INTO card_deck (deck_id, card_id) VALUES (2,6);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,7);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,8);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,9);
+
+INSERT INTO card_deck (deck_id, card_id) VALUES (4,1);
+INSERT INTO card_deck (deck_id, card_id) VALUES (4,2);
+INSERT INTO card_deck (deck_id, card_id) VALUES (4,3);
+
+INSERT INTO card_deck (deck_id, card_id) VALUES (5,4);
+INSERT INTO card_deck (deck_id, card_id) VALUES (5,5);
+INSERT INTO card_deck (deck_id, card_id) VALUES (5,6);
 
 COMMIT TRANSACTION;

@@ -1,6 +1,9 @@
 <template>
   <div>
-  <deck-list />
+  
+  
+     <deck-list />
+   
   </div>
 </template>
 
@@ -14,6 +17,5 @@ components:{
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>

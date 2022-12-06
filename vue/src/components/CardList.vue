@@ -24,7 +24,7 @@ export default {
         // }
     },
     created() {
-        flashCardService.getCardsByDeck(this.$route.params.deckId).then( (response) => {
+        flashCardService.getCardsByDeck(this.$route.params.id).then( (response) => {
          this.cards = response.data;
        });
     }
