@@ -21,8 +21,8 @@ export default {
 .deck{
     border: 2px solid black;
     border-radius: 10px;
-    width: 350px;
-    height: 200px;
+    width: 30vw;
+    height: 20vh;
     margin: 20px;
 }
 
