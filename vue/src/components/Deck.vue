@@ -1,6 +1,6 @@
 <template>
 
-  <div >
+  <div class = 'decks'>
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      <h1 class="deck-title"> {{deck.deckTitle}} </h1>
     
@@ -24,15 +24,23 @@ export default {
 
 <style scoped >
 
-.deck{
+.decks{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     border: 2px solid black;
     border-radius: 10px;
   
+    height: 35vh;
+    width: 10vw;
 }
 
+.deck-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
