@@ -27,6 +27,7 @@ export default {
 .deck{
     /* display: flex; */
     justify-content: space-around;
+    align-items: center;
     border: 2px solid black;
     border-radius: 10px;
     width: 10vw;
