@@ -25,10 +25,10 @@ export default {
 <style scoped >
 
 .deck{
+    display: flex;
+    justify-content: space-around;
     border: 2px solid black;
     border-radius: 10px;
-    width: 350px;
-    height: 200px;
     margin: 20px;
 }
 

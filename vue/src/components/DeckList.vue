@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class = 'deck'>
     <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.deckId"/>
     
   </div>
@@ -36,6 +36,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.deck{
+  display:flex;
+  height: 15vh;
+  
+  flex-wrap: wrap;
+   
+}
 </style>

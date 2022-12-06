@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class = 'footer'>
       <footer>footer</footer>
   </div>
 </template>
@@ -10,6 +10,9 @@ name: 'app-footer'
 }
 </script>
 
-<style>
-
+<style scoped>
+.footer{
+  display: flex;
+  height: 15%
+}
 </style>

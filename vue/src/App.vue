@@ -1,12 +1,14 @@
 <template>
   <div id="app">
+    <app-header class = 'appheader'>
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <!-- <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
     </div>
-    <app-header />
-    <router-view />
-    <app-footer />
+    </app-header>
+    
+    <router-view class = 'routerview'/>
+    <app-footer class = 'appfooter' />
   </div>
 </template>
 <script>
@@ -20,3 +22,28 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#app {
+  height:100vh;
+  display: grid;
+  grid-template-areas:
+  "header" "header" "header"
+  "routerview" "routerview" "routerview"
+  "routerview" "routerview" "routerview"
+  "routerview" "routerview" "routerview"
+  "footer" "footer" "footer"
+
+}
+
+.appheader {
+  grid-area: header
+}
+.routerview {
+  display: flex;
+  grid-area: routerview
+}
+.appfooter {
+  grid-area: footer
+}
+</style>
