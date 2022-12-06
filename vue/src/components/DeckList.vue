@@ -1,6 +1,7 @@
 <template>
   <div class = 'deck'>
     <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.deckId"/>
+    
   </div>
 </template>
 
@@ -12,6 +13,7 @@ export default {
  name: 'deck-list',
  data() {
    return {
+     id: 0,
      decks: []
    }
  },

@@ -8,6 +8,7 @@
 <script>
 import CardList from '../components/CardList.vue'
 export default {
+name: 'card-view',
 components:{
     CardList
 },

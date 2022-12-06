@@ -1,8 +1,13 @@
 <template>
-  <div class='deck'>
+
+  <div >
+    <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      <h1 class="deck-title"> {{deck.deckTitle}} </h1>
+    
      <p class = "description"> {{deck.deckDescription}} </p>
+     </router-link>
   </div>
+
 </template>
 
 <script>
@@ -11,6 +16,7 @@ export default {
  props: {
    deck: Object,
  },
+
  
 
 }

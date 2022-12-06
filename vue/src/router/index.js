@@ -6,7 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Deck from '../views/Deck.vue'
-import Card from '../views/Card.vue'
+import CardView from '../views/CardView.vue'
 
 Vue.use(Router)
 
@@ -64,10 +64,10 @@ const router = new Router({
       }
     },
     {
-      path: "/decks/:deckId/cards",
-      name: "card",
-      component: Card,
-      meta: {
+      path: '/decks/:id/cards',
+      name: 'cardView',
+      component: CardView,
+      meta: { 
         requiresAuth: false
       }
     },
