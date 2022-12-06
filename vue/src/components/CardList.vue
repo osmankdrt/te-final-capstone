@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class ="cards">
   <card v-for="card in cards" v-bind:card="card" v-bind:key="card.cardId" />
   </div>
 </template>
@@ -33,27 +33,37 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.cards{
+    display: flex;  
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    align-items:;
+}
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
