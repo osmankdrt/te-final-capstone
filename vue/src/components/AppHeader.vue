@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class= "header">
       <h1>header</h1>
+     
   </div>
+
 </template>
 
 <script>
@@ -10,6 +12,24 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+body {
+  margin: 0 auto;
+}
+
+.header{
+  width: 100%;
+  height: 10vh;
+ background-color: rgb(128, 255, 255);
+ margin: 0 auto;
+  
+}
+h1{
+    
+    
+  }
+
+
+
 
 </style>

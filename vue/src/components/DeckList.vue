@@ -44,8 +44,9 @@ export default {
   height: 85vh;
   width: 100vw;
   margin:2%;
-  
+}
+.deck{
   flex-wrap: wrap;
-   
+  
 }
 </style>

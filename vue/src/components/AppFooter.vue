@@ -12,7 +12,7 @@ name: 'app-footer'
 
 <style scoped>
 .footer{
-  display: flex;
+  /* display: flex; */
   height: 15%
 }
 </style>

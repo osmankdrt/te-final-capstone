@@ -1,12 +1,11 @@
 <template>
-
-  <div class = 'decks'>
+  <div class="decks">
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      <h1 class="deck-title"> {{deck.deckTitle}} </h1>
-    
      <p class = "description"> {{deck.deckDescription}} </p>
-     </router-link>
+      </router-link>
   </div>
+ 
 
 </template>
 
@@ -24,16 +23,25 @@ export default {
 
 <style scoped >
 
-.decks{
-    display: flex;
-    justify-content: space-between;
+.deck{
+    /* display: flex; */
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     border: 2px solid black;
     border-radius: 10px;
-  
-    height: 35vh;
     width: 10vw;
+    margin: 40px;
+}
+
+p.description{
+  display: none;
+}
+
+.deck-title:hover + .description {
+  display: block;
+  color: gray;
+
 }
 
 .deck-title{

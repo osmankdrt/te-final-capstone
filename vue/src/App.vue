@@ -23,8 +23,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+body {
+  margin: 0 auto;
+}
+
 #app {
+  width: 100%;
   height:100vh;
   display: grid;
   grid-template-areas:
@@ -37,11 +42,12 @@ export default {
 }
 
 .appheader {
-  grid-area: header
+  grid-area: header;
+
 }
 .routerview {
   display: flex;
-  grid-area: routerview
+  grid-area: routerview;
 }
 .appfooter {
   grid-area: footer
