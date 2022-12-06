@@ -1,6 +1,9 @@
 <template>
   <div>
-  <deck-list />
+  
+  
+     <deck-list />
+   
   </div>
 </template>
 
