@@ -30,7 +30,8 @@ export default {
     align-items: center;
     border: 2px solid black;
     border-radius: 10px;
-    width: 10vw;
+    height: 25vh;
+    width: 25vh;
     margin: 40px;
 }
 
@@ -38,17 +39,16 @@ p.description{
   display: none;
 }
 
-.deck-title:hover + .description {
+h1.deck-title:hover + p.description {
   display: block;
   color: gray;
 }
 
+h1.deck-title {
+  text-align: center;
+}
 
-
-
-
-
-
-
-
+p.description {
+  text-align: center;
+}
 </style>

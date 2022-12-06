@@ -3,7 +3,7 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO deck (deck_title, deck_description) VALUES ('Deck1', 'This is example 1');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Jr Dev Interview Questions', 'A collection of common interview questions you can expect in your interviews.');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck2', 'This is example 2');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck3', 'This is example 3');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck4', 'This is example 4');
