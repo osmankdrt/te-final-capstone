@@ -6,6 +6,7 @@
 
 <script>
 import Deck from '../components/Deck.vue'
+
 export default {
  name: 'deck-list',
  components: {
@@ -14,7 +15,9 @@ export default {
  computed: {
      decks() {
          return this.$store.state.decks;
-     }
+     },
+
+    
  }
 }
 </script>
