@@ -1,8 +1,11 @@
 <template>
+    <div>
+        <button class ="btn btn-primary">Decks</button>
   <div class ="cardsList">
   <card v-for="card in cards" v-bind:card="card" v-bind:key="card.cardId" class = 'card'/>
   <div v-show="emptyDeck" class ='emptydeck'>
       <h2> Current Deck is Empty</h2>
+  </div>
   </div>
   </div>
   

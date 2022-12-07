@@ -62,7 +62,7 @@ justify-content: space-around;
    
  }
 .card-title{
-  font-family: cursive;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
