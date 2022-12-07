@@ -15,7 +15,7 @@ INSERT INTO deck (deck_title, deck_description) VALUES ('Deck6', 'This is exampl
 INSERT INTO card (flashcard_body, card_title) VALUES
 ('Turkey: all of them, US:PB&J, Mexico: Tacos & Burritos, Japan: Noodles & Sushi, Italy: Pasta & Pizza, Greece: none they dont have any good food ',
 'Osmans favorite food based on the country & culture');
-INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 2', 'Card Title 2');
+INSERT INTO card (flashcard_body, card_title) VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Card Title 2');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 3', 'Card Title 3');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 4', 'Card Title 4');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 5', 'Card Title 5');

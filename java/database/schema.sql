@@ -18,7 +18,7 @@ CREATE TABLE deck
 (
 	deck_id serial,
 	deck_title varchar(100) NOT NULL,
-	deck_description varchar(1000) NOT NULL,
+	deck_description varchar(2500) NOT NULL,
 
 	CONSTRAINT pk_deck PRIMARY KEY (deck_id)
 );
@@ -27,7 +27,7 @@ CREATE TABLE card
 (
 	card_id serial,
 	card_title varchar(100) NOT NULL,
-	flashcard_body varchar (1000) NOT NULL,
+	flashcard_body varchar (2500) NOT NULL,
 
 	CONSTRAINT pk_card PRIMARY KEY (card_id)
 );

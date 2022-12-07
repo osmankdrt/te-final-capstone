@@ -1,8 +1,7 @@
 <template>
   <div class = 'footer'>
       <footer>footer</footer>
-      <button class = 'btn btn-primary'>Bootstrap Test Button</button>
-      <button>HTML </button>
+
   </div>
 </template>
 

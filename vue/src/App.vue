@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <app-header class = 'appheader'>
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <!-- <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
-    </div>
-    </app-header>
+      </app-header>
+    
+    
     
     <router-view class = 'routerview'/>
     <app-footer class = 'appfooter' />
@@ -54,5 +52,8 @@ body {
 }
 .appfooter {
   grid-area: footer
+}
+.nav {
+  grid-area: nav
 }
 </style>

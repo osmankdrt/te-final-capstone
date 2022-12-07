@@ -40,6 +40,7 @@ export default {
   margin: 40px;
   background-color: #77af9c;
   box-shadow: 5px 5px 3px #00000062;
+  overflow-y: auto;
 }
 
 /* .cards{
@@ -56,10 +57,13 @@ export default {
 .card-text {
   text-align: center;
   color: #285943;
+  padding: 5px;
+  overflow-y: auto;
 }
 .card-title {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  padding: 10px;
   color: #285943;
   text-shadow: 1px 1px #00000041;
   font-weight: bold;
