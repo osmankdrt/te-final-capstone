@@ -39,14 +39,11 @@ export default {
 <style scoped>
 .deckList{
   display:flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   height: 85vh;
   width: 100vw;
-  margin:2%;
 }
-.deck{
-  flex-wrap: wrap;
-  
-}
+
 </style>

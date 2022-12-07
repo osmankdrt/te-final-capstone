@@ -1,6 +1,7 @@
 <template>
   <div class = 'footer'>
       <footer>footer</footer>
+      <button class = 'btn btn-primary'>Bootstrap Test Button</button>
   </div>
 </template>
 
@@ -12,7 +13,7 @@ name: 'app-footer'
 
 <style scoped>
 .footer{
-  /* display: flex; */
-  height: 15%
+  height: 15vh;
+  background-color: blue;
 }
 </style>

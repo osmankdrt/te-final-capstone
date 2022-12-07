@@ -1,6 +1,6 @@
 <template>
-  <div class ="cards">
-  <card v-for="card in cards" v-bind:card="card" v-bind:key="card.cardId" />
+  <div class ="cardsList">
+  <card v-for="card in cards" v-bind:card="card" v-bind:key="card.cardId" class = 'card'/>
   </div>
 </template>
 
@@ -33,12 +33,14 @@ export default {
 </script>
 
 <style scoped>
-.cards{
+.cardsList{
     display: flex;  
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.card{
     
-    align-items:;
 }
 
 </style>

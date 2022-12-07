@@ -27,8 +27,8 @@ export default {
     flex-wrap: wrap;
     border: 2px solid black;
     border-radius: 10px;
-    height: 25vh;
-    width: 25vh;
+    height: 300px;
+    width: 250px;
     margin: 40px;
 }
 
@@ -44,13 +44,9 @@ h1.deck-title:hover + p.description {
 
 h1.deck-title {
   text-align: center;
+  
 }
 
-.deck-title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 p.description {
   text-align: center;
