@@ -42,9 +42,10 @@ methods: {
 }
  .card-text{
    text-align: center;
+   
  }
 .card-title{
-  
+  font-family: cursive;
   text-align: center;
 }
 

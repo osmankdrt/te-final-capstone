@@ -8,14 +8,12 @@ INSERT INTO deck (deck_title, deck_description) VALUES ('Deck2', 'This is exampl
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck3', 'This is example 3');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck4', 'This is example 4');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck5', 'This is example 5');
-INSERT INTO deck (deck_title, deck_description) VALUES ('Deck6', 'This is example 6');
-INSERT INTO deck (deck_title, deck_description) VALUES ('Deck7', 'This is example 7');
-INSERT INTO deck (deck_title, deck_description) VALUES ('Deck8', 'This is example 8');
+
 
 
 INSERT INTO card (flashcard_body, card_title) VALUES
 ('Turkey: all of them, US:PB&J, Mexico: Tacos & Burritos, Japan: Noodles & Sushi, Italy: Pasta & Pizza, Greece: none they dont have any good food ',
-'Osmans favorite food based on the country culture!');
+'Osmans favorite food based on the country & culture');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 2', 'Card Title 2');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 3', 'Card Title 3');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 4', 'Card Title 4');
