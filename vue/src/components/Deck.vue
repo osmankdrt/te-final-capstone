@@ -1,7 +1,7 @@
 <template>
   <div class="decks">
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
-     <h1 class="deck-title"> {{deck.deckTitle}} </h1>
+     <h3 class="deck-title"> {{deck.deckTitle}} </h3>
      <p class = "description"> {{deck.deckDescription}} </p>
       </router-link>
   </div>
@@ -21,35 +21,47 @@ export default {
 <style scoped >
 
 .deck{
-    /* display: flex; */
+    
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    border: 2px solid;
+    border: 5px solid;
     border-color: #D7FFF1;
     border-radius: 10px;
     height: 300px;
     width: 250px;
     margin: 40px;
     background-color: #77AF9C;
+    box-shadow: 5px 10px #27272748;
 }
 
 p.description{
   display: none;
+  padding: 5px;
 }
 
-h1.deck-title:hover + p.description {
+div.decks:hover p.description {
   display: block;
-  color: gray;
+  color: #285943;
+  text-align: center;
 
 }
 
-h1.deck-title {
+h3.deck-title {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
   text-align: center;
+  color: #285943;
+  text-shadow: 1px 1px #00000041;
+  font-weight: bold;
+  
+
+
 }
 
 
 p.description {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 </style>

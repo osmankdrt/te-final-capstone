@@ -18,8 +18,7 @@ body {
 }
 
 .header{
-  width: 100%;
-  height: 10vh;
+ width: 100%;
  background-color: #8CD790;
  margin: 0 auto;
   
