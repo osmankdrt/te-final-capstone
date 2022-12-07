@@ -42,8 +42,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  height: 85vh;
-  width: 100vw;
+  
 }
 
 </style>

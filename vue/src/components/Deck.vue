@@ -25,11 +25,13 @@ export default {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    border: 2px solid black;
+    border: 2px solid;
+    border-color: #D7FFF1;
     border-radius: 10px;
     height: 300px;
     width: 250px;
     margin: 40px;
+    background-color: #77AF9C;
 }
 
 p.description{

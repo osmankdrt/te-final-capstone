@@ -2,6 +2,7 @@
   <div class = 'footer'>
       <footer>footer</footer>
       <button class = 'btn btn-primary'>Bootstrap Test Button</button>
+      <button>HTML </button>
   </div>
 </template>
 
@@ -13,7 +14,6 @@ name: 'app-footer'
 
 <style scoped>
 .footer{
-  height: 15vh;
-  background-color: blue;
+  background-color:#AAFCB8;
 }
 </style>

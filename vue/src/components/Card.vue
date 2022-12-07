@@ -20,22 +20,19 @@ props: {
 .cards{
    border: 2px solid black;
     border-radius: 10px;
-    width: 30vw;
-    height: 20vh;
+    width: 300px;
+    height: 400px;
     flex-wrap: wrap;
     display: flex;
     margin: 20px;
     
+    
 }
  .card-text{
- position:relative;
-left:-50px;
-top:43px;
+ 
  }
 .card-title{
-  position:relative;
-left:28px;
-top:-5px;
+
 }
 
 

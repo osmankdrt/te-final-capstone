@@ -46,8 +46,8 @@ body {
 
 }
 .routerview {
-  /* display: flex; */
   grid-area: routerview;
+  background-color: #285943;
 }
 .appfooter {
   grid-area: footer
