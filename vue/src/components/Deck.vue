@@ -46,7 +46,6 @@ h1.deck-title:hover + p.description {
 
 h1.deck-title {
   text-align: center;
-  
 }
 
 
