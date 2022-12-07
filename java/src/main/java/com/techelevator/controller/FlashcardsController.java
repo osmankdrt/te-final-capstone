@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.FlashcardsDao;
 import com.techelevator.model.Card;
+import com.techelevator.model.CardDeck;
 import com.techelevator.model.Deck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,4 +30,18 @@ public class FlashcardsController {
     @RequestMapping(path = "/decks/{deckID}/cards", method = RequestMethod.GET)
     public List<Card> getCardsByDeck(@PathVariable int deckID) {
         return dao.listCardsByDeck(deckID); }
+
+    @RequestMapping(path = "/decks", method = RequestMethod.POST)
+    public int addDeck( @RequestBody Deck deck) {
+
+        return dao.addDeck(deck);
+    }
+
+    @RequestMapping(path = "/decks/{deckID}/cards", method = RequestMethod.POST)
+    public void addCard(@RequestBody Card card , @PathVariable int deckID) {
+        dao.addCard(card, deckID);
+    }
+
+
+
     }
