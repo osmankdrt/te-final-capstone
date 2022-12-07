@@ -31,7 +31,9 @@ body {
 h1{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  
+  color: #77AF9C;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.466);
+
     
   }
 
