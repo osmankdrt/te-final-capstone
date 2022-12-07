@@ -37,12 +37,15 @@ methods: {
     flex-wrap: wrap;
     display: flex;
     margin: 20px;
+    justify-content: center;
+    padding-left: 20;
 }
  .card-text{
- 
+   text-align: center;
  }
 .card-title{
   
+  text-align: center;
 }
 
 
