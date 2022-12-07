@@ -1,8 +1,9 @@
 <template>
     <div>
-        <button type="button" class ="btn btn-light btn-large btn-block"> <router-link :to ="{name: 'deck'}"> Decks </router-link>
-        
+        <router-link :to ="{name: 'deck'}">
+        <button type="button" class ="btn btn-light btn-large btn-block">  View Decks
         </button>
+        </router-link>
   <div class ="cardsList">
   <card v-for="card in cards" v-bind:card="card" v-bind:key="card.cardId" class = 'card'/>
   <div v-show="emptyDeck" class ='emptydeck'>
