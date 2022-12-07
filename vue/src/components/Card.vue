@@ -3,6 +3,7 @@
     <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
     <p class="card-text" v-show="show">{{ card.cardText }}</p>
   </div>
+ 
 </template>
 
 <script>
@@ -27,6 +28,7 @@ export default {
 </script>
 
 <style scoped>
+
 .cards {
   display: flex;
   justify-content: space-around;
@@ -41,6 +43,10 @@ export default {
   background-color: #77af9c;
   box-shadow: 5px 5px 3px #00000062;
   overflow-y: auto;
+
+
+
+
 }
 
 /* .cards{
@@ -54,7 +60,8 @@ export default {
     justify-content: center;
     padding-left: 20;
 } */
-.card-text {
+
+p.card-text{
   text-align: center;
   color: #285943;
   padding: 5px;
@@ -68,4 +75,5 @@ export default {
   text-shadow: 1px 1px #00000041;
   font-weight: bold;
 }
+
 </style>
