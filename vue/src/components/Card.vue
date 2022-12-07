@@ -1,8 +1,10 @@
 <template>
+<div class="main">
   <div class='cards' v-on:click="showCard">
    <p class="card-title" v-show="!show"> {{card.cardTitle}} </p>
    <p class="card-text" v-show="show"> {{card.cardText}} </p>
   </div>
+</div>
 </template>
 
 <script>
