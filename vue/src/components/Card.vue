@@ -1,5 +1,6 @@
 <template>
   <div class="cards" v-on:click="showCard">
+    <div class="flip-card" >
     <div class="inner-card">
       <div class="front-card">
         <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
@@ -8,6 +9,7 @@
         <p class="card-text" v-show="show">{{ card.cardText }}</p>
       </div>
       
+    </div>
     </div>
   </div>
  
