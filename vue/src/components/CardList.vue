@@ -1,6 +1,6 @@
 <template>
   <div class ="cardsList">
-  <card v-for="card in cards" v-bind:card="card" v-bind:key="card.cardId" class = 'card'/>
+  <card v-for="card in cards" v-bind:card="card" v-bind:key="card.cardId" class = 'card-iterator'/>
   <div v-show="emptyDeck" class ='emptydeck'>
       <h2> Current Deck is Empty</h2>
   </div>

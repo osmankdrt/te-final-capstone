@@ -1,8 +1,11 @@
 <template>
+<div>
   <div class='cards' v-on:click="showCard">
    <p class="card-title" v-show="!show"> {{card.cardTitle}} </p>
    <p class="card-text" v-show="show"> {{card.cardText}} </p>
   </div>
+</div>
+ 
 </template>
 
 <script>
@@ -31,7 +34,7 @@ methods: {
 
 .cards{
 
-justify-content: space-around;
+justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     border: 5px solid;
@@ -57,6 +60,7 @@ justify-content: space-around;
     justify-content: center;
     padding-left: 20;
 } */
+
  .card-text{
    text-align: center;
    
