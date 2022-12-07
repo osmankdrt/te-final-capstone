@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Card;
+import com.techelevator.model.CardDeck;
 import com.techelevator.model.Deck;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -30,6 +31,27 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         }
         return cards;
     }
+
+    @Override
+    public int addDeck(Deck deck) {
+        String sql = "INSERT INTO deck (deck_title, deck_description) VALUES (?,?) RETURNING deck_id";
+        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, deck.getDeckTitle(), deck.getdeckDescription());
+        return id;
+    }
+
+    @Override
+    public void addCard(Card card, int deckId) {
+        CardDeck cardDeck = new CardDeck();
+        String sql = "INSERT INTO card (card_title , flashcard_body) VALUES (?,?) RETURNING card_id";
+        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, card.getCardTitle(), card.getCardText());
+
+        String sqlForCardDeck = "INSERT INTO card_deck (deck_id , card_id) VALUES (?,?)";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sqlForCardDeck, deckId, id );
+        if(result.next()) {
+            cardDeck = mapRowToCardDeck(result);
+        }
+    }
+
     @Override
     public List<Deck> listAllDecks() {
         List<Deck> decks = new ArrayList<>();
@@ -74,5 +96,13 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         card.setCardText(rowSet.getString("flashcard_body"));
 
         return card;
+    }
+
+    private CardDeck mapRowToCardDeck(SqlRowSet rowSet){
+        CardDeck cardDeck = new CardDeck();
+
+        cardDeck.setCardID(rowSet.getInt("card_id"));
+        cardDeck.setDeckID(rowSet.getInt("deck_id"));
+        return cardDeck;
     }
 }
