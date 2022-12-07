@@ -46,6 +46,9 @@ body {
 
 }
 .routerview {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   grid-area: routerview;
   background-color: #285943;
 }

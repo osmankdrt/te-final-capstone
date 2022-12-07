@@ -32,7 +32,8 @@ export default {
     width: 250px;
     margin: 40px;
     background-color: #77AF9C;
-    box-shadow: 5px 10px #27272748;
+    box-shadow: 15px 15px 3px  #00000062;
+    
 }
 
 p.description{
@@ -40,7 +41,7 @@ p.description{
   padding: 5px;
 }
 
-div.decks:hover p.description {
+div.deck:hover p.description {
   display: block;
   color: #285943;
   text-align: center;

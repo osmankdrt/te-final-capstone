@@ -30,6 +30,23 @@ methods: {
 <style scoped>
 
 .cards{
+
+justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 5px solid;
+    border-color: #D7FFF1;
+    border-radius: 10px;
+    height: 300px;
+    width: 250px;
+    margin: 40px;
+    background-color: #77AF9C;
+    box-shadow: 5px 5px 3px  #00000062;
+
+
+}
+
+/* .cards{
    border: 2px solid black;
     border-radius: 10px;
     width: 300px;
@@ -39,7 +56,7 @@ methods: {
     margin: 20px;
     justify-content: center;
     padding-left: 20;
-}
+} */
  .card-text{
    text-align: center;
  }
