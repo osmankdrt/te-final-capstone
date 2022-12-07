@@ -1,34 +1,34 @@
 <template>
-  <div class='cards' v-on:click="showCard">
-   <p class="card-title" v-show="!show"> {{card.cardTitle}} </p>
-   <p class="card-text" v-show="show"> {{card.cardText}} </p>
+  <div class="cards" v-on:click="showCard">
+    <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
+    <p class="card-text" v-show="show">{{ card.cardText }}</p>
   </div>
  
 </template>
 
 <script>
-
 export default {
-name:'card',
-data() {
-  return {
-    show: false
-  }
-},
-props: {
-  card: Object,
-},
+  name: "card",
+  data() {
+    return {
+      show: false,
+    };
+  },
+  props: {
+    card: Object,
+  },
 
-methods: {
-  showCard(){
-    this.show = !this.show;
-    return this.show;
-  }
-},
-}
+  methods: {
+    showCard() {
+      this.show = !this.show;
+      return this.show;
+    },
+  },
+};
 </script>
 
 <style scoped>
+
 
 .cards{
 display: flex;
@@ -43,8 +43,6 @@ justify-content: center;
     margin: 40px;
     background-color: #77AF9C;
     box-shadow: 5px 5px 3px  #00000062;
-
-
 }
 
 /* .cards{
@@ -59,15 +57,16 @@ justify-content: center;
     padding-left: 20;
 } */
 
- .card-text{
-   text-align: center;
-   
- }
-.card-title{
+p.card-text{
+  text-align: center;
+  color: #285943;
+}
+.card-title {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  color: #285943;
+  text-shadow: 1px 1px #00000041;
+  font-weight: bold;
 }
-
-
 
 </style>
