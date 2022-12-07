@@ -8,6 +8,7 @@ INSERT INTO deck (deck_title, deck_description) VALUES ('Deck2', 'This is exampl
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck3', 'This is example 3');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck4', 'This is example 4');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck5', 'This is example 5');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Deck6', 'This is example 6');
 
 
 
