@@ -8,10 +8,16 @@ INSERT INTO deck (deck_title, deck_description) VALUES ('Deck2', 'This is exampl
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck3', 'This is example 3');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck4', 'This is example 4');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Deck5', 'This is example 5');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Deck6', 'This is example 6');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Deck7', 'This is example 7');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Deck8', 'This is example 8');
+
 
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 1', 'Card Title 1');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 2', 'Card Title 2');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 3', 'Card Title 3');
+INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 0', 'Card Title 0');
+INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 10', 'Card Title 10');
 
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 4', 'Card Title 4');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 5', 'Card Title 5');
@@ -21,9 +27,12 @@ INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 7', 'Card Title
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 8', 'Card Title 8');
 INSERT INTO card (flashcard_body, card_title) VALUES ('Card Body 9', 'Card Title 9');
 
+
 INSERT INTO card_deck (deck_id, card_id) VALUES (1,1);
 INSERT INTO card_deck (deck_id, card_id) VALUES (1,2);
 INSERT INTO card_deck (deck_id, card_id) VALUES (1,3);
+INSERT INTO card_deck (deck_id, card_id) VALUES (1,10);
+INSERT INTO card_deck (deck_id, card_id) VALUES (1,11);
 
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,4);
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,5);
