@@ -1,7 +1,14 @@
 <template>
   <div class="cards" v-on:click="showCard">
-    <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
-    <p class="card-text" v-show="show">{{ card.cardText }}</p>
+    <div class="inner-card">
+      <div class="front-card">
+        <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
+      </div>
+      <div class="back-card">
+        <p class="card-text" v-show="show">{{ card.cardText }}</p>
+      </div>
+      
+    </div>
   </div>
  
 </template>
@@ -43,10 +50,6 @@ export default {
   background-color: #77af9c;
   box-shadow: 5px 5px 3px #00000062;
   overflow-y: auto;
-
-
-
-
 }
 
 /* .cards{
@@ -75,5 +78,6 @@ p.card-text{
   text-shadow: 1px 1px #00000041;
   font-weight: bold;
 }
+
 
 </style>
