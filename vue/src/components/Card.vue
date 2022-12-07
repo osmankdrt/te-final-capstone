@@ -64,7 +64,7 @@ justify-content: center;
    
  }
 .card-title{
-  font-family: cursive;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
