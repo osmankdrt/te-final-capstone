@@ -19,5 +19,11 @@ public interface FlashcardsDao {
 
     void deleteDeck(int deckId);
 
+    void deleteCard(int cardId);
+
+    void updateDeck(Deck deck);
+
+    void updateCard(Card card);
+
 
 }
