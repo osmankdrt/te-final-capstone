@@ -74,6 +74,7 @@ export default {
   width: 250px;
   margin: 40px;
   background-color: #131313d0;
+  box-shadow: 15px 15px 3px  #00000062;
 }
 .deckFormCard{
     justify-content: space-around;
