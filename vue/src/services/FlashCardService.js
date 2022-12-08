@@ -26,6 +26,10 @@ listCards() {
 
  deleteDeck(deckID) {
     return http.delete(`/decks/${deckID}`)
+ },
+
+ updateDeck(deck) {
+    return http.put('/decks', deck)
  }
 
  

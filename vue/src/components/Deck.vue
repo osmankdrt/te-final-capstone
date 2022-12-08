@@ -1,14 +1,36 @@
 <template>
   <div class="decks">
-    
-    <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
-      <div class = "editButtons">
-     <button type="button" class="btn btn-secondary" v-on:click="deleteDeck">❌</button>
-     <button type="button" class="btn btn-secondary">✏️</button>
+    <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div" v-show="!displayForm">
+    <div class = "editButtons">
+    <button type="button" class="btn btn-secondary" v-on:click="deleteDeck">❌</button>
+    <button type="button" class="btn btn-secondary" v-on:click.prevent="toggleDisplayForm">✏️</button>
     </div>
+        <div class="deckFormCard" v-if="displayForm">
+        <div class="form-group">
+          <label for="deckName" class="deckName"> Deck Name </label>
+          <input
+            type="text"
+            class="form-control"
+            v-model="newDeck.deckTitle"
+            required
+          />
+          <label for="deckDescription" class="deckDescription">
+            Deck Description
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            v-model="newDeck.deckDescription"
+            required
+          />
+        </div>
+      </div>
+    
      <h3 class="deck-title"> {{deck.deckTitle}} </h3>
      <p class = "description"> {{deck.deckDescription}} </p>
       </router-link>
+      
+  
   </div>
  
 
@@ -19,6 +41,16 @@ import flashCardService from "../services/FlashCardService.js";
 export default {
  name: 'Deck',
  deleteDeckID: 0,
+ deckToUpdate: {
+   deckTitle: '',
+   deckDescription: '',
+ },
+ data(){
+   return{
+     displayForm: false,
+   }
+ },
+ 
  props: {
    deck: Object,
  },
@@ -31,7 +63,18 @@ export default {
 
        }
      }) 
-   }
+   },
+   updateDeck() {
+     this.deckToUpdate = this.deck.deckID
+     flashCardService.updateDeck(this.deckToUpdate).then(response => {
+       if(response.status === 200) {
+         this.$router.push("/decks")
+       }
+     })
+   },
+   toggleDisplayForm() {
+      this.displayForm = !this.displayForm;
+    }
  }
 }
 </script>
@@ -50,6 +93,20 @@ export default {
     background-color: #77AF9C;
     box-shadow: 15px 15px 3px  #00000062;
     
+}
+
+.deckFormCard {
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 5px solid;
+  border-color: #d7fff1;
+  border-radius: 10px;
+  height: 300px;
+  width: 250px;
+  margin: 40px;
+  background-color: #77af9c;
+  box-shadow: 15px 15px 3px #00000062;
 }
 
 
