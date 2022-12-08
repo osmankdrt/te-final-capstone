@@ -47,6 +47,9 @@ public class FlashcardsController {
         dao.addCard(card, deckID);
     }
 
-
-
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/decks/{deckID}", method = RequestMethod.DELETE)
+    public void deleteCard(@PathVariable int deckID){
+        dao.deleteDeck(deckID);
+    }
 }

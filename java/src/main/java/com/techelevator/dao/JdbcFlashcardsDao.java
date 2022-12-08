@@ -52,8 +52,17 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     }
 
     @Override
-    public void deleteDeck() {
-        
+    public void deleteDeck(int deckId) {
+        int firstCardId = firstCardId(deckId);
+        int lastCardId = lastCardId(deckId);
+        String sqlDeleteFromCardDeck = "DELETE FROM card_deck WHERE card_id BETWEEN ? AND ?";
+        jdbcTemplate.update(sqlDeleteFromCardDeck, firstCardId, lastCardId);
+
+        String sqlDeleteFromCard = "DELETE FROM card WHERE card_id BETWEEN ? AND ?";
+        jdbcTemplate.update(sqlDeleteFromCard, firstCardId, lastCardId);
+
+        String sqlDeleteDeck = "DELETE FROM deck WHERE deck_id = ?";
+        jdbcTemplate.update(sqlDeleteDeck, deckId);
     }
 
     @Override
@@ -102,6 +111,7 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         return card;
     }
 
+    //Selects the first card in the deck
     private int firstCardId(int deckId){
         int firstCard = 0;
         String sql = "SELECT MIN(card.card_id) FROM card " +
@@ -110,11 +120,13 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
                 "WHERE deck.deck_id = ?";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, deckId);
         if(result.next()){
-           firstCard = result.getInt("card_id");
+            //column name is min because of the SELECT MIN in SQL Statement
+           firstCard = result.getInt("min");
         }
         return firstCard;
     }
 
+    //Selects the last card in the deck
     private int lastCardId(int deckId){
         int lastCard = 0;
         String sql = "SELECT MAX(card.card_id) FROM card " +
@@ -123,7 +135,8 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
                 "WHERE deck.deck_id = ?";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, deckId);
         if(result.next()){
-            lastCard = result.getInt("card_id");
+            //column name is max because of the SELECT MAX in SQL statement
+            lastCard = result.getInt("max");
         }
         return lastCard;
     }
