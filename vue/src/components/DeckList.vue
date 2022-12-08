@@ -1,21 +1,22 @@
 <template>
-  <div>
     <div class="deckList">
-      
+      <display-form>
+        
+      </display-form>
       <div
         class="deckShadow"
         v-on:click.prevent="toggleDisplayForm"
-        v-if="!displayForm"
+        v-show="!displayForm"
       >
         <div class="plus radius" />
       </div>
+
       <div class="deckFormCard" v-if="displayForm">
         <div class="form-group">
+          
           <div class="editButtons">
             <button class = 'btn btn-secondary' v-on:click="toggleDisplayForm">❌</button>
             <button class = 'btn btn-secondary' v-on:click.prevent="addDeck">➕</button>
-            
-            
           </div>
     
           <label for="deckName" class="deckName"> Deck Name </label>
@@ -39,10 +40,10 @@
       </div>
       <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.deckId"/>
     </div>
-  </div>
 </template>
 
 <script>
+import DisplayForm from "../components/DisplayForm.vue"
 import Deck from "../components/Deck.vue";
 import flashCardService from "../services/FlashCardService.js";
 
@@ -65,6 +66,7 @@ export default {
   },
   components: {
     Deck,
+    DisplayForm
   },
   computed: {
     
