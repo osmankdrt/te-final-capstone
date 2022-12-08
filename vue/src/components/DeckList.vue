@@ -1,15 +1,16 @@
 <template>
-  <div>
     <div class="deckList">
       <div
         class="deckShadow"
         v-on:click.prevent="toggleDisplayForm"
-        v-if="!displayForm"
+        v-show="!displayForm"
       >
         <div class="plus radius" />
       </div>
+
       <div class="deckFormCard" v-if="displayForm">
         <div class="form-group">
+          
           <div class="editButtons">
             <button class="btn btn-secondary" v-on:click="toggleDisplayForm">
               ❌
@@ -39,7 +40,6 @@
       </div>
       <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.deckId" />
     </div>
-  </div>
 </template>
 
 <script>
@@ -65,6 +65,7 @@ export default {
   },
   components: {
     Deck,
+  
   },
   computed: {},
   methods: {
