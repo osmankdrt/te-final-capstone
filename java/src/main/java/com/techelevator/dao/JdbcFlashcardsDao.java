@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Card;
 import com.techelevator.model.CardDeck;
 import com.techelevator.model.Deck;
+import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -39,17 +40,20 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         return id;
     }
 
+
     @Override
     public void addCard(Card card, int deckId) {
         CardDeck cardDeck = new CardDeck();
-        String sql = "INSERT INTO card (card_title , flashcard_body) VALUES (?,?) RETURNING card_id";
+        String sql = "INSERT INTO card (card_title , flashcard_body) VALUES (?,?) RETURNING card_id;";
         Integer id = jdbcTemplate.queryForObject(sql, Integer.class, card.getCardTitle(), card.getCardText());
 
         String sqlForCardDeck = "INSERT INTO card_deck (deck_id , card_id) VALUES (?,?)";
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sqlForCardDeck, deckId, id );
-        if(result.next()) {
-            cardDeck = mapRowToCardDeck(result);
-        }
+        jdbcTemplate.update(sqlForCardDeck, deckId, id);
+    }
+
+    @Override
+    public void deleteDeck() {
+        
     }
 
     @Override
@@ -98,11 +102,30 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         return card;
     }
 
-    private CardDeck mapRowToCardDeck(SqlRowSet rowSet){
-        CardDeck cardDeck = new CardDeck();
-
-        cardDeck.setCardID(rowSet.getInt("card_id"));
-        cardDeck.setDeckID(rowSet.getInt("deck_id"));
-        return cardDeck;
+    private int firstCardId(int deckId){
+        int firstCard = 0;
+        String sql = "SELECT MIN(card.card_id) FROM card " +
+                "JOIN card_deck ON card_deck.card_id = card.card_id " +
+                "JOIN deck ON card_deck.deck_id = deck.deck_id " +
+                "WHERE deck.deck_id = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, deckId);
+        if(result.next()){
+           firstCard = result.getInt("card_id");
+        }
+        return firstCard;
     }
+
+    private int lastCardId(int deckId){
+        int lastCard = 0;
+        String sql = "SELECT MAX(card.card_id) FROM card " +
+                "JOIN card_deck ON card_deck.card_id = card.card_id " +
+                "JOIN deck ON card_deck.deck_id = deck.deck_id " +
+                "WHERE deck.deck_id = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, deckId);
+        if(result.next()){
+            lastCard = result.getInt("card_id");
+        }
+        return lastCard;
+    }
+
 }

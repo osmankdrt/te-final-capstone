@@ -13,6 +13,20 @@ INSERT INTO card_deck(deck_id, card_id) VALUES (1,1)
 
 SELECT * FROM card
 
+--SELECT THE FIRST CARD IN THE DECK
+
+SELECT MIN(card.card_id) FROM card 
+JOIN card_deck ON card_deck.card_id = card.card_id
+JOIN deck ON card_deck.deck_id = deck.deck_id
+WHERE deck.deck_id = 2
+
+--SELECT THE LAST CARD IN THE DECK
+
+SELECT MAX(card.card_id) FROM card 
+JOIN card_deck ON card_deck.card_id = card.card_id
+JOIN deck ON card_deck.deck_id = deck.deck_id
+WHERE deck.deck_id = 2
+
 
 
 

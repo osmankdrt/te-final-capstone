@@ -22,6 +22,8 @@ listCards() {
 
  getCardsByDeck(deckID) {
     return http.get(`/decks/${deckID}/cards`)
- }
+ },
+
+ 
 
 }
