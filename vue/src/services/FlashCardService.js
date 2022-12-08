@@ -11,9 +11,9 @@ listDecks() {
    return http.get('/decks')
 },
 
-// addDecks() {
-//     return axios.post('/decks')
-// },
+addDecks(deck) {
+    return axios.post('/decks', deck)
+},
 
 listCards() {
     return http.get('/cards')
