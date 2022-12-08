@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="deckList">
-      
       <div
         class="deckShadow"
         v-on:click.prevent="toggleDisplayForm"
@@ -12,12 +11,14 @@
       <div class="deckFormCard" v-if="displayForm">
         <div class="form-group">
           <div class="editButtons">
-            <button class = 'btn btn-secondary' v-on:click="toggleDisplayForm">❌</button>
-            <button class = 'btn btn-secondary' v-on:click.prevent="addDeck">➕</button>
-            
-            
+            <button class="btn btn-secondary" v-on:click="toggleDisplayForm">
+              ❌
+            </button>
+            <button class="btn btn-secondary" v-on:click.prevent="addDeck">
+              ➕
+            </button>
           </div>
-    
+
           <label for="deckName" class="deckName"> Deck Name </label>
           <input
             type="text"
@@ -34,10 +35,9 @@
             v-model="newDeck.deckDescription"
             required
           />
-        
         </div>
       </div>
-      <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.deckId"/>
+      <deck v-for="deck in decks" v-bind:deck="deck" v-bind:key="deck.deckId" />
     </div>
   </div>
 </template>
@@ -55,9 +55,9 @@ export default {
       deckToDelete: 0,
       displayForm: false,
       newDeck: {
-        deckTitle: '',
-        deckDescription: ''
-      }
+        deckTitle: "",
+        deckDescription: "",
+      },
     };
   },
   props: {
@@ -66,26 +66,24 @@ export default {
   components: {
     Deck,
   },
-  computed: {
-    
-  },
+  computed: {},
   methods: {
     toggleDisplayForm() {
       this.displayForm = !this.displayForm;
     },
     addDeck() {
-      flashCardService.addDecks(this.newDeck).then(response => {
-        if(response.status === 201) {
-          this.$router.go()
+      flashCardService.addDecks(this.newDeck).then((response) => {
+        if (response.status === 201) {
+          this.$router.go();
           // this.$router.push(`/decks/${response.data.id}/cards`)
         }
-      })
+      });
     },
   },
   created() {
     flashCardService.listDecks().then((response) => {
       this.decks = response.data;
-      this.decks = this.decks.reverse()
+      this.decks = this.decks.reverse();
     });
   },
 };
@@ -146,7 +144,6 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-
 
 .plus {
   /* plus sign on deck shadow */
