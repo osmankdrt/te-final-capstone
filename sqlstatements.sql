@@ -28,6 +28,36 @@ DELETE FROM deck
 WHERE deck_id = 2
 
 
+--DELETE CARD SQL STATEMENT
+
+DELETE FROM card_deck
+WHERE card_id = 2;
+
+DELETE FROM card 
+WHERE card_id = 2;
+
+--UPDATE DECK TITLE
+
+UPDATE deck SET deck_title = 'Deck II'
+WHERE deck_id = 2 
+
+--UPDATE DECK DESCRIPTION
+UPDATE deck SET deck_description = 'The remainings of an ancient deck from Rome'
+
+SELECT * FROM deck ORDER BY deck_id
+
+--UPDATE CARD TITLE
+UPDATE card SET card_title = 'Leonardo DiCaprio' 
+WHERE card_id = 3;
+
+SELECT * FROM card
+
+--UPDATE CARD TEXT
+UPDATE card SET flashcard_body = 'GAOT' 
+WHERE card_id = 3;
+
+
+
 
 
 
