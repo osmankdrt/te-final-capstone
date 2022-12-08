@@ -4,6 +4,7 @@
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
       <div class = "editButtons">
      <button type="button" class="btn btn-secondary" v-on:click="deleteDeck">❌</button>
+     <button type="button" class="btn btn-secondary">✏️</button>
     </div>
      <h3 class="deck-title"> {{deck.deckTitle}} </h3>
      <p class = "description"> {{deck.deckDescription}} </p>
@@ -26,7 +27,7 @@ export default {
      this.deleteDeckID = this.deck.deckID
      flashCardService.deleteDeck(this.deleteDeckID).then(response => {
        if(response.status === 204) {
-         this.$router.go()
+         this.$router.push("/decks")
 
        }
      }) 
@@ -76,6 +77,10 @@ h3.deck-title {
   font-weight: bold;
 
 
+}
+
+.btn {
+  margin: 10px;
 }
 
 
