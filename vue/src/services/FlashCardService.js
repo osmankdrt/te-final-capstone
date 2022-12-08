@@ -24,6 +24,10 @@ listCards() {
     return http.get(`/decks/${deckID}/cards`)
  },
 
+ deleteDeck(deckID) {
+    return http.delete(`/decks/${deckID}`)
+ }
+
  
 
 }
