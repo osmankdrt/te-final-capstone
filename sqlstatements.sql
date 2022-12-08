@@ -1,17 +1,6 @@
 --SELECTS ALL CARDS FROM DECK 1
-SELECT * FROM card_deck JOIN card ON card.card_id = card_deck.card_id;
+SELECT * FROM card_deck JOIN card ON card.card_id = card_deck.card_id WHERE deck_id = 1;
 
-SELECT deck_id, deck_title, deck_description FROM deck
-
-SELECT * FROM card
-
-INSERT INTO deck (deck_title, deck_description) VALUES ('abc', 'greatest pong player');
-
-INSERT INTO card(card_title, flashcard_body) VALUES ('Favorite', 'serve');
-
-INSERT INTO card_deck(deck_id, card_id) VALUES (1,1)
-
-SELECT * FROM card
 
 --SELECT THE FIRST CARD IN THE DECK
 
@@ -26,6 +15,17 @@ SELECT MAX(card.card_id) FROM card
 JOIN card_deck ON card_deck.card_id = card.card_id
 JOIN deck ON card_deck.deck_id = deck.deck_id
 WHERE deck.deck_id = 2
+
+--DELETE DECK SQL STATEMENT
+
+DELETE FROM card_deck
+WHERE card_id BETWEEN 22 AND 23;
+
+DELETE FROM card 
+WHERE card_id BETWEEN 22 AND 23;
+
+DELETE FROM deck
+WHERE deck_id = 2
 
 
 
