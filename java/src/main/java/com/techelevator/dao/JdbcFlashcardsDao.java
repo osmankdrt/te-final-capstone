@@ -66,6 +66,33 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     }
 
     @Override
+    public void deleteCard(int cardId) {
+
+        String sqlDeleteFromCardDeck = "DELETE FROM card_deck WHERE card_id = ?";
+        jdbcTemplate.update(sqlDeleteFromCardDeck, cardId);
+        String sqlDeleteFromCard = "DELETE FROM card WHERE card_id = ?";
+        jdbcTemplate.update(sqlDeleteFromCard,cardId);
+
+    }
+
+    @Override
+    public void updateDeck(Deck deck) {
+        String sqlUpdateDeckTitle = "UPDATE deck SET deck_title = ? WHERE deck_id = ?";
+        jdbcTemplate.update(sqlUpdateDeckTitle, deck.getDeckTitle(), deck.getDeckID());
+
+        String sqlUpdateDeckDescription = "UPDATE deck SET deck_description = ? WHERE deck_id = ?";
+        jdbcTemplate.update(sqlUpdateDeckDescription, deck.getdeckDescription(), deck.getDeckID());
+    }
+
+    @Override
+    public void updateCard(Card card) {
+        String sqlUpdateCardsTitle = "UPDATE card SET card_title = ? WHERE card_id = ?";
+        jdbcTemplate.update(sqlUpdateCardsTitle, card.getCardTitle(), card.getCardID());
+        String sqlUdateCardsText = "UPDATE card SET flashCard_body = ? WHERE card_id =?";
+        jdbcTemplate.update(sqlUdateCardsText, card.getCardText(), card.getCardID());
+    }
+
+    @Override
     public List<Deck> listAllDecks() {
         List<Deck> decks = new ArrayList<>();
         String sql = "SELECT deck_id, deck_title, deck_description FROM deck";

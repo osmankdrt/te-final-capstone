@@ -49,7 +49,26 @@ public class FlashcardsController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/decks/{deckID}", method = RequestMethod.DELETE)
-    public void deleteCard(@PathVariable int deckID){
+    public void deleteDeck(@PathVariable int deckID){
         dao.deleteDeck(deckID);
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/cards/{cardID}", method = RequestMethod.DELETE)
+    public void deleteCard(@PathVariable int cardID) {
+        dao.deleteCard(cardID);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/decks" , method = RequestMethod.PUT)
+    public void updateDeck (@RequestBody Deck deck){
+        dao.updateDeck(deck);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/cards", method = RequestMethod.PUT)
+    public void updateCard(@RequestBody Card card){
+        dao.updateCard(card);
+    }
+
 }
