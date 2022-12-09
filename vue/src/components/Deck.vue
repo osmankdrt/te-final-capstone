@@ -123,6 +123,7 @@ export default {
     margin: 40px;
     background-color: #FFF4E4;
     box-shadow: 15px 15px 3px  #00000062;
+    overflow-y: auto;
 }
 
 .deckFormCard {
@@ -135,18 +136,18 @@ export default {
 
 
 p.description{
-  display: none;
+  
   padding: 5px;
 }
 
 
 
-div.deck:hover p.description {
+/* div.deck:hover p.description {
   display: block;
   color: #285943;
   text-align: center;
 
-}
+} */
 
 h3.deck-title {
   font-family: Arial, Helvetica, sans-serif;
@@ -157,6 +158,11 @@ h3.deck-title {
   font-weight: bold;
 
 
+}
+
+.editButtons{
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn {
