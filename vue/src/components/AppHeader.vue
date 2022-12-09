@@ -23,6 +23,10 @@ export default {
  .header{
   display: flex;
   background-color: #CDD5D1;
+  position: sticky;
+  top: 0%;
+  
+  
 }
  #logo{
    height: 65px;
