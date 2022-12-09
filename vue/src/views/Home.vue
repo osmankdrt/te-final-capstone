@@ -10,3 +10,11 @@ export default {
   name: "home"
 };
 </script>
+<style scoped>
+.routerview{
+  display: flex;
+}
+
+
+
+</style>
