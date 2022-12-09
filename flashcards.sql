@@ -29,6 +29,7 @@ CREATE TABLE card
 	card_id serial,
 	card_title varchar(100) NOT NULL,
 	flashcard_body varchar (2500) NOT NULL,
+	tags varchar(100) NOT NULL,
 
 	CONSTRAINT pk_card PRIMARY KEY (card_id)
 );
