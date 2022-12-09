@@ -30,6 +30,18 @@ listCards() {
 
  updateDeck(deck) {
     return http.put('/decks', deck)
+ },
+ 
+ addCard(deckID, card) {
+    return http.post(`/decks/${deckID}/cards`, card)
+ },
+
+ deleteCard(cardID) {
+    return http.delete(`/cards/${cardID}`)
+ },
+
+ updateCard(card) {
+    return http.put('/cards', card)
  }
 
  

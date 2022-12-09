@@ -7,9 +7,9 @@
     </router-link>
     <div class="cardsList">
       <div
-        class="deckShadow"
+        class="cardShadow"
         v-on:click.prevent="toggleDisplayForm"
-        v-if="!displayForm"
+        v-show="!displayCardForm"
       >
      <!--this is part of the flip card from the method that is commented out 
        <ul class="flashcard-list">
@@ -24,33 +24,35 @@
     </ul> -->
         <div class="plus radius" />
       </div>
-      <div class="deckFormCard" v-if="displayForm">
+      <div class="cardFormCard" v-if="displayCardForm">
         <div class="form-group">
-          <div class="editButtons">
+          <div class="cardEditButtons">
             <button class="btn btn-secondary" v-on:click="toggleDisplayForm">
               ❌
             </button>
-            <button class="btn btn-secondary" v-on:click.prevent="addDeck">
+            <button class="btn btn-secondary" v-on:click.prevent="addCard">
               ➕
             </button>
           </div>
 
-          <label for="deckName" class="deckName"> Deck Name </label>
+          <label for="cardName" class="cardName"> Card Name </label>
           <input
             type="text"
             class="form-control"
-            v-model="newDeck.deckTitle"
+            v-model="newCard.cardTitle"
             required
           />
-          <label for="deckDescription" class="deckDescription">
-            Deck Description
+          <label for="cardText" class="cardText">
+            Card Text
           </label>
           <input
             type="text"
             class="form-control"
-            v-model="newDeck.deckDescription"
+            v-model="newCard.cardText"
             required
           />
+          
+
         </div>
       </div>
      
@@ -76,7 +78,11 @@ export default {
     return {
       cards: [],
       isDeckEmpty: false,
-      displayForm: false,
+      displayCardForm: false,
+      newCard: {
+        cardTitle: '',
+        cardText: ''
+      }
     };
   },
   components: {
@@ -92,7 +98,16 @@ export default {
   },
   methods: {
     toggleDisplayForm() {
-      this.displayForm = !this.displayForm;
+      this.displayCardForm = !this.displayCardForm;
+    },
+    addCard(deckID, card) {
+      deckID = this.$route.params.id
+      card = this.newCard
+      flashCardService.addCard(deckID, card).then((response) => {
+        if (response.status === 201) {
+          this.$router.go()
+        }
+      })
     },
     // This may help flip the card
       //  methods: {
@@ -100,6 +115,7 @@ export default {
       //   card.flipped = !card.flipped;
       // },
   },
+
   created() {
     flashCardService.getCardsByDeck(this.$route.params.id).then((response) => {
       this.cards = response.data;
@@ -131,7 +147,7 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-.deckShadow {
+.cardShadow {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -143,7 +159,7 @@ h2 {
   background-color: #131313d0;
   box-shadow: 15px 15px 3px #00000062;
 }
-.deckFormCard {
+.cardFormCard {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
@@ -157,7 +173,8 @@ h2 {
   box-shadow: 15px 15px 3px #00000062;
 }
 
-.editButtons {
+.cardEditButtons {
+  padding: 10px;
   display: flex;
   justify-content: space-between;
 }

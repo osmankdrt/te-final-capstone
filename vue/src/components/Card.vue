@@ -1,8 +1,13 @@
 <template>
-  <div class="cards" v-on:click="showCard">
-    <div class="flip-card" >
+  <div class="cards">
+         <div class = "editButtons">
+    <button type="button" class="btn btn-secondary" v-on:click.prevent="deleteCard">❌</button>
+    <button type="button" class="btn btn-secondary">✏️</button>
+          </div>
+    <div class="flip-card" v-on:click.prevent="showCard" >
     <div class="inner-card">
       <div class="front-card">
+     
         <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
       </div>
       <div class="back-card">
@@ -16,11 +21,13 @@
 </template>
 
 <script>
+import flashCardService from "../services/FlashCardService.js";
 export default {
   name: "card",
   data() {
     return {
       show: false,
+      cardToDeleteID: 0
     };
   },
   props: {
@@ -30,16 +37,23 @@ export default {
   methods: {
     showCard() {
       this.show = !this.show;
-      return this.show;
     },
+    deleteCard() {
+     this.cardToDeleteID = this.card.cardID
+      flashCardService.deleteCard(this.cardToDeleteID).then(response => {
+        if (response.status === 204) {
+          this.$router.go()
+        }
+      } )
+    }
   },
+ 
 };
 </script>
 
 <style scoped>
 
 .cards {
-  display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
@@ -79,6 +93,10 @@ p.card-text{
   color: #285943;
   text-shadow: 1px 1px #00000041;
   font-weight: bold;
+}
+
+.btn {
+  margin: 10px;
 }
 
 
