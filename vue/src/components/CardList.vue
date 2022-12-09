@@ -179,6 +179,11 @@ h2 {
   justify-content: space-between;
 }
 
+.cardFormCard {
+  text-align: center;
+  padding: 10px;
+}
+
 .plus {
   /* plus sign on deck shadow */
   display: inline-block;
