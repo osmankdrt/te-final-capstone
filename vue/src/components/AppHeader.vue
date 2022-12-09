@@ -1,12 +1,15 @@
 <template>
   <div class= "header">
-      <h1>Shady Steve's FlashCard App</h1>
-     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+     <img id="logo" src="../assets/R.png" alt="Globel Logo">
+      <h1>Lango </h1>
+      <nav class = "nav">
+        <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'deck' }">Decks</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </div>
+     <router-link v-bind:to="{name: 'login'}" v-show="$store.state.token == ''">Login</router-link>
+    <router-link v-bind:to="{name: 'logout'}" v-show="$store.state.token != ''">Logout</router-link>
+   </nav>
   </div>
+ 
 
 </template>
 
@@ -17,30 +20,25 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0 auto;
+ .header{
+  display: flex;
+  background-color: #CDD5D1;
 }
-
-.header{
- width: 100%;
- background-color: #8CD790;
- margin: 0 auto;
- padding:20px;
-  
-}
-h1{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: #77AF9C;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.466);
-
-    
-  }
-  #nav{
+ #logo{
+   height: 65px;
+   flex-grow: 20px;
    
-  }
+ } 
+.nav{
+  display: flex;
+ align-content: center;
+ text-align: end;
+}
 
-
+h1{
+  font-family: 'Times New Roman', Times, serif;
+ color: #043152;
+}
 
 
 </style>

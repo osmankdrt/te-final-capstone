@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <img src="../assets/homepage.jpg" alt="">
   </div>
 </template>
 
@@ -10,3 +9,27 @@ export default {
   name: "home"
 };
 </script>
+
+
+
+<style scoped>
+.routerview{
+  display: flex;
+}
+
+img {
+  height: 85vh;
+  width: 100vw;
+  opacity: 50%;
+  /*margin-left: -95px;*/
+}
+
+@media only screen and (max-width: 550px) {
+   img {
+    
+    height: 85vh;
+    width: 100vw;
+  }
+}
+
+</style>

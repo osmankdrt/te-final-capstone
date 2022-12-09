@@ -1,59 +1,86 @@
 <template>
   <div id="app">
-    <app-header class = 'appheader'>
-      </app-header>
-    
-    
-    
-    <router-view class = 'routerview'/>
-    <app-footer class = 'appfooter' />
+    <app-header class = "header"/>
+    <router-view class = "routerview"/>
+    <app-public class = "publicDeck"/>
+    <app-footer />
   </div>
 </template>
 <script>
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
+import AppPublic from './components/AppPublic.vue'
 export default {
   name: 'App',
   components: {
    AppHeader,
-   AppFooter
+   AppFooter,
+   AppPublic
   }
 }
 </script>
 
 <style>
-body {
-  margin: 0 auto;
-}
-
 #app {
-  width: 100%;
+  /* width: 100%;
   height:100vh;
-  display: grid;
-  grid-template-areas:
+  display: flex; */
+  /* background-color: blue; */
+ width: 100%;
+  height:100vh;
+
+  /* grid-template-areas:
   "header" "header" "header"
   "routerview" "routerview" "routerview"
   "routerview" "routerview" "routerview"
-  "routerview" "routerview" "routerview"
-  "footer" "footer" "footer"
-
+  "footer" "footer" "footer" */
 }
 
-.appheader {
+
+/* .appheader {
   grid-area: header;
+  grid-row: 50%;
 
 }
+
 .routerview {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   grid-area: routerview;
   background-color: #285943;
+}*/
+
+.publicDeck{
+  display: flex;
+  justify-content: center;
 }
+
 .appfooter {
-  grid-area: footer
+   background-color: #FFF4E4;  
 }
-.nav {
-  grid-area: nav
+
+.header{
+  /* background-color: #1B998B; */
+  background-color: #FFF4E4;
 }
+ .appheader {
+ display: flex;
+ 
+
+}
+.routerview {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* grid-area: routerview; */
+  background-color: #2d3047;
+  height: 85vh;
+}
+ .footer{
+    background-color: #FFF4E4;
+ }
+
+
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <h1>Logout</h1>
+ <button type="submit">Login</button>
 </template>
 
 <script>
