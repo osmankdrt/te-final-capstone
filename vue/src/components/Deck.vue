@@ -3,7 +3,7 @@
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      
      <div class = "editButtons">
-    <button type="button" class="btn btn-secondary" v-on:click="deleteDeck">❌</button>
+    <button type="button" class="btn btn-secondary" v-on:click="deleteDeck" >❌</button>
     <button type="button" class="btn btn-secondary" v-on:click.prevent="toggleDisplayForm">✏️</button>
     </div>
 
@@ -13,13 +13,13 @@
     </div>
     
 
-    <div v-show="displayForm">      
+    <div v-show="displayForm" class = 'deckFormCard'>      
         <label for="deckName" class="deckName"> Deck Name </label>
           <input type="text" v-on:click.prevent="" class="form-control" v-model="deckToUpdate.deckTitle"/>
         <label for="deckDescription" class="deckDescription"> Deck Description </label>
-          <input type="text" v-on:click.prevent="this.deckToUpdate.description" v-model="deckToUpdate.deckDescription"/>
-        <button class="Save" v-on:click.prevent="updateDeck">Save</button>
-        <button class="Cancel" v-on:click.prevent="toggleDisplayForm">Cancel</button>
+          <input type="text" v-on:click.prevent="this.deckToUpdate.description" v-model="deckToUpdate.deckDescription" class = "form-control"/>
+        <button class="Save btn btn-primary" v-on:click.prevent="updateDeck">Save</button>
+        <button class="Save btn btn-danger" v-on:click.prevent="toggleDisplayForm">Cancel</button>
     </div>
     
 
@@ -114,7 +114,6 @@ export default {
 <style scoped >
 
 .deck{
-    
     align-items: center;
     border: 5px solid;
     border-color: #D7FFF1;
@@ -124,7 +123,11 @@ export default {
     margin: 40px;
     background-color: #77AF9C;
     box-shadow: 15px 15px 3px  #00000062;
-    
+}
+
+.deckFormCard {
+  text-align: center;
+  padding: 10px;
 }
 
 
