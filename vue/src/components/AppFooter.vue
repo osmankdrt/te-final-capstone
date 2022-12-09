@@ -95,7 +95,7 @@ html, body{
   background-size: cover;
   opacity: 0.9;
 }
-.global .curve{
+/* .global .curve{
   position: absolute;
   top: 17%;
   background: #000;
@@ -104,7 +104,7 @@ html, body{
   height: 38%;
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
-}
+} */
 .global h6{
   margin-top: 0;
   margin-bottom: 12px;

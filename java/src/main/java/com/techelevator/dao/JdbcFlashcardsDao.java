@@ -22,7 +22,7 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     @Override
     public List<Card> listCardsByDeck(int deckID) {
         List<Card> cards = new ArrayList<>();
-        String sql = "SELECT card.card_id, card_title, flashcard_body FROM card " +
+        String sql = "SELECT card.card_id, card_title, flashcard_body, tags FROM card " +
                 "JOIN card_deck ON card.card_id = card_deck.card_id WHERE deck_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deckID);
 
@@ -43,12 +43,11 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
 
     @Override
     public void addCard(Card card, int deckId) {
-        CardDeck cardDeck = new CardDeck();
-        String sql = "INSERT INTO card (card_title , flashcard_body) VALUES (?,?) RETURNING card_id;";
-        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, card.getCardTitle(), card.getCardText());
+        String sql = "INSERT INTO card (card_title , flashcard_body, tags) VALUES (?, ?, ?) RETURNING card_id;";
+        Integer cardId = jdbcTemplate.queryForObject(sql, Integer.class, card.getCardTitle(), card.getCardText(), card.getTags());
 
         String sqlForCardDeck = "INSERT INTO card_deck (deck_id , card_id) VALUES (?,?)";
-        jdbcTemplate.update(sqlForCardDeck, deckId, id);
+        jdbcTemplate.update(sqlForCardDeck, deckId, cardId);
     }
 
     @Override
@@ -82,14 +81,20 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
 
         String sqlUpdateDeckDescription = "UPDATE deck SET deck_description = ? WHERE deck_id = ?";
         jdbcTemplate.update(sqlUpdateDeckDescription, deck.getdeckDescription(), deck.getDeckID());
+
+
     }
 
     @Override
     public void updateCard(Card card) {
         String sqlUpdateCardsTitle = "UPDATE card SET card_title = ? WHERE card_id = ?";
         jdbcTemplate.update(sqlUpdateCardsTitle, card.getCardTitle(), card.getCardID());
+
         String sqlUdateCardsText = "UPDATE card SET flashCard_body = ? WHERE card_id =?";
         jdbcTemplate.update(sqlUdateCardsText, card.getCardText(), card.getCardID());
+
+        String sqlUpdateCardsTags = "UPDATE card SET tags = ? WHERE card_id =?";
+        jdbcTemplate.update(sqlUpdateCardsTags, card.getTags(), card.getCardID());
     }
 
     @Override
@@ -108,7 +113,7 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     @Override
     public List<Card> listAllCards() {
         List<Card> cards = new ArrayList<>();
-        String sql = "SELECT card_id, card_title, flashcard_body FROM card";
+        String sql = "SELECT card_id, card_title, flashcard_body, tags FROM card";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
         while (results.next()) {
@@ -134,6 +139,7 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         card.setCardID(rowSet.getInt("card_id"));
         card.setCardTitle(rowSet.getString("card_title"));
         card.setCardText(rowSet.getString("flashcard_body"));
+        card.setTags(rowSet.getString("tags"));
 
         return card;
     }

@@ -1,7 +1,8 @@
 <template>
   <div>
 
-     <deck-list />
+  <deck-list />
+  
      
   </div>
 </template>
@@ -11,6 +12,7 @@ import DeckList from '../components/DeckList.vue'
 export default {
 components:{
     DeckList,
+
 },
 
 }
