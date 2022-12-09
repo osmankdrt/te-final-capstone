@@ -1,7 +1,7 @@
 <template>
   <div class = 'footer'>
       
-        
+        <div class="footerText">© 2022 JavaGreen</div>
 
   </div>
 </template>
@@ -14,7 +14,7 @@ name: 'app-footer'
 
 <style scoped>
 .footer{
-  background-color:#CDD5D1;
+  background-color:#fff4e4;
  
   height: 76px;
   
