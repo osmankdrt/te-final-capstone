@@ -1,19 +1,8 @@
 <template>
   <div id="app">
-    <app-header class = 'appheader'>
-    </app-header>
-     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'deck' }">Decks</router-link>&nbsp;|&nbsp;
-     <router-link v-bind:to="{name: 'login'}" v-show="$store.state.token == ''">Login</router-link>
-    <router-link v-bind:to="{name: 'logout'}" v-show="$store.state.token != ''">Logout</router-link>
-    </div>
-    <router-view class = 'routerview'>
-    </router-view>
-    <app-footer class = 'appfooter'>
-     
-    </app-footer>
-   
+    <app-header />
+    <router-view class = "routerview"/>
+    <app-footer />
   </div>
 </template>
 <script>
@@ -64,10 +53,9 @@ export default {
 }
 */
 
-#nav{
-  display: flex;
-  justify-content: flex-end;
- padding: 10px;
+ .appheader {
+ display: flex;
+
 }
 .routerview {
   display: flex;

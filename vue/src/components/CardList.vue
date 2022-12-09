@@ -11,6 +11,17 @@
         v-on:click.prevent="toggleDisplayForm"
         v-if="!displayForm"
       >
+     <!--this is part of the flip card from the method that is commented out 
+       <ul class="flashcard-list">
+      <li v-on:click="toggleCard(card)" v-for="(card, index) in cards">
+        <transition name="flip">
+          <p v-bind:key="card.flipped" class="card">
+              {{ card.flipped ? card.back : card.front }}
+              <span v-on:click="cards.splice(index, 1)" class="delete-card">X</span>
+          </p>
+        </transition>
+      </li>
+    </ul> -->
         <div class="plus radius" />
       </div>
       <div class="deckFormCard" v-if="displayForm">
@@ -83,6 +94,11 @@ export default {
     toggleDisplayForm() {
       this.displayForm = !this.displayForm;
     },
+    // This may help flip the card
+      //  methods: {
+      // toggleCard: function(card){
+      //   card.flipped = !card.flipped;
+      // },
   },
   created() {
     flashCardService.getCardsByDeck(this.$route.params.id).then((response) => {

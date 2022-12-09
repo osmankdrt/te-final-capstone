@@ -1,18 +1,7 @@
 <template>
   <div class = 'footer'>
-      <footer> 
-        <div class="container">
-    <div class="row">
-      <div class="col-md-6 d-flex justify-content-start">
-        <div class="footer-copyright text-center bg-transparent">© 2022 JavaGreen
-    
-        </div>
-  
-    
-      </div>
-    </div>
-
-  </div></footer>
+      
+        <div class="footerText">© 2022 JavaGreen</div>
 
   </div>
 </template>
@@ -25,14 +14,14 @@ name: 'app-footer'
 
 <style scoped>
 .footer{
-  background-color:#AAFCB8;
+  background-color:#0d2dbd;
+ 
+  height: 76px;
+  
 }
-ul .list{
-  display: flex;
+.footerText{
+  forced-color-adjust: black;
+}
 
-}
-.row{
-  display: flex;
-  justify-content: flex-start;
-}
+
 </style>
