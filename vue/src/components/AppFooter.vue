@@ -2,7 +2,7 @@
   <div class = 'footer'>
       
         <div class="global">
-      <div class="curve"></div>
+      <!-- <div class="curve"></div> -->
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-3">

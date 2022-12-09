@@ -27,10 +27,10 @@
       <div class="cardFormCard" v-if="displayCardForm">
         <div class="form-group">
           <div class="cardEditButtons">
-            <button class="btn btn-secondary" v-on:click="toggleDisplayForm">
+            <button class="btn btn-primary" v-on:click="toggleDisplayForm">
               ❌
             </button>
-            <button class="btn btn-secondary" v-on:click.prevent="addCard">
+            <button class="btn btn-primary" v-on:click.prevent="addCard">
               ➕
             </button>
           </div>
@@ -164,12 +164,12 @@ h2 {
   align-items: center;
   flex-wrap: wrap;
   border: 5px solid;
-  border-color: #d7fff1;
+  border-color: #0496FF;
   border-radius: 10px;
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #77af9c;
+  background-color: #FFF4E4;
   box-shadow: 15px 15px 3px #00000062;
 }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="cards">
          <div class = "editButtons">
-    <button type="button" class="btn btn-secondary" v-on:click.prevent="deleteCard">❌</button>
-    <button type="button" class="btn btn-secondary" v-on:click.prevent="toggleDisplayForm">✏️</button>
+    <button type="button" class="btn btn-primary" v-on:click.prevent="deleteCard">❌</button>
+    <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
           </div>
     <div class="flip-card" v-on:click.prevent="showCard"  >
     <div class="inner-card">
@@ -83,12 +83,12 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   border: 5px solid;
-  border-color: #d7fff1;
+  border-color: #0496FF;
   border-radius: 10px;
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #77af9c;
+  background-color: #fff4e4;
   box-shadow: 5px 5px 3px #00000062;
   overflow-y: auto;
 }
@@ -107,7 +107,7 @@ export default {
 
 p.card-text{
   text-align: center;
-  color: #285943;
+  color: #0496FF;
   padding: 5px;
   overflow-y: auto;
 }
@@ -115,7 +115,7 @@ p.card-text{
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   padding: 5px;
-  color: #285943;
+  color: #0496FF;
   text-shadow: 1px 1px #00000041;
   font-weight: bold;
 }
