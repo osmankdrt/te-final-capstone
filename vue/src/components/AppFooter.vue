@@ -14,9 +14,9 @@ name: 'app-footer'
 
 <style scoped>
 .footer{
-  background-color:#0d2dbd;
+   background-color: #FFF4E4;
  
-  height: 76px;
+  height: 70px;
   
 }
 .footerText{
