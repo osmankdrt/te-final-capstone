@@ -5,9 +5,14 @@
       <button class ='btn btn-primary studyButton'> Start Study Session </button>
     </span>
 
-    
-    
-   
+    <div class="timer" style="--duration: 60;--size: 30;">
+    <div class="mask"></div>
+</div>
+
+<div class="timer" style="--duration: 1500;--size: 100;">
+    <div class="mask"></div>
+</div>
+  
     <div class="cardsList">
       <div
         class="cardShadow"
@@ -231,6 +236,50 @@ h2 {
 .radius {
   /* plus sign on deck shadow */
   border-radius: 50%;
+}
+
+.timer {
+    background: -webkit-linear-gradient(left, skyBlue 50%, #eee 50%);
+    border-radius: 100%;
+    height: calc(var(--size) * 1px);
+    width: calc(var(--size) * 1px);
+    position: relative;
+    -webkit-animation: time calc(var(--duration) * 1s) steps(1000, start) infinite;
+      -webkit-mask: radial-gradient(transparent 50%,#000 50%);
+      mask: radial-gradient(transparent 50%,#000 50%);
+}
+.mask {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    -webkit-animation: mask calc(var(--duration) * 1s) steps(500, start) infinite;
+    -webkit-transform-origin: 100% 50%;
+}
+@-webkit-keyframes time {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes mask {
+    0% {
+        background: #eee;
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        background: #eee;
+        -webkit-transform: rotate(-180deg);
+    }
+    50.01% {
+        background: skyBlue;
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        background: skyBlue;
+        -webkit-transform: rotate(-180deg);
+    }
 }
 </style>
 
