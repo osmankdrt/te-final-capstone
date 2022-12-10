@@ -29,15 +29,15 @@ export default {
  width: 100%;
   height:100vh;
 
-  /* grid-template-areas:
+  grid-template-areas:
   "header" "header" "header"
   "routerview" "routerview" "routerview"
   "routerview" "routerview" "routerview"
-  "footer" "footer" "footer" */
+  "footer" "footer" "footer"
 }
 
 
-/* .appheader {
+.appheader {
   grid-area: header;
   grid-row: 50%;
 
@@ -49,7 +49,7 @@ export default {
   align-items: center;
   grid-area: routerview;
   background-color: #285943;
-}*/
+}
 
 .publicDeck{
   display: flex;
