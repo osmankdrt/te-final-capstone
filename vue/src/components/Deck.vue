@@ -3,8 +3,8 @@
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      
      <div class = "editButtons">
-    <button type="button" class="btn btn-secondary" v-on:click="deleteDeck" >❌</button>
-    <button type="button" class="btn btn-secondary" v-on:click.prevent="toggleDisplayForm">✏️</button>
+    <button type="button" class="btn btn-primary" v-on:click="deleteDeck" >❌</button>
+    <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
     </div>
 
      <div class="titleAndDesc" v-show="!displayForm">
@@ -116,13 +116,14 @@ export default {
 .deck{
     align-items: center;
     border: 5px solid;
-    border-color: #D7FFF1;
+    border-color: #0496FF;
     border-radius: 10px;
     height: 300px;
     width: 250px;
     margin: 40px;
-    background-color: #77AF9C;
+    background-color: #FFF4E4;
     box-shadow: 15px 15px 3px  #00000062;
+    overflow-y: auto;
 }
 
 .deckFormCard {
@@ -135,28 +136,33 @@ export default {
 
 
 p.description{
-  display: none;
+  
   padding: 5px;
 }
 
 
 
-div.deck:hover p.description {
+/* div.deck:hover p.description {
   display: block;
   color: #285943;
   text-align: center;
 
-}
+} */
 
 h3.deck-title {
   font-family: Arial, Helvetica, sans-serif;
   padding: 20px;
   text-align: center;
-  color: #285943;
-  text-shadow: 1px 1px #00000041;
+  color: #0496FF;
+  text-shadow: 1px 1px #015b9bbb;
   font-weight: bold;
 
 
+}
+
+.editButtons{
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn {

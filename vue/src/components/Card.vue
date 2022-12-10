@@ -1,16 +1,17 @@
 <template>
   <div class="cards">
-         <div class = "editButtons">
-    <button type="button" class="btn btn-secondary" v-on:click.prevent="deleteCard">❌</button>
-    <button type="button" class="btn btn-secondary" v-on:click.prevent="toggleDisplayForm">✏️</button>
+         <div class = "cardEditButtons">
+    <button type="button" class="btn btn-primary" v-on:click.prevent="deleteCard">❌</button>
+    <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
           </div>
-    <div class="flip-card" v-on:click.prevent="showCard"  >
+    <div class="flip-card" v-on:click.prevent="showCard">
     <div class="inner-card">
       <div class="front-card">
      
         <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
+        <p class="card-tags" v-show="!show">{{ card.tags }}</p>
       </div>
-      <div class="back-card">
+      <div class="back-card" >
         <p class="card-text" v-show="show">{{ card.cardText }}</p>
       </div>
       <div v-show="displayCardForm" class = 'cardFormCard'>      
@@ -41,6 +42,7 @@ export default {
         cardID: 0,
         cardTitle: '',
         cardText:'',
+        tags: ''
       }
     };
   },
@@ -79,16 +81,14 @@ export default {
 <style scoped>
 
 .cards {
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  align-content: center;
   border: 5px solid;
-  border-color: #d7fff1;
+  border-color: #0496FF;
   border-radius: 10px;
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #77af9c;
+  background-color: #fff4e4;
   box-shadow: 5px 5px 3px #00000062;
   overflow-y: auto;
 }
@@ -107,17 +107,19 @@ export default {
 
 p.card-text{
   text-align: center;
-  color: #285943;
+  color: #0496FF;
   padding: 5px;
+  font-size: 3vh;
   overflow-y: auto;
 }
 .card-title {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   padding: 5px;
-  color: #285943;
+  color: #0496FF;
   text-shadow: 1px 1px #00000041;
   font-weight: bold;
+  font-size: 3vh;
 }
 
 .cardFormCard {
@@ -125,9 +127,17 @@ p.card-text{
   padding: 10px;
 }
 
-.btn {
+
+.cardEditButtons{
+  display: flex;
+  justify-content:space-between
+}
+
+.btn.btn-primary{
   margin: 10px;
 }
+
+
 
 
 

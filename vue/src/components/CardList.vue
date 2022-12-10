@@ -27,12 +27,13 @@
       <div class="cardFormCard" v-if="displayCardForm">
         <div class="form-group">
           <div class="cardEditButtons">
-            <button class="btn btn-secondary" v-on:click="toggleDisplayForm">
+             <button class="btn btn-primary" v-on:click="toggleDisplayForm">
               ❌
             </button>
-            <button class="btn btn-secondary" v-on:click.prevent="addCard">
+            <button class="btn btn-primary" v-on:click.prevent="addCard">
               ➕
             </button>
+           
           </div>
 
           <label for="cardName" class="cardName"> Card Name </label>
@@ -119,6 +120,7 @@ export default {
   created() {
     flashCardService.getCardsByDeck(this.$route.params.id).then((response) => {
       this.cards = response.data;
+      this.cards = this.cards.reverse();
     });
   },
 };
@@ -157,31 +159,40 @@ h2 {
   width: 250px;
   margin: 40px;
   background-color: #131313d0;
-  box-shadow: 15px 15px 3px #00000062;
+  box-shadow: 5px 5px 3px #00000062;
 }
 .cardFormCard {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   border: 5px solid;
-  border-color: #d7fff1;
+  border-color: #0496FF;
   border-radius: 10px;
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #77af9c;
-  box-shadow: 15px 15px 3px #00000062;
+  background-color: #FFF4E4;
+  box-shadow: 5px 5px 3px #00000062;
 }
 
 .cardEditButtons {
-  padding: 10px;
   display: flex;
   justify-content: space-between;
+}
+
+.btn.btn-primary{
+  margin: 5px;
 }
 
 .cardFormCard {
   text-align: center;
   padding: 10px;
+}
+
+.card-iterator {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .plus {
