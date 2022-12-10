@@ -9,6 +9,7 @@
       <div class="front-card">
      
         <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
+        <p class="card-tags" v-show="!show">{{ card.tags }}</p>
       </div>
       <div class="back-card" >
         <p class="card-text" v-show="show">{{ card.cardText }}</p>
@@ -41,6 +42,7 @@ export default {
         cardID: 0,
         cardTitle: '',
         cardText:'',
+        tags: ''
       }
     };
   },
