@@ -12,12 +12,13 @@
         <div class="form-group">
           
           <div class="editButtons">
+             <button class="btn btn-primary" v-on:click.prevent="addDeck">
+              ➕
+            </button>
             <button class="btn btn-primary" v-on:click="toggleDisplayForm">
               ❌
             </button>
-            <button class="btn btn-primary" v-on:click.prevent="addDeck">
-              ➕
-            </button>
+           
           </div>
 
           <label for="deckName" class="deckName"> Deck Name </label>

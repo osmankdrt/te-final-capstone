@@ -1,10 +1,13 @@
 <template>
   <div>
-    <router-link :to="{ name: 'deck' }">
-      <button type="button" class="btn btn-light btn-large btn-block">
-        View Decks
-      </button>
-    </router-link>
+   
+    <span class = 'study'>
+      <button class ='btn btn-primary studyButton'> Start Study Session </button>
+    </span>
+
+    
+    
+   
     <div class="cardsList">
       <div
         class="cardShadow"
@@ -27,13 +30,12 @@
       <div class="cardFormCard" v-if="displayCardForm">
         <div class="form-group">
           <div class="cardEditButtons">
-             <button class="btn btn-primary" v-on:click="toggleDisplayForm">
-              ❌
-            </button>
             <button class="btn btn-primary" v-on:click.prevent="addCard">
               ➕
             </button>
-           
+             <button class="btn btn-primary" v-on:click="toggleDisplayForm">
+              ❌
+            </button>
           </div>
 
           <label for="cardName" class="cardName"> Card Name </label>
@@ -52,11 +54,19 @@
             v-model="newCard.cardText"
             required
           />
+           <label for="cardText" class="cardText">
+            Card Tags
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            v-model="newCard.tags"
+            required
+          />
           
 
         </div>
       </div>
-     
       <div v-show="emptyDeck" class="emptydeck">
         <h2>Current Deck is Empty</h2>
       </div>
@@ -82,7 +92,8 @@ export default {
       displayCardForm: false,
       newCard: {
         cardTitle: '',
-        cardText: ''
+        cardText: '',
+        tags: ''
       }
     };
   },
@@ -134,7 +145,9 @@ export default {
   align-items: center;
 }
 
-.card {
+.study{
+  display: flex;
+  justify-content: center;
 }
 
 h2 {

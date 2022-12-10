@@ -1,8 +1,8 @@
 <template>
   <div class="cards">
          <div class = "cardEditButtons">
-    <button type="button" class="btn btn-primary" v-on:click.prevent="deleteCard">❌</button>
     <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
+    <button type="button" class="btn btn-primary" v-on:click.prevent="deleteCard">❌</button>
           </div>
     <div class="flip-card" v-on:click.prevent="showCard">
     <div class="inner-card">
@@ -19,6 +19,8 @@
           <input type="text" v-on:click.prevent="" class="form-control" v-model="cardToUpdate.cardTitle"/>
         <label for="cardText" class="cardText"> Card Text </label>
           <input type="text"  v-model="cardToUpdate.cardText" class = "form-control"/>
+        <label for="tags" class="tags"> Card Tags </label>
+          <input type="text"  v-model="cardToUpdate.tags" class = "form-control"/>
         <button class="Save btn btn-primary" v-on:click.prevent="updateCard">Save</button>
         <button class="Cancel btn btn-danger" v-on:click.prevent="toggleDisplayForm">Cancel</button>
     </div>
@@ -135,6 +137,13 @@ p.card-text{
 
 .btn.btn-primary{
   margin: 10px;
+}
+
+.card-tags {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 5px;
+
 }
 
 

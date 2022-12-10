@@ -25,6 +25,7 @@ export default {
   background-color: #CDD5D1;
   position: sticky;
   top: 0%;
+  padding: 10px;
   
   
 }
