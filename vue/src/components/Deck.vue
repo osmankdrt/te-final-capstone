@@ -3,8 +3,9 @@
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      
      <div class = "editButtons">
-    <button type="button" class="btn btn-primary" v-on:click="deleteDeck" >❌</button>
     <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
+    <button type="button" class="btn btn-primary" v-on:click="deleteDeck" >❌</button>
+    
     </div>
 
      <div class="titleAndDesc" v-show="!displayForm">
