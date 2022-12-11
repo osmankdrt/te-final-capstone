@@ -58,28 +58,29 @@ export default {
 
 .appfooter {
    background-color: #FFF4E4;  
+   grid-area: footer,
 }
 
-.header{
-  /* background-color: #1B998B; */
+/* .header{
+   background-color: #1B998B; 
   background-color: #FFF4E4;
-}
- .appheader {
- display: flex;
- 
+} */
 
-}
-.routerview {
+ /* .appheader {
+ display: flex;
+ } */
+/* .routerview {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* grid-area: routerview; */
-  background-color: #2d3047;
-  height: 85vh;
-}
+   grid-area: routerview; 
+   background-color: #2d3047;
+  height: 85vh; 
+} */
+/* 
  .footer{
     background-color: #FFF4E4;
- }
+ } */
 
 
 
