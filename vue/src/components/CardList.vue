@@ -2,17 +2,9 @@
   <div>
    
     <span class = 'study'>
-      <button class ='btn btn-primary studyButton'> Start Study Session </button>
+      <button class ='btn btn-primary studyButton' v-on:click ="toggleStudySession" v-if="!studySession"> Start Study Session </button>
+      <button class = 'btn btn-danger studyButton' v-on:click ="toggleStudySession" v-if="studySession"> End Study Session</button>
     </span>
-
-    <div class="timer" style="--duration: 60;--size: 30;">
-    <div class="mask"></div>
-</div>
-
-<div class="timer" style="--duration: 1500;--size: 100;">
-    <div class="mask"></div>
-</div>
-  
     <div class="cardsList">
       <div
         class="cardShadow"
@@ -30,8 +22,12 @@
         </transition>
       </li>
     </ul> -->
-        <div class="plus radius" />
+        <div class="plus radius" v-if="!studySession"/>
+        <div class="timer" style="--duration: 30;--size: 100;" v-if="studySession">
+    <div class="mask" v-if="studySession"></div>
+</div>
       </div>
+      
       <div class="cardFormCard" v-if="displayCardForm">
         <div class="form-group">
           <div class="cardEditButtons">
@@ -72,6 +68,13 @@
 
         </div>
       </div>
+
+      
+    <!-- <div class="timer" style="--duration: 60;--size: 30;">
+    <div class="mask"></div>
+</div> -->
+
+
       <div v-show="emptyDeck" class="emptydeck">
         <h2>Current Deck is Empty</h2>
       </div>
@@ -86,6 +89,9 @@
 </template>
 
 <script>
+
+
+
 import flashCardService from "../services/FlashCardService.js";
 import Card from "../components/Card.vue";
 export default {
@@ -95,6 +101,7 @@ export default {
       cards: [],
       isDeckEmpty: false,
       displayCardForm: false,
+      studySession: false,
       newCard: {
         cardTitle: '',
         cardText: '',
@@ -116,6 +123,10 @@ export default {
   methods: {
     toggleDisplayForm() {
       this.displayCardForm = !this.displayCardForm;
+    },
+    toggleStudySession() {
+      this.studySession = !this.studySession;
+      
     },
     addCard(deckID, card) {
       deckID = this.$route.params.id
@@ -239,7 +250,7 @@ h2 {
 }
 
 .timer {
-    background: -webkit-linear-gradient(left, skyBlue 50%, #eee 50%);
+    background: -webkit-linear-gradient(left, #0496FF 50%, #FFF4E4 50%);
     border-radius: 100%;
     height: calc(var(--size) * 1px);
     width: calc(var(--size) * 1px);
@@ -273,11 +284,11 @@ h2 {
         -webkit-transform: rotate(-180deg);
     }
     50.01% {
-        background: skyBlue;
+        background: #0496FF;
         -webkit-transform: rotate(0deg);
     }
     100% {
-        background: skyBlue;
+        background: #0496FF;
         -webkit-transform: rotate(-180deg);
     }
 }

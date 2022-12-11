@@ -1,5 +1,5 @@
 <template>
-  <div class="cards">
+  <div class="cards" >
          <div class = "cardEditButtons">
     <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
     <button type="button" class="btn btn-primary" v-on:click.prevent="deleteCard">❌</button>
@@ -11,8 +11,12 @@
         <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
         <p class="card-tags" v-show="!show">{{ card.tags }}</p>
       </div>
-      <div class="back-card" >
-        <p class="card-text" v-show="show">{{ card.cardText }}</p>
+      <div class="back-card" v-show="show">
+        <p class="card-text">{{ card.cardText }}</p>
+        <div class='studySessionButtons' v-if="this.$parent.studySession" v-show="questionCorrect === 0 && questionIncorrect === 0">
+        <button class ="btn btn-primary btn-sm" v-on:click="questionCorrectCounter">✔️</button>
+        <button class="btn btn-secondary btn-sm" v-on:click="questionIncorrectCounter">❌</button>
+        </div>
       </div>
       <div v-show="displayCardForm" class = 'cardFormCard'>      
         <label for="cardName" class="cardName"> Card Name </label>
@@ -39,17 +43,21 @@ export default {
     return {
       show: false,
       displayCardForm: false,
+      questionCorrect: 0,
+      questionIncorrect: 0,
       cardToDeleteID: 0,
       cardToUpdate: {
         cardID: 0,
         cardTitle: '',
         cardText:'',
         tags: ''
-      }
+      },
     };
   },
-  props: {
+  props: 
+  {
     card: Object,
+    
   },
 
   methods: {
@@ -58,6 +66,7 @@ export default {
     },
     toggleDisplayForm() {
       this.displayCardForm = !this.displayCardForm;
+      
     },
     deleteCard() {
      this.cardToDeleteID = this.card.cardID
@@ -74,8 +83,20 @@ export default {
           this.$router.go()
         }
       })
+    },
+    questionCorrectCounter() {
+      this.questionCorrect++
+    },
+    questionIncorrectCounter() {
+      this.questionIncorrect++
     }
   },
+  computed: {
+     calculateScore() {
+      let score = this.questionCorrect/(this.questionCorrect + this.questionIncorrect)
+      return score;
+    },
+  }
  
 };
 </script>
@@ -95,6 +116,8 @@ export default {
   overflow-y: auto;
 }
 
+
+
 /* .cards{
    border: 2px solid black;
     border-radius: 10px;
@@ -108,10 +131,12 @@ export default {
 } */
 
 p.card-text{
+  display: flex;
+  justify-content: center;
   text-align: center;
   color: #0496FF;
   padding: 5px;
-  font-size: 3vh;
+  font-size: 2vh;
   overflow-y: auto;
 }
 .card-title {
@@ -139,6 +164,10 @@ p.card-text{
   margin: 10px;
 }
 
+.btn.btn-secondary{
+  margin:10px;
+}
+
 .card-tags {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -146,6 +175,11 @@ p.card-text{
 
 }
 
+.studySessionButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
 
 
