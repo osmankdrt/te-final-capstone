@@ -1,6 +1,6 @@
 <template>
   <div class="cards" >
-         <div class = "cardEditButtons">
+         <div class = "cardEditButtons" v-if="this.$parent.studySession == false">
     <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
     <button type="button" class="btn btn-primary" v-on:click.prevent="deleteCard">❌</button>
           </div>
