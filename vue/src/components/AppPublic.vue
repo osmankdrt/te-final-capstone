@@ -11,5 +11,7 @@ name: 'app-public'
 </script>
 
 <style scoped>
-
+div {
+  background-color: lightblue;
+}
 </style>

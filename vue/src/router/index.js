@@ -60,7 +60,7 @@ const router = new Router({
       name: "deck",
       component: Deck,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -68,7 +68,7 @@ const router = new Router({
       name: 'cardView',
       component: CardView,
       meta: { 
-        requiresAuth: false
+        requiresAuth: true
       }
     },
   

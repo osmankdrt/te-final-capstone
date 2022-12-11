@@ -2,20 +2,20 @@
   <div id="app">
     <app-header class = "header"/>
     <router-view class = "routerview"/>
-    <app-public class = "publicDeck"/>
+    <!-- <app-public class = "publicDeck"/> -->
     <app-footer />
   </div>
 </template>
 <script>
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
-import AppPublic from './components/AppPublic.vue'
+// import AppPublic from './components/AppPublic.vue'
 export default {
   name: 'App',
   components: {
    AppHeader,
    AppFooter,
-   AppPublic
+  //  AppPublic
   }
 }
 </script>
@@ -28,7 +28,7 @@ export default {
   /* background-color: blue; */
  width: 100%;
   height:100vh;
-
+  background-color: #285943;
   grid-template-areas:
   "header" "header" "header"
   "routerview" "routerview" "routerview"
