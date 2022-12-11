@@ -13,7 +13,7 @@
       </div>
       <div class="back-card" v-show="show">
         <p class="card-text">{{ card.cardText }}</p>
-        <div class='studySessionButtons' v-if="this.$parent.studySession" v-show="questionCorrect === 0 && questionIncorrect === 0">
+        <div class='studySessionButtons' v-show="this.$parent.studySession" v-if="questionCorrect === 0 && questionIncorrect === 0">
         <button class ="btn btn-primary btn-sm" v-on:click="questionCorrectCounter">✔️</button>
         <button class="btn btn-secondary btn-sm" v-on:click="questionIncorrectCounter">❌</button>
         </div>
@@ -92,10 +92,7 @@ export default {
     }
   },
   computed: {
-     calculateScore() {
-      let score = this.questionCorrect/(this.questionCorrect + this.questionIncorrect)
-      return score;
-    },
+     
   }
  
 };

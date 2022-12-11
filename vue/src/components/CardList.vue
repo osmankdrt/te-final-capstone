@@ -25,6 +25,7 @@
         <div class="plus radius" v-if="!studySession"/>
         <div class="timer" style="--duration: 30;--size: 100;" v-if="studySession">
     <div class="mask" v-if="studySession"></div>
+    <h1>{{score}}</h1>
 </div>
       </div>
       
@@ -102,6 +103,9 @@ export default {
       isDeckEmpty: false,
       displayCardForm: false,
       studySession: false,
+      score: 0,
+      correct: 0,
+      total: 0,
       newCard: {
         cardTitle: '',
         cardText: '',
@@ -118,6 +122,17 @@ export default {
         return true;
       }
       return false;
+    },
+    calculateScore() {
+      this.cards.forEach(card => {
+        this.correct =+ card.questionCorrect
+      })
+      this.cards.forEach(card => {
+        this.total =+ card.questionIncorrect
+        this.total + this.correct
+      })
+
+    return this.score;
     },
   },
   methods: {
@@ -210,6 +225,10 @@ h2 {
 }
 
 .btn.btn-primary{
+  margin: 5px;
+}
+
+.btn.btn-danger.studyButton{
   margin: 5px;
 }
 
