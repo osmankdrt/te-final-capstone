@@ -27,7 +27,6 @@
     <div class="mask" v-if="studySession"></div>
 </div>
       </div>
-      
       <div class="cardFormCard" v-if="displayCardForm">
         <div class="form-group">
           <div class="cardEditButtons">
@@ -83,6 +82,8 @@
         v-bind:card="card"
         v-bind:key="card.cardId"
         class="card-iterator"
+        @questionCorrectEvent="questionCorrectCounter"
+        @questionIncorrectEvent="questionIncorrectCounter"
       />
     </div>
   </div>
@@ -102,10 +103,8 @@ export default {
       isDeckEmpty: false,
       displayCardForm: false,
       studySession: false,
-      score: 0,
-      correct: 0,
-      incorrect: 0,
-      total: 0,
+      questionCorrect: 0,
+      questionIncorrect: 0,
       newCard: {
         cardTitle: '',
         cardText: '',
@@ -124,13 +123,15 @@ export default {
       return false;
     },
     calculateScore() {
-      this.cards.forEach((card) => {
-        this.correct += card.questionCorrect;
-        this.incorrect += card.questionIncorrect;
-        this.total = this.correct + this.incorrect;
-      })
-    return this.score;
+      let total = this.questionIncorrect + this.questionCorrect
+      let score = (this.questionCorrect)/(total)
+      return score;
     },
+    calculateProgress() {
+      let complete = this.questionIncorrect + this.questionCorrect
+      let incomplete = this.cards.length - complete
+      return (complete/incomplete)
+    }
   },
   methods: {
     toggleDisplayForm() {
@@ -149,6 +150,15 @@ export default {
         }
       })
     },
+
+    questionCorrectCounter() {
+      this.questionCorrect += 1
+    },
+    questionIncorrectCounter() {
+      this.questionIncorrect += 1
+    }
+
+    
     // This may help flip the card
       //  methods: {
       // toggleCard: function(card){
@@ -168,7 +178,7 @@ export default {
 <style scoped>
 .cardsList {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap  ;
   justify-content: space-evenly;
   align-items: center;
 }

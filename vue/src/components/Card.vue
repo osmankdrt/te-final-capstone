@@ -13,9 +13,9 @@
       </div>
       <div class="back-card" v-show="show">
         <p class="card-text">{{ card.cardText }}</p>
-        <div class='studySessionButtons' v-show="this.$parent.studySession" v-if="questionCorrect === 0 && questionIncorrect === 0">
-        <button class ="btn btn-primary btn-sm" v-on:click="questionCorrectCounter">✔️</button>
-        <button class="btn btn-secondary btn-sm" v-on:click="questionIncorrectCounter">❌</button>
+        <div class='studySessionButtons' v-show="this.$parent.studySession" v-if="!hasBeenClicked" v-bind:disabled="hasBeenClicked" v-on:click="toggleHasBeenClicked">
+        <button class ="btn btn-primary btn-sm" v-on:click="$emit('questionCorrectEvent')"> Mark Correct  ✔️</button>
+        <button class="btn btn-secondary btn-sm" v-on:click="$emit('questionIncorrectEvent')"> Mark Incorrect ❌</button>
         </div>
       </div>
       <div v-show="displayCardForm" class = 'cardFormCard'>      
@@ -43,8 +43,7 @@ export default {
     return {
       show: false,
       displayCardForm: false,
-      questionCorrect: 0,
-      questionIncorrect: 0,
+      hasBeenClicked: false,
       cardToDeleteID: 0,
       cardToUpdate: {
         cardID: 0,
@@ -66,7 +65,9 @@ export default {
     },
     toggleDisplayForm() {
       this.displayCardForm = !this.displayCardForm;
-      
+    },
+    toggleHasBeenClicked() {
+      this.hasBeenClicked = !this.hasBeenClicked;
     },
     deleteCard() {
      this.cardToDeleteID = this.card.cardID
@@ -84,12 +85,7 @@ export default {
         }
       })
     },
-    questionCorrectCounter() {
-      this.questionCorrect++
-    },
-    questionIncorrectCounter() {
-      this.questionIncorrect++
-    }
+
   },
   computed: {
      

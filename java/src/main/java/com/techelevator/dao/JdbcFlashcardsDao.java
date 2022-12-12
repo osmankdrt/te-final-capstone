@@ -22,7 +22,7 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     @Override
     public List<Card> listCardsByDeck(int deckID) {
         List<Card> cards = new ArrayList<>();
-        String sql = "SELECT card.card_id, card_title, flashcard_body, tags FROM card " +
+        String sql = "SELECT card.card_id, card_title, flashcard_body, tags, FROM card " +
                 "JOIN card_deck ON card.card_id = card_deck.card_id WHERE deck_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deckID);
 
