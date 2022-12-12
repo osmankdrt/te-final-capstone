@@ -5,6 +5,16 @@
       <button class ='btn btn-primary studyButton' v-on:click ="toggleStudySession" v-if="!studySession"> Start Study Session </button>
       <button class = 'btn btn-danger studyButton' v-on:click ="toggleStudySession" v-if="studySession"> End Study Session</button>
     </span>
+    <span class = 'progressBars'>
+    <div class="progress">
+  <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: calculateCorrect}" :aria-valuenow="{correctProgress}" aria-valuemin="0" aria-valuemax="100">{{calculateCorrect}}</div>
+  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: calculateIncorrect}"  aria-valuemin="0" aria-valuemax="100">{{calculateIncorrect}}</div>
+    </div>
+
+    <div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: calculateProgress}" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </span>
     <div class="cardsList">
       <div
         class="cardShadow"
@@ -126,12 +136,26 @@ export default {
     calculateScore() {
       let total = this.questionIncorrect + this.questionCorrect
       let score = (this.questionCorrect)/(total)
-      return score;
+      score * 100
+      return score
     },
     calculateProgress() {
       let complete = this.questionIncorrect + this.questionCorrect
       let total = this.cards.length
-      return (complete/total)
+      let progress = Math.round((complete/total) * 100)
+      return progress + '%'
+    },
+    calculateCorrect() {
+      let correct = this.questionCorrect
+      let total = this.cards.length
+      let correctProgress = Math.round((correct/total) * 100)
+      return correctProgress + '%'
+    },
+    calculateIncorrect() {
+      let incorrect = this.questionIncorrect
+      let total = this.cards.length
+      let incorrectProgress = Math.round((incorrect/total) * 100)
+      return incorrectProgress + '%'
     }
   },
   methods: {
@@ -251,6 +275,11 @@ h2 {
   justify-content: flex-start;
 }
 
+.progress{
+  margin: 1vh;
+}
+
+
 .plus {
   /* plus sign on deck shadow */
   display: inline-block;
@@ -319,6 +348,7 @@ h2 {
         -webkit-transform: rotate(-180deg);
     }
 }
+
 </style>
 
 
