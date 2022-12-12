@@ -78,6 +78,7 @@
         <h2>Current Deck is Empty</h2>
       </div>
        <card
+       @name="questionCorrectCounter, questionIncorrectCounter"
         v-for="card in cards"
         v-bind:card="card"
         v-bind:key="card.cardId"
