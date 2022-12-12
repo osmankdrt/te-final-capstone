@@ -10,8 +10,8 @@
         <router-link v-bind:to="{ name: 'deck' }">Decks</router-link>&nbsp;&nbsp;
       </div>
       <div class = "loginLink">
-        <button v-show="$store.state.token == ''"><router-link v-bind:to="{name: 'login'}" v-show="$store.state.token == ''">Login</router-link></button>
-        <button v-show="$store.state.token"><router-link v-bind:to="{name: 'logout'}" v-show="$store.state.token != ''">Logout</router-link></button>
+        <button class='btn btn-light' v-show="$store.state.token == ''"><router-link v-bind:to="{name: 'login'}" v-show="$store.state.token == ''">Login</router-link></button>
+        <button class='btn btn-light' v-show="$store.state.token"><router-link v-bind:to="{name: 'logout'}" v-show="$store.state.token != ''">Logout</router-link></button>
       </div>
       </nav>
   </div>
