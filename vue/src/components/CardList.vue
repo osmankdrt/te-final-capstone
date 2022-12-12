@@ -79,6 +79,7 @@
         <h2>Current Deck is Empty</h2>
       </div>
        <card
+       @name="questionCorrectCounter, questionIncorrectCounter"
         v-for="card in cards"
         v-bind:card="card"
         v-bind:key="card.cardId"
@@ -123,14 +124,14 @@ export default {
       }
       return false;
     },
-    calculateScore() {
-      this.cards.forEach((card) => {
-        this.correct += card.questionCorrect;
-        this.incorrect += card.questionIncorrect;
-        this.total = this.correct + this.incorrect;
-      })
-    return this.score;
-    },
+    // calculateScore() {
+    //   this.cards.forEach((card) => {
+    //     this.correct += card.questionCorrect;
+    //     this.incorrect += card.questionIncorrect;
+    //     this.total = this.correct + this.incorrect;
+    //   })
+    // return this.score;
+    // },
   },
   methods: {
     toggleDisplayForm() {

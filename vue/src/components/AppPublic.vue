@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h3>Public Decks for user to see with out login</h3>
+      <h3>Benefits and marketing. What services do we offer, what benefits can they get.</h3>
   </div>
 </template>
 

@@ -85,10 +85,10 @@ export default {
       })
     },
     questionCorrectCounter() {
-      this.questionCorrect++
+      this.questionCorrect++;
     },
     questionIncorrectCounter() {
-      this.questionIncorrect++
+      this.questionIncorrect++;
     }
   },
   computed: {
