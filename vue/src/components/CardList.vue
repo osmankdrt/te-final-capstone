@@ -130,8 +130,8 @@ export default {
     },
     calculateProgress() {
       let complete = this.questionIncorrect + this.questionCorrect
-      let incomplete = this.cards.length - complete
-      return (complete/incomplete)
+      let total = this.cards.length
+      return (complete/total)
     }
   },
   methods: {
