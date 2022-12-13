@@ -33,7 +33,7 @@
           <p class="card-text">{{ card.cardText }}</p>
           <div
             class="studySessionButtons"
-            v-show="this.$parent.studySession"
+            v-show="this.$parent.studySessionBool"
             v-if="!hasBeenClicked"
             v-bind:disabled="hasBeenClicked"
             v-on:click="toggleHasBeenClicked"

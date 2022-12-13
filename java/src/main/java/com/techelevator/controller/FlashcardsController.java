@@ -54,8 +54,8 @@ public class FlashcardsController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/studysessions/{userID}", method = RequestMethod.POST)
-    public void addStudySession(@RequestBody StudySession studySession, @PathVariable int userID) {
+    @RequestMapping(path = "/studysessions", method = RequestMethod.POST)
+    public void addStudySession(@RequestBody StudySession studySession) {
         dao.addStudySession(studySession);
     }
 

@@ -5,21 +5,27 @@
       <button
         class="btn btn-primary studyButton"
         v-on:click="toggleStudySession"
-        v-if="!studySession && cards.length != 0"
+        v-if="!studySessionBool && cards.length != 0"
       >
         Start Study Session
       </button>
       <button
         class="btn btn-danger studyButton"
         v-on:click="toggleStudySession(), restartStudySession()"
-        v-if="studySession"
+        v-if="studySessionBool"
       >
         End Study Session
+      </button>
+      <button
+        class="btn btn-primary studyButton"
+        :click="addStudySession"
+      >
+        Save Study Session
       </button>
     </span>
 
     <!-- Progress Bar -->
-    <span class="progressBars" v-if="studySession">
+    <span class="progressBars" v-if="studySessionBool">
       <div class="progress">
         <div
           class="
@@ -61,7 +67,7 @@
         v-on:click.prevent="toggleDisplayForm"
         v-show="!displayCardForm"
       >
-        <div class="plus radius" v-if="!studySession" />
+        <div class="plus radius" v-if="!studySessionBool" />
 
         <!--this is part of the flip card from the method that is commented out 
        <ul class="flashcard-list">
@@ -79,9 +85,9 @@
         <div
           class="timer"
           style="--duration: 120; --size: 100"
-          v-if="studySession"
+          v-if="studySessionBool"
         >
-          <div class="mask" v-if="studySession"></div>
+          <div class="mask" v-if="studySessionBool"></div>
         </div>
       </div>
 
@@ -149,7 +155,7 @@ export default {
       cards: [],
       isDeckEmpty: false,
       displayCardForm: false,
-      studySession: false,
+      studySessionBool: false,
       questionCorrect: 0,
       questionIncorrect: 0,
       newCard: {
@@ -157,6 +163,13 @@ export default {
         cardText: "",
         tags: "",
       },
+      studySession: {
+        userID: 0,
+        deckID: 0,
+        questionCorrect: 0,
+        questionIncorrect: 0,
+        total: 0
+      }
     };
   },
   components: {
@@ -197,11 +210,24 @@ export default {
       this.displayCardForm = !this.displayCardForm;
     },
     toggleStudySession() {
-      this.studySession = !this.studySession;
+      this.studySessionBool = !this.studySessionBool;
     },
     restartStudySession() {
       this.questionCorrect = 0;
       this.questionIncorrect = 0;
+    },
+    addStudySession(user, studySession) {
+      studySession.userID = user.userID
+      studySession.deckID = this.$route.params.id;
+      studySession.questionCorrect = this.questionCorrect
+      studySession.questionIncorrect = this.questionIncorrect
+      studySession.total = this.questionCorrect + this.questionIncorrect
+
+      flashCardService.addStudySession(studySession).then((response) => {
+        if (response.status === 201) {
+          this.$router.go();
+        }
+      })
     },
     addCard(deckID, card) {
       deckID = this.$route.params.id;

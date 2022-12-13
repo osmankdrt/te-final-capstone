@@ -51,7 +51,7 @@ INSERT INTO card_deck (deck_id, card_id) VALUES (5,4);
 INSERT INTO card_deck (deck_id, card_id) VALUES (5,5);
 INSERT INTO card_deck (deck_id, card_id) VALUES (5,6);
 
-INSERT INTO study_session (user_id, question_correct, question_incorrect, total) VALUES (1, 2, 2, 4);
+INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (1, 1, 2, 2, 4);
 
 
 COMMIT TRANSACTION;

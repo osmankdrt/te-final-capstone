@@ -34,9 +34,9 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
 
     @Override
     public Integer addStudySession(StudySession studySession) {
-        String sql = "INSERT INTO study_session (user_id, question_correct, question_incorrect, total) VALUES (?,?,?,?) " +
+        String sql = "INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (?,?,?,?,?) " +
                 "RETURNING session_id";
-        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, studySession.getUserID(), studySession.getQuestionCorrect(), studySession.getQuestionIncorrect(), studySession.getTotal());
+        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, studySession.getUserID(), studySession.getDeckID(), studySession.getQuestionCorrect(), studySession.getQuestionIncorrect(), studySession.getTotal());
         return id;
     }
 
@@ -132,8 +132,9 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
 
     public List<StudySession> listStudySessions(int userID) {
         List<StudySession> studySessions = new ArrayList<>();
-        String sql = "SELECT session_id, user_id, question_correct, question_incorrect, total FROM study_session";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        String sql = "SELECT session_id, user_id, deck_id, question_correct, question_incorrect, total FROM study_session " +
+                "WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
 
         while (results.next()) {
             StudySession studySession = mapRowToStudySession(results);
@@ -168,6 +169,7 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
 
         studySession.setStudySessionID(rowSet.getInt("session_id"));
         studySession.setUserID(rowSet.getInt("user_id"));
+        studySession.setDeckID(rowSet.getInt("deck_id"));
         studySession.setQuestionCorrect(rowSet.getInt("question_correct"));
         studySession.setQuestionIncorrect(rowSet.getInt("question_incorrect"));
         studySession.setTotal(rowSet.getInt("total"));
