@@ -222,9 +222,7 @@ export default {
       studySession.questionCorrect = this.questionCorrect;
       studySession.questionIncorrect = this.questionIncorrect;
       studySession.total = this.questionCorrect + this.questionIncorrect;
-      studySession.date = this.Date.now() /1000 |0
-
-
+      
       flashCardService.addStudySession(studySession).then((response) => {
         if (response.status === 201) {
           this.$router.go();

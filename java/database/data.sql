@@ -48,10 +48,8 @@ INSERT INTO card_deck (deck_id, card_id) VALUES (2,12);
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,13);
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,14);
 
-<<<<<<< HEAD
 INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (1, 1, 2, 2, 4);
-=======
-<<<<<<< HEAD
+
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,15);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,16);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,17);
