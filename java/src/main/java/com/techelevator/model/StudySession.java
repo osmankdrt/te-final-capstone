@@ -3,10 +3,19 @@ package com.techelevator.model;
 public class StudySession {
     private int studySessionID;
     private int userID;
+    private int deckID;
     private int questionCorrect;
     private int questionIncorrect;
     private int total;
 
+
+    public int getDeckID() {
+        return deckID;
+    }
+
+    public void setDeckID(int deckID) {
+        this.deckID = deckID;
+    }
 
     public int getStudySessionID() {
         return studySessionID;
