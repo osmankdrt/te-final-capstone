@@ -1,9 +1,8 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Card;
-import com.techelevator.model.CardDeck;
 import com.techelevator.model.Deck;
-import org.springframework.data.jdbc.repository.query.Modifying;
+import com.techelevator.model.StudySession;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -31,6 +30,14 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
             cards.add(card);
         }
         return cards;
+    }
+
+    @Override
+    public Integer addStudySession(StudySession studySession) {
+        String sql = "INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (?,?,?,?,?) " +
+                "RETURNING session_id";
+        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, studySession.getUserID(), studySession.getDeckID(), studySession.getQuestionCorrect(), studySession.getQuestionIncorrect(), studySession.getTotal());
+        return id;
     }
 
     @Override
@@ -123,6 +130,19 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         return cards;
     }
 
+    public List<StudySession> listStudySessions(int userID) {
+        List<StudySession> studySessions = new ArrayList<>();
+        String sql = "SELECT session_id, user_id, deck_id, question_correct, question_incorrect, total FROM study_session " +
+                "WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
+
+        while (results.next()) {
+            StudySession studySession = mapRowToStudySession(results);
+            studySessions.add(studySession);
+        }
+        return studySessions;
+    }
+
     private Deck mapRowToDeck(SqlRowSet rowSet) {
         Deck deck = new Deck();
 
@@ -142,6 +162,19 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         card.setTags(rowSet.getString("tags"));
 
         return card;
+    }
+
+    private StudySession mapRowToStudySession(SqlRowSet rowSet) {
+        StudySession studySession = new StudySession();
+
+        studySession.setStudySessionID(rowSet.getInt("session_id"));
+        studySession.setUserID(rowSet.getInt("user_id"));
+        studySession.setDeckID(rowSet.getInt("deck_id"));
+        studySession.setQuestionCorrect(rowSet.getInt("question_correct"));
+        studySession.setQuestionIncorrect(rowSet.getInt("question_incorrect"));
+        studySession.setTotal(rowSet.getInt("total"));
+
+        return studySession;
     }
 
     //Selects the first card in the deck

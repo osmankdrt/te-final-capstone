@@ -54,7 +54,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #cdd5d1;
+  background-color: #52AD9C;
   top: 0%;
   padding: 10px;
   justify-content: space-between;
@@ -80,13 +80,13 @@ export default {
 
 a.router-link-exact-active.router-link-active {
   text-decoration: none;
-  color: green;
+  color: #0b3954;
   font-weight: bold;
 }
 
 a {
   text-decoration: none;
-  color: green;
+  color: #0b3954;
   font-weight: bold;
 }
 
@@ -133,7 +133,7 @@ h1 {
   left: 0;
   right: 0;
   top: 0;
-  background: #00b33c;
+  background: #0b3954;
   height: 4px;
   -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
@@ -167,7 +167,7 @@ h1 {
   left: 0;
   right: 0;
   top: 0;
-  background: #ffa31a;
+  background: #0b3954;
   height: 4px;
   -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
@@ -201,7 +201,7 @@ h1 {
   left: 0;
   right: 0;
   top: 0;
-  background: #ffff1a;
+  background: #0b3954;
   height: 4px;
   -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
