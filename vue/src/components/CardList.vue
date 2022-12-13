@@ -11,7 +11,7 @@
       </button>
       <button
         class="btn btn-danger studyButton"
-        v-on:click="toggleStudySession"
+        v-on:click="toggleStudySession(), restartStudySession()"
         v-if="studySession"
       >
         End Study Session
@@ -78,15 +78,7 @@
         <!-- Study Session Timer -->
         <div
           class="timer"
-          style="--duration: 3; --size: 30"
-          v-if="studySession"
-        >
-          <div class="mask" v-if="studySession"></div>
-        </div>
-
-        <div
-          class="timer"
-          style="--duration: 10; --size: 100"
+          style="--duration: 120; --size: 100"
           v-if="studySession"
         >
           <div class="mask" v-if="studySession"></div>

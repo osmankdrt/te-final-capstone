@@ -1,7 +1,9 @@
 <template>
   <div class= "header">
-     <img id="logo" src="../assets/R.png" alt="Globel Logo">
-      <h1>Lango </h1>
+    <div class='logoBox'>
+     <img id="logo" src="../assets/langologotrimmed.png" alt="Lango Logo">
+      <h1>Lango</h1>
+    </div>
       <nav class = "nav">
       <div class="homeLink">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
@@ -38,22 +40,28 @@ export default {
 <style scoped>
  .header{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #CDD5D1;
-  /* position: sticky; */
-  
   top: 0%;
   padding: 10px;
-  justify-content: space-between;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   
 }
+
+.logoBox {
+  display: flex;
+  align-items: center;
+}
  #logo{
-   height: 65px;
-   flex-grow: 20px;
-   
+   height: 75px;
+   width: 75px;
+
  } 
 .nav{
+ display: flex;
+ align-items: baseline;
  align-content: center;
  text-align: end;
 }
@@ -77,8 +85,8 @@ button {
 }
 
 h1{
-  font-family:cursive;
-  /*Times New Roman', Times, serif;*/
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
  color: #043152;
 }
 
