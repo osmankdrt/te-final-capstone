@@ -298,8 +298,9 @@ h2 {
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #131313d0;
+  background-color: #dbd5d579;
   box-shadow: 5px 5px 3px #00000062;
+  opacity: 0.4;
 }
 .cardFormCard {
   justify-content: space-around;
