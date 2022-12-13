@@ -116,14 +116,14 @@ export default {
 
 .deck{
     align-items: center;
-    border: 5px solid;
-    border-color: #0496FF;
+    border: 7px solid;
+    border-color: #0B3954;
     border-radius: 10px;
     height: 300px;
     width: 250px;
     margin: 40px;
-    background-color: #FFF4E4;
-    box-shadow: 15px 15px 3px  #00000062;
+    background-color: #F2E8CF;
+    box-shadow: 15px 15px 3px  #0000008c;
     overflow-y: auto;
 }
 
@@ -154,8 +154,8 @@ h3.deck-title {
   font-family: Arial, Helvetica, sans-serif;
   padding: 20px;
   text-align: center;
-  color: #0496FF;
-  text-shadow: 1px 1px #015b9bbb;
+  color: #0B3954;
+  text-shadow: 1px 1px #072333;
   font-weight: bold;
 
 
