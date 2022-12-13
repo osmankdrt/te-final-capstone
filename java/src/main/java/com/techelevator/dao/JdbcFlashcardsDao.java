@@ -33,10 +33,10 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     }
 
     @Override
-    public Integer addStudySession(StudySession studySession) {
+    public Integer addStudySession(StudySession studySession, int userID) {
         String sql = "INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (?,?,?,?,?) " +
                 "RETURNING session_id";
-        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, studySession.getUserID(), studySession.getDeckID(), studySession.getQuestionCorrect(), studySession.getQuestionIncorrect(), studySession.getTotal());
+        Integer id = jdbcTemplate.queryForObject(sql, Integer.class, userID, studySession.getDeckID(), studySession.getQuestionCorrect(), studySession.getQuestionIncorrect(), studySession.getTotal());
         return id;
     }
 

@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.FlashcardsDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Card;
 import com.techelevator.model.CardDeck;
 import com.techelevator.model.Deck;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -17,6 +19,8 @@ public class FlashcardsController {
 
     @Autowired
     private FlashcardsDao dao;
+    @Autowired
+    private UserDao userDao;
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/decks", method = RequestMethod.GET)
@@ -36,9 +40,9 @@ public class FlashcardsController {
         return dao.listCardsByDeck(deckID); }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path = "/studysessions/{userID}", method = RequestMethod.GET)
-    public List<StudySession> getStudySessions(@PathVariable int userID) {
-        return dao.listStudySessions(userID);
+    @RequestMapping(path = "/studysessions/", method = RequestMethod.GET)
+    public List<StudySession> getStudySessions(@RequestBody Principal principal) {
+        return dao.listStudySessions(userDao.findIdByUsername(principal.getName()));
     }
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -55,8 +59,8 @@ public class FlashcardsController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/studysessions", method = RequestMethod.POST)
-    public void addStudySession(@RequestBody StudySession studySession) {
-        dao.addStudySession(studySession);
+    public void addStudySession(@RequestBody StudySession studySession, Principal principal) {
+        dao.addStudySession(studySession, userDao.findIdByUsername(principal.getName()));
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

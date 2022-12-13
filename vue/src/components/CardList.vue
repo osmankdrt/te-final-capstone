@@ -18,7 +18,8 @@
       </button>
       <button
         class="btn btn-primary studyButton"
-        :click="addStudySession"
+        v-on:click="addStudySession"
+        v-if="studySessionBool"
       >
         Save Study Session
       </button>
@@ -164,7 +165,6 @@ export default {
         tags: "",
       },
       studySession: {
-        userID: 0,
         deckID: 0,
         questionCorrect: 0,
         questionIncorrect: 0,
@@ -216,12 +216,11 @@ export default {
       this.questionCorrect = 0;
       this.questionIncorrect = 0;
     },
-    addStudySession(user, studySession) {
-      studySession.userID = user.userID
+    addStudySession(studySession) {
       studySession.deckID = this.$route.params.id;
-      studySession.questionCorrect = this.questionCorrect
-      studySession.questionIncorrect = this.questionIncorrect
-      studySession.total = this.questionCorrect + this.questionIncorrect
+      studySession.questionCorrect = this.questionCorrect;
+      studySession.questionIncorrect = this.questionIncorrect;
+      studySession.total = this.questionCorrect + this.questionIncorrect;
 
       flashCardService.addStudySession(studySession).then((response) => {
         if (response.status === 201) {
@@ -347,6 +346,8 @@ h2 {
 
 .progressFraction {
   align-content: center;
+  color: #F2E8CF;
+  text-shadow: 2px 2px #0b3954;
 }
 
 h1 {

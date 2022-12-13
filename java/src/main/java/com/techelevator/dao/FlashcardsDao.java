@@ -16,7 +16,7 @@ public interface FlashcardsDao {
 
     List<StudySession> listStudySessions(int userID);
 
-    Integer addStudySession(StudySession studySession);
+    Integer addStudySession(StudySession studySession, int userID);
 
     int addDeck(Deck deck);
 

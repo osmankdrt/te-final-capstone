@@ -49,8 +49,8 @@ listCards() {
     return http.post(`/studysessions/`, studySession)
  },
 
- listStudySessionsByUser(userID) {
-   return http.get(`/studysessions/${userID}`)
+ listStudySessionsByUser() {
+   return http.get(`/studysessions`)
  }
 
  
