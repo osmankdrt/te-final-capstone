@@ -39,8 +39,8 @@ public class FlashcardsController {
         return dao.listCardsByDeck(deckID); }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path = "/studysessions/", method = RequestMethod.GET)
-    public List<StudySession> getStudySessions(@RequestBody Principal principal) {
+    @RequestMapping(path = "/studysessions/{userID}", method = RequestMethod.GET)
+    public List<StudySession> getStudySessions(@PathVariable int userID, @RequestBody Principal principal) {
         return dao.listStudySessions(userDao.findIdByUsername(principal.getName()));
     }
 
@@ -57,7 +57,7 @@ public class FlashcardsController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/studysessions", method = RequestMethod.POST)
+    @RequestMapping(path = "/studysessions/", method = RequestMethod.POST)
     public void addStudySession(@RequestBody StudySession studySession, Principal principal) {
         dao.addStudySession(studySession, userDao.findIdByUsername(principal.getName()));
     }

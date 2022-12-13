@@ -3,8 +3,8 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO deck (deck_title, deck_description) VALUES ('commonly used phrases in Somali ', 'idk');
-INSERT INTO deck (deck_title, deck_description) VALUES ('Common Turkish Phrases/Words', 'Learn common Turkish phrases or words to surprise your friends and coworkers');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Commonly Used Phrases in Somali ', 'Learn common Somali phrases or words to surprise your family');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Common Turkish Phrases', 'Learn common Turkish phrases or words to surprise your friends and coworkers');
 
 
 INSERT INTO card (flashcard_body, card_title, tags) VALUES ('Salaam', 'Hello', '#Somali, #greeting');

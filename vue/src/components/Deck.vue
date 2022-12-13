@@ -89,7 +89,7 @@ export default {
      this.deleteDeckID = this.deck.deckID
      flashCardService.deleteDeck(this.deleteDeckID).then(response => {
        if(response.status === 204) {
-         this.$router.push("/decks")
+         this.$router.go()
 
        }
      }) 
