@@ -174,6 +174,7 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
         studySession.setQuestionCorrect(rowSet.getInt("question_correct"));
         studySession.setQuestionIncorrect(rowSet.getInt("question_incorrect"));
         studySession.setTotal(rowSet.getInt("total"));
+        studySession.setSessionTimeStamp(rowSet.getDouble("session_time_stamp"));
 
         return studySession;
     }

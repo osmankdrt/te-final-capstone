@@ -53,6 +53,7 @@ CREATE TABLE study_session
     question_correct int NOT NULL,
     question_incorrect int NOT NULL,
     total int NOT NULL,
+    session_time_stamp DECIMAL NOT NULL,
 
     CONSTRAINT pk_study_session PRIMARY KEY (session_id),
     CONSTRAINT fk_study_session_user FOREIGN KEY (user_id) REFERENCES users(user_id),

@@ -48,6 +48,7 @@ INSERT INTO card_deck (deck_id, card_id) VALUES (2,12);
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,13);
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,14);
 
+<<<<<<< HEAD
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,15);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,16);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,17);
@@ -55,6 +56,9 @@ INSERT INTO card_deck (deck_id, card_id) VALUES (3,18);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,19);
 
 INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (1, 1, 2, 2, 4);
+=======
+INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total, session_time_stamp) VALUES (1, 1, 2, 2, 4, 123.456);
+>>>>>>> 5340e34b5d6ce88783ef21b2af9f741e9986f67e
 
 
 COMMIT TRANSACTION;
