@@ -1,66 +1,87 @@
 <template>
-  <div class= "header">
-     <img id="logo" src="../assets/R.png" alt="Globel Logo">
-      <h1>Lango </h1>
-      <nav class = "nav">
+  <div class="header">
+    <div class="logoBox">
+      <img id="logo" src="../assets/langologotrimmed.png" alt="Lango Logo" />
+      <h1>Lango</h1>
+    </div>
+
+    <nav class="nav">
       <div class="homeLink">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
       </div>
-      <div class = "decksLink">
-        <router-link v-bind:to="{ name: 'deck' }">Decks</router-link>&nbsp;&nbsp;
+      <div class="decksLink">
+        <router-link v-bind:to="{ name: 'deck' }">Decks</router-link
+        >&nbsp;&nbsp;
       </div>
-      <div class = "loginLink">
-        <button class='btn btn-light' v-show="$store.state.token == ''"><router-link v-bind:to="{name: 'login'}" v-show="$store.state.token == ''">Login</router-link></button>
-        <button class='btn btn-light' v-show="$store.state.token"><router-link v-bind:to="{name: 'logout'}" v-show="$store.state.token != ''">Logout</router-link></button>
+      <div class="loginLink">
+        <button class="btn btn-light" v-show="$store.state.token == ''">
+          <router-link
+            v-bind:to="{ name: 'login' }"
+            v-show="$store.state.token == ''"
+            >Login</router-link
+          >
+        </button>
+        <button class="btn btn-light" v-show="$store.state.token">
+          <router-link
+            v-bind:to="{ name: 'logout' }"
+            v-show="$store.state.token != ''"
+            >Logout</router-link
+          >
+        </button>
       </div>
-      </nav>
+    </nav>
   </div>
- 
-
 </template>
 
 <script>
 export default {
- name: 'app-header',
- data(){
-   return {
-     show: false,
-   }
- },
- methods: {
-   toggleShow(){
-     this.show = !this.show
-   }
- }
-}
+  name: "app-header",
+  data() {
+    return {
+      show: false,
+    };
+  },
+  methods: {
+    toggleShow() {
+      this.show = !this.show;
+    },
+  },
+};
 </script>
 
 <style scoped>
- .header{
+.header {
   display: flex;
-  background-color: #CDD5D1;
-  /* position: sticky; */
+  align-items: center;
+  justify-content: space-between;
+  background-color: #cdd5d1;
   top: 0%;
   padding: 10px;
   justify-content: space-between;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  
 }
- #logo{
-   height: 65px;
-   flex-grow: 20px;
-   
- } 
-.nav{
- align-content: center;
- text-align: end;
+
+.logoBox {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  height: 75px;
+  width: 75px;
+}
+.nav {
+  display: flex;
+  align-items: baseline;
+  align-content: center;
+  text-align: end;
 }
 
 a.router-link-exact-active.router-link-active {
   text-decoration: none;
   color: green;
-  font-weight: bold ;
+  font-weight: bold;
 }
 
 a {
@@ -75,10 +96,10 @@ button {
   border-color: white;
 }
 
-h1{
-  font-family:cursive;
-  /*Times New Roman', Times, serif;*/
- color: #043152;
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #043152;
 }
 
 .homeLink {
@@ -88,12 +109,12 @@ h1{
 
 .decksLink {
   padding: 10px 15px;
-   margin-right: 20px;
+  margin-right: 20px;
 }
 
 .loginLink {
   padding: 10px 15px;
-   margin-right: 10px;
+  margin-right: 10px;
 }
 
 .homeLink {
@@ -123,7 +144,9 @@ h1{
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.homeLink:hover:before, .homeLink:focus:before, .homeLink:active:before {
+.homeLink:hover:before,
+.homeLink:focus:before,
+.homeLink:active:before {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
@@ -155,7 +178,9 @@ h1{
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.decksLink:hover:before, .decksLink:focus:before, .decksLink:active:before {
+.decksLink:hover:before,
+.decksLink:focus:before,
+.decksLink:active:before {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
@@ -187,10 +212,10 @@ h1{
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.loginLink:hover:before, .loginLink:focus:before, .loginLink:active:before {
+.loginLink:hover:before,
+.loginLink:focus:before,
+.loginLink:active:before {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-
-
 </style>
