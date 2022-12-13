@@ -1,28 +1,69 @@
 <template>
   <div>
-    <span class = 'study'>
-      <button class ='btn btn-primary studyButton' v-on:click ="toggleStudySession" v-if="!studySession && cards.length !=0"> Start Study Session </button>
-      <button class = 'btn btn-danger studyButton' v-on:click ="toggleStudySession" v-if="studySession"> End Study Session</button>
+    <!-- Study Session Button -->
+    <span class="study">
+      <button
+        class="btn btn-primary studyButton"
+        v-on:click="toggleStudySession"
+        v-if="!studySession && cards.length != 0"
+      >
+        Start Study Session
+      </button>
+      <button
+        class="btn btn-danger studyButton"
+        v-on:click="toggleStudySession"
+        v-if="studySession"
+      >
+        End Study Session
+      </button>
     </span>
-    <span class = 'progressBars' v-if="studySession">
-    <div class="progress">
-  <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: calculateCorrect}"  aria-valuemin="0" aria-valuemax="100">{{calculateCorrect}}</div>
-  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: calculateIncorrect}"  aria-valuemin="0" aria-valuemax="100">{{calculateIncorrect}}</div>
-    </div>
-    <div class="progressFraction"> <h1>{{calculateProgress}}/{{cards.length}}</h1>
-    </div>
+
+    <!-- Progress Bar -->
+    <span class="progressBars" v-if="studySession">
+      <div class="progress">
+        <div
+          class="
+            progress-bar
+            bg-success
+            progress-bar-striped progress-bar-animated
+          "
+          role="progressbar"
+          :style="{ width: calculateCorrect }"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          {{ calculateCorrect }}
+        </div>
+        <div
+          class="
+            progress-bar
+            bg-danger
+            progress-bar-striped progress-bar-animated
+          "
+          role="progressbar"
+          :style="{ width: calculateIncorrect }"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          {{ calculateIncorrect }}
+        </div>
+      </div>
+      <div class="progressFraction">
+        <h1>{{ calculateProgress }}/{{ cards.length }}</h1>
+      </div>
     </span>
-    <div class = "cardProgress">
-      
-    </div>
+
+    <!-- List of Cards -->
     <div class="cardsList">
+      <!-- Card Silhoutte -->
       <div
         class="cardShadow"
         v-on:click.prevent="toggleDisplayForm"
         v-show="!displayCardForm"
       >
+        <div class="plus radius" v-if="!studySession" />
 
-     <!--this is part of the flip card from the method that is commented out 
+        <!--this is part of the flip card from the method that is commented out 
        <ul class="flashcard-list">
       <li v-on:click="toggleCard(card)" v-for="(card, index) in cards">
         <transition name="flip">
@@ -34,19 +75,32 @@
       </li>
     </ul> -->
 
+        <!-- Study Session Timer -->
+        <div
+          class="timer"
+          style="--duration: 3; --size: 30"
+          v-if="studySession"
+        >
+          <div class="mask" v-if="studySession"></div>
+        </div>
 
-        <div class="plus radius" v-if="!studySession"/>
-        <div class="timer" style="--duration: 30;--size: 100;" v-if="studySession">
-    <div class="mask" v-if="studySession"></div>
-</div>
+        <div
+          class="timer"
+          style="--duration: 10; --size: 100"
+          v-if="studySession"
+        >
+          <div class="mask" v-if="studySession"></div>
+        </div>
       </div>
+
+      <!-- Add A Card Form -->
       <div class="cardFormCard" v-if="displayCardForm">
         <div class="form-group">
           <div class="cardEditButtons">
             <button class="btn btn-primary" v-on:click.prevent="addCard">
               ➕
             </button>
-             <button class="btn btn-primary" v-on:click="toggleDisplayForm">
+            <button class="btn btn-primary" v-on:click="toggleDisplayForm">
               ❌
             </button>
           </div>
@@ -58,40 +112,30 @@
             v-model="newCard.cardTitle"
             required
           />
-          <label for="cardText" class="cardText">
-            Card Text
-          </label>
+          <label for="cardText" class="cardText"> Card Text </label>
           <input
             type="text"
             class="form-control"
             v-model="newCard.cardText"
             required
           />
-           <label for="cardText" class="cardText">
-            Card Tags
-          </label>
+          <label for="cardText" class="cardText"> Card Tags </label>
           <input
             type="text"
             class="form-control"
             v-model="newCard.tags"
             required
           />
-          
-
         </div>
       </div>
 
-      
-    <!-- <div class="timer" style="--duration: 60;--size: 30;">
-    <div class="mask"></div>
-</div> -->
-
-
+     
+      <!-- Empty Deck Message -->
       <div v-show="emptyDeck" class="emptydeck">
         <h2>Current Deck is Empty</h2>
       </div>
-       <card
-       @name="questionCorrectCounter, questionIncorrectCounter"
+      <card
+        @name="questionCorrectCounter, questionIncorrectCounter"
         v-for="card in cards"
         v-bind:card="card"
         v-bind:key="card.cardId"
@@ -100,15 +144,10 @@
         @questionIncorrectEvent="questionIncorrectCounter"
       />
     </div>
-    <timer/>
   </div>
-  
 </template>
 
 <script>
-
-
-
 import flashCardService from "../services/FlashCardService.js";
 import Card from "../components/Card.vue";
 export default {
@@ -122,10 +161,10 @@ export default {
       questionCorrect: 0,
       questionIncorrect: 0,
       newCard: {
-        cardTitle: '',
-        cardText: '',
-        tags: ''
-      }
+        cardTitle: "",
+        cardText: "",
+        tags: "",
+      },
     };
   },
   components: {
@@ -139,28 +178,27 @@ export default {
       return false;
     },
     calculateScore() {
-      let total = this.questionIncorrect + this.questionCorrect
-      let score = (this.questionCorrect)/(total)
-      score * 100
-      return score
+      let total = this.questionIncorrect + this.questionCorrect;
+      let score = this.questionCorrect / total;
+      score * 100;
+      return score;
     },
     calculateProgress() {
-      let complete = this.questionIncorrect + this.questionCorrect
-      return complete
+      let complete = this.questionIncorrect + this.questionCorrect;
+      return complete;
     },
     calculateCorrect() {
-      let correct = this.questionCorrect
-      let total = this.cards.length
-      let correctProgress = Math.round((correct/total) * 100)
-      return correctProgress + '%'
+      let correct = this.questionCorrect;
+      let total = this.cards.length;
+      let correctProgress = Math.round((correct / total) * 100);
+      return correctProgress + "%";
     },
     calculateIncorrect() {
-      let incorrect = this.questionIncorrect
-      let total = this.cards.length
-      let incorrectProgress = Math.round((incorrect/total) * 100)
-      return incorrectProgress + '%'
+      let incorrect = this.questionIncorrect;
+      let total = this.cards.length;
+      let incorrectProgress = Math.round((incorrect / total) * 100);
+      return incorrectProgress + "%";
     },
- 
   },
   methods: {
     toggleDisplayForm() {
@@ -168,35 +206,33 @@ export default {
     },
     toggleStudySession() {
       this.studySession = !this.studySession;
-      
     },
     restartStudySession() {
-     this.questionCorrect = 0
-     this.questionIncorrect = 0
+      this.questionCorrect = 0;
+      this.questionIncorrect = 0;
     },
     addCard(deckID, card) {
-      deckID = this.$route.params.id
-      card = this.newCard
+      deckID = this.$route.params.id;
+      card = this.newCard;
       flashCardService.addCard(deckID, card).then((response) => {
         if (response.status === 201) {
-          this.$router.go()
+          this.$router.go();
         }
-      })
+      });
     },
 
     questionCorrectCounter() {
-      this.questionCorrect += 1
+      this.questionCorrect += 1;
     },
     questionIncorrectCounter() {
-      this.questionIncorrect += 1
-    }
+      this.questionIncorrect += 1;
+    },
 
-    
     // This may help flip the card
-      //  methods: {
-      // toggleCard: function(card){
-      //   card.flipped = !card.flipped;
-      // },
+    //  methods: {
+    // toggleCard: function(card){
+    //   card.flipped = !card.flipped;
+    // },
   },
 
   created() {
@@ -215,7 +251,7 @@ export default {
   align-items: center;
 }
 
-.study{
+.study {
   display: flex;
   justify-content: center;
 }
@@ -249,12 +285,12 @@ h2 {
   align-items: center;
   flex-wrap: wrap;
   border: 5px solid;
-  border-color: #0496FF;
+  border-color: #0496ff;
   border-radius: 10px;
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #FFF4E4;
+  background-color: #fff4e4;
   box-shadow: 5px 5px 3px #00000062;
 }
 
@@ -263,11 +299,11 @@ h2 {
   justify-content: space-between;
 }
 
-.btn.btn-primary{
+.btn.btn-primary {
   margin: 5px;
 }
 
-.btn.btn-danger.studyButton{
+.btn.btn-danger.studyButton {
   margin: 5px;
 }
 
@@ -282,16 +318,16 @@ h2 {
   justify-content: flex-start;
 }
 
-.progress{
+.progress {
   margin: 1vh 15vw;
-  grid-area: 'bar';
+  grid-area: "bar";
 }
 
-.progressBars{
+.progressBars {
   align-content: center;
 }
 
-.progressFraction{
+.progressFraction {
   align-content: center;
 }
 
@@ -327,49 +363,48 @@ h1 {
 }
 
 .timer {
-    background: -webkit-linear-gradient(left, #0496FF 50%, #FFF4E4 50%);
-    border-radius: 100%;
-    height: calc(var(--size) * 1px);
-    width: calc(var(--size) * 1px);
-    position: relative;
-    -webkit-animation: time calc(var(--duration) * 1s) steps(1000, start) infinite;
-      -webkit-mask: radial-gradient(transparent 50%,#000 50%);
-      mask: radial-gradient(transparent 50%,#000 50%);
+  background: -webkit-linear-gradient(left, #0496ff 50%, #fff4e4 50%);
+  border-radius: 100%;
+  height: calc(var(--size) * 1px);
+  width: calc(var(--size) * 1px);
+  position: relative;
+  -webkit-animation: time calc(var(--duration) * 1s) steps(1000, start) infinite;
+  -webkit-mask: radial-gradient(transparent 50%, #000 50%);
+  mask: radial-gradient(transparent 50%, #000 50%);
 }
 .mask {
-    border-radius: 100% 0 0 100% / 50% 0 0 50%;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 50%;
-    -webkit-animation: mask calc(var(--duration) * 1s) steps(500, start) infinite;
-    -webkit-transform-origin: 100% 50%;
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50%;
+  -webkit-animation: mask calc(var(--duration) * 1s) steps(500, start) infinite;
+  -webkit-transform-origin: 100% 50%;
 }
 @-webkit-keyframes time {
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes mask {
-    0% {
-        background: #eee;
-        -webkit-transform: rotate(0deg);
-    }
-    50% {
-        background: #eee;
-        -webkit-transform: rotate(-180deg);
-    }
-    50.01% {
-        background: #0496FF;
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        background: #0496FF;
-        -webkit-transform: rotate(-180deg);
-    }
+  0% {
+    background: #eee;
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    background: #eee;
+    -webkit-transform: rotate(-180deg);
+  }
+  50.01% {
+    background: #0496ff;
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    background: #0496ff;
+    -webkit-transform: rotate(-180deg);
+  }
 }
-
 </style>
 
 
