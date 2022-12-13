@@ -43,6 +43,14 @@ listCards() {
 
  updateCard(card) {
     return http.put('/cards', card)
+ },
+
+ addStudySession(studySession) {
+    return http.post(`/studysessions/`, studySession)
+ },
+
+ listStudySessionsByUser() {
+   return http.get(`/studysessions`)
  }
 
  

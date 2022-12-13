@@ -1,8 +1,9 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Card;
-import com.techelevator.model.CardDeck;
 import com.techelevator.model.Deck;
+import com.techelevator.model.StudySession;
+
 import java.util.*;
 
 public interface FlashcardsDao {
@@ -12,6 +13,10 @@ public interface FlashcardsDao {
     List<Card> listAllCards();
 
     List<Card> listCardsByDeck(int deckID);
+
+    List<StudySession> listStudySessions(int userID);
+
+    Integer addStudySession(StudySession studySession, int userID);
 
     int addDeck(Deck deck);
 

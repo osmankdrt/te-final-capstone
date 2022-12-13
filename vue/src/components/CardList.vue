@@ -5,21 +5,28 @@
       <button
         class="btn btn-primary studyButton"
         v-on:click="toggleStudySession"
-        v-if="!studySession && cards.length != 0"
+        v-if="!studySessionBool && cards.length != 0"
       >
         Start Study Session
       </button>
       <button
         class="btn btn-danger studyButton"
         v-on:click="toggleStudySession(), restartStudySession()"
-        v-if="studySession"
+        v-if="studySessionBool"
       >
         End Study Session
+      </button>
+      <button
+        class="btn btn-primary studyButton"
+        v-on:click="addStudySession"
+        v-if="studySessionBool"
+      >
+        Save Study Session
       </button>
     </span>
 
     <!-- Progress Bar -->
-    <span class="progressBars" v-if="studySession">
+    <span class="progressBars" v-if="studySessionBool">
       <div class="progress">
         <div
           class="
@@ -61,7 +68,7 @@
         v-on:click.prevent="toggleDisplayForm"
         v-show="!displayCardForm"
       >
-        <div class="plus radius" v-if="!studySession" />
+        <div class="plus radius" v-if="!studySessionBool" />
 
         <!--this is part of the flip card from the method that is commented out 
        <ul class="flashcard-list">
@@ -79,9 +86,9 @@
         <div
           class="timer"
           style="--duration: 120; --size: 100"
-          v-if="studySession"
+          v-if="studySessionBool"
         >
-          <div class="mask" v-if="studySession"></div>
+          <div class="mask" v-if="studySessionBool"></div>
         </div>
       </div>
 
@@ -149,7 +156,7 @@ export default {
       cards: [],
       isDeckEmpty: false,
       displayCardForm: false,
-      studySession: false,
+      studySessionBool: false,
       questionCorrect: 0,
       questionIncorrect: 0,
       newCard: {
@@ -157,6 +164,12 @@ export default {
         cardText: "",
         tags: "",
       },
+      studySession: {
+        deckID: 0,
+        questionCorrect: 0,
+        questionIncorrect: 0,
+        total: 0
+      }
     };
   },
   components: {
@@ -197,11 +210,23 @@ export default {
       this.displayCardForm = !this.displayCardForm;
     },
     toggleStudySession() {
-      this.studySession = !this.studySession;
+      this.studySessionBool = !this.studySessionBool;
     },
     restartStudySession() {
       this.questionCorrect = 0;
       this.questionIncorrect = 0;
+    },
+    addStudySession(studySession) {
+      studySession.deckID = this.$route.params.id;
+      studySession.questionCorrect = this.questionCorrect;
+      studySession.questionIncorrect = this.questionIncorrect;
+      studySession.total = this.questionCorrect + this.questionIncorrect;
+
+      flashCardService.addStudySession(studySession).then((response) => {
+        if (response.status === 201) {
+          this.$router.go();
+        }
+      })
     },
     addCard(deckID, card) {
       deckID = this.$route.params.id;
@@ -269,21 +294,22 @@ h2 {
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #131313d0;
+  background-color: #dbd5d579;
   box-shadow: 5px 5px 3px #00000062;
+  opacity: 0.4;
 }
 .cardFormCard {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   border: 5px solid;
-  border-color: #0496ff;
+  border-color: #0b3954;
   border-radius: 10px;
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #fff4e4;
-  box-shadow: 5px 5px 3px #00000062;
+  background-color: #F2E8CF;
+  box-shadow: 5px 5px 3px #0000008c;
 }
 
 .cardEditButtons {
@@ -321,6 +347,8 @@ h2 {
 
 .progressFraction {
   align-content: center;
+  color: #F2E8CF;
+  text-shadow: 2px 2px #0b3954;
 }
 
 h1 {

@@ -95,7 +95,6 @@ export default {
 .deckList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   align-items: center;
 }
 .deckShadow {
@@ -115,18 +114,18 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   border: 5px solid;
-  border-color: #0496FF;
+  border-color: #0b3954;
   border-radius: 10px;
   height: 300px;
   width: 250px;
   margin: 40px;
-  background-color: #fff4e4;
-  box-shadow: 15px 15px 3px #00000062;
+  background-color: #F2E8CF;
+  box-shadow: 15px 15px 3px #0000008c;
 }
 .deckName {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  color: #0496FF;
+  color: #0b3954;
   
 
   
@@ -135,7 +134,7 @@ export default {
 .deckDescription {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  color: #0496FF;
+  color: #0b3954;
 }
 
 .deckFormCard {
