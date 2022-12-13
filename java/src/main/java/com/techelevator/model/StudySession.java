@@ -7,7 +7,15 @@ public class StudySession {
     private int questionCorrect;
     private int questionIncorrect;
     private int total;
+    private double sessionTimeStamp;
 
+    public double getSessionTimeStamp() {
+        return sessionTimeStamp;
+    }
+
+    public void setSessionTimeStamp(double sessionTimeStamp) {
+        this.sessionTimeStamp = sessionTimeStamp;
+    }
 
     public int getDeckID() {
         return deckID;

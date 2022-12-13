@@ -40,7 +40,7 @@ public class FlashcardsController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/studysessions/{userID}", method = RequestMethod.GET)
-    public List<StudySession> getStudySessions(@PathVariable int userID, @RequestBody Principal principal) {
+    public List<StudySession> getStudySessions(@PathVariable int userID, Principal principal) {
         return dao.listStudySessions(userDao.findIdByUsername(principal.getName()));
     }
 
