@@ -1,16 +1,27 @@
 <template>
   <div>
-   
     <span class = 'study'>
-      <button class ='btn btn-primary studyButton' v-on:click ="toggleStudySession" v-if="!studySession"> Start Study Session </button>
+      <button class ='btn btn-primary studyButton' v-on:click ="toggleStudySession" v-if="!studySession && cards.length !=0"> Start Study Session </button>
       <button class = 'btn btn-danger studyButton' v-on:click ="toggleStudySession" v-if="studySession"> End Study Session</button>
     </span>
+    <span class = 'progressBars' v-if="studySession">
+    <div class="progress">
+  <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: calculateCorrect}"  aria-valuemin="0" aria-valuemax="100">{{calculateCorrect}}</div>
+  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: calculateIncorrect}"  aria-valuemin="0" aria-valuemax="100">{{calculateIncorrect}}</div>
+    </div>
+    <div class="progressFraction"> <h1>{{calculateProgress}}/{{cards.length}}</h1>
+    </div>
+    </span>
+    <div class = "cardProgress">
+      
+    </div>
     <div class="cardsList">
       <div
         class="cardShadow"
         v-on:click.prevent="toggleDisplayForm"
         v-show="!displayCardForm"
       >
+
      <!--this is part of the flip card from the method that is commented out 
        <ul class="flashcard-list">
       <li v-on:click="toggleCard(card)" v-for="(card, index) in cards">
@@ -22,6 +33,8 @@
         </transition>
       </li>
     </ul> -->
+
+
         <div class="plus radius" v-if="!studySession"/>
         <div class="timer" style="--duration: 30;--size: 100;" v-if="studySession">
     <div class="mask" v-if="studySession"></div>
@@ -87,7 +100,9 @@
         @questionIncorrectEvent="questionIncorrectCounter"
       />
     </div>
+    <timer/>
   </div>
+  
 </template>
 
 <script>
@@ -126,13 +141,26 @@ export default {
     calculateScore() {
       let total = this.questionIncorrect + this.questionCorrect
       let score = (this.questionCorrect)/(total)
-      return score;
+      score * 100
+      return score
     },
     calculateProgress() {
       let complete = this.questionIncorrect + this.questionCorrect
+      return complete
+    },
+    calculateCorrect() {
+      let correct = this.questionCorrect
       let total = this.cards.length
-      return (complete/total)
-    }
+      let correctProgress = Math.round((correct/total) * 100)
+      return correctProgress + '%'
+    },
+    calculateIncorrect() {
+      let incorrect = this.questionIncorrect
+      let total = this.cards.length
+      let incorrectProgress = Math.round((incorrect/total) * 100)
+      return incorrectProgress + '%'
+    },
+ 
   },
   methods: {
     toggleDisplayForm() {
@@ -141,6 +169,10 @@ export default {
     toggleStudySession() {
       this.studySession = !this.studySession;
       
+    },
+    restartStudySession() {
+     this.questionCorrect = 0
+     this.questionIncorrect = 0
     },
     addCard(deckID, card) {
       deckID = this.$route.params.id
@@ -179,8 +211,7 @@ export default {
 <style scoped>
 .cardsList {
   display: flex;
-  flex-wrap: wrap  ;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -251,6 +282,25 @@ h2 {
   justify-content: flex-start;
 }
 
+.progress{
+  margin: 1vh 15vw;
+  grid-area: 'bar';
+}
+
+.progressBars{
+  align-content: center;
+}
+
+.progressFraction{
+  align-content: center;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
 .plus {
   /* plus sign on deck shadow */
   display: inline-block;
@@ -319,6 +369,7 @@ h2 {
         -webkit-transform: rotate(-180deg);
     }
 }
+
 </style>
 
 
