@@ -1,5 +1,7 @@
 <template>
-  <div class="cards">
+  <div class="cards" v-on:mouseover="toggleCSS">
+    <!-- <div class="flip-card"> -->
+      <div class="inner-card">
     <!-- Edit Card -->
     <div class="cardEditButtons" v-if="this.$parent.studySession == false">
       <button
@@ -18,13 +20,14 @@
       </button>
     </div>
     <!-- Flip Card -->
-    <div class="flip-card" v-on:click.prevent="showCard">
-      <div class="inner-card">
+    <!-- <div class="flip-card" v-on:click.prevent="showCard">
+      <div class="inner-card"> -->
         <!-- Front of Card -->
         <div class="front-card">
           <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
           <p class="card-tags" v-show="!show">{{ card.tags }}</p>
         </div>
+
         <!-- Back of Card -->
         <div class="back-card" v-show="show">
           <p class="card-text">{{ card.cardText }}</p>
@@ -49,6 +52,7 @@
             </button>
           </div>
         </div>
+
         <!-- Edit Card Form -->
         <div v-show="displayCardForm" class="cardFormCard">
           <label for="cardName" class="cardName"> Card Name </label>
@@ -77,7 +81,7 @@
           </button>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -129,6 +133,15 @@ export default {
         }
       });
     },
+    toggleCSS(){
+            let cards = document.querySelectorAll('.cards');
+            cards.forEach((card)=>{
+            card.addEventListener('click', function() {
+            card.classList.toggle('is-flipped');
+            });
+           this.showCard
+        });
+        },
   },
   computed: {},
 };
@@ -146,6 +159,10 @@ export default {
   background-color: #F2E8CF;
   box-shadow: 6px 6px 3px #0000008c;
   overflow-y: auto;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
 }
 
 p.card-text {
@@ -195,5 +212,49 @@ p.card-text {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.flip-card {
+  display: inline-block;
+  width: 200px;
+  height: 260px;
+/*   border: 1px solid #CCC; */
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+/* .inner-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform .5s;
+} */
+
+.cards.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  backface-visibility: hidden;
+}
+
+/* .front-card {
+  background: crimson;
+} */
+
+.back-card {
+  /* background: slateblue; */
+  transform: rotateY(180deg);
 }
 </style>
