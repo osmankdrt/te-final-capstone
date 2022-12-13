@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Deck from '../views/Deck.vue'
 import CardView from '../views/CardView.vue'
+import StudySessionView from '../views/StudySessionView'
 
 Vue.use(Router)
 
@@ -71,6 +72,16 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: '/studysessions',
+      name: 'studysession',
+      component: StudySessionView,
+      meta: {
+        requiresAuth: true
+      }
+
+
+    }
   
   
   ]

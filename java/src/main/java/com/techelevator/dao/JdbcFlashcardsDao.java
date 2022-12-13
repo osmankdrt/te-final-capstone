@@ -6,11 +6,12 @@ import com.techelevator.model.StudySession;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Component
+@CrossOrigin
 public class JdbcFlashcardsDao implements FlashcardsDao{
 
     private JdbcTemplate jdbcTemplate;

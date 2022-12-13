@@ -2,7 +2,7 @@
   <div class="cards" v-on:click="showCard">
    
     <!-- Edit Card -->
-    <div class="cardEditButtons" v-if="this.$parent.studySession == false">
+    <div class="cardEditButtons" v-if="this.$parent.studySessionBool == false">
       <button
         type="button"
         class="btn btn-primary"

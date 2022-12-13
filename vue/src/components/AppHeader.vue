@@ -13,6 +13,10 @@
         <router-link v-bind:to="{ name: 'deck' }">Decks</router-link
         >&nbsp;&nbsp;
       </div>
+      <div class="sessionsLink">
+        <router-link v-bind:to="{ name: 'studysession' }">Study Sessions</router-link
+        >&nbsp;&nbsp;
+      </div>
       <div class="loginLink">
         <button class="btn btn-light" v-show="$store.state.token == ''">
           <router-link
@@ -117,6 +121,11 @@ h1 {
   margin-right: 10px;
 }
 
+.sessionsLink {
+  padding: 10px 15px;
+  margin-right: 20px;
+}
+
 .homeLink {
   display: inline-block;
   vertical-align: middle;
@@ -215,6 +224,40 @@ h1 {
 .loginLink:hover:before,
 .loginLink:focus:before,
 .loginLink:active:before {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.sessionsLink {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.sessionsLink:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #0b3954;
+  height: 4px;
+  -webkit-transform: translateY(-4px);
+  transform: translateY(-4px);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.sessionsLink:hover:before,
+.sessionsLink:focus:before,
+.sessionsLink:active:before {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
