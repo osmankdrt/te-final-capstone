@@ -8,12 +8,13 @@ import com.techelevator.model.Deck;
 import com.techelevator.model.StudySession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
-@CrossOrigin
 @RestController
+@CrossOrigin
 public class FlashcardsController {
 
     @Autowired
@@ -40,8 +41,8 @@ public class FlashcardsController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/studysessions/{userID}", method = RequestMethod.GET)
-    public List<StudySession> getStudySessions(@PathVariable int userID, Principal principal) {
-        return dao.listStudySessions(userDao.findIdByUsername(principal.getName()));
+    public List<StudySession> getStudySessions(@PathVariable int userID) {
+        return dao.listStudySessions(userID);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
