@@ -40,7 +40,6 @@ export default {
   display: flex;
   background-color: #CDD5D1;
   /* position: sticky; */
-  
   top: 0%;
   padding: 10px;
   justify-content: space-between;

@@ -85,6 +85,7 @@ name: 'app-footer'
 }
 html, body{
   font-family: "Lato", sans-serif;
+  
 }
 .row{
   margin-left: 0px;
@@ -92,13 +93,17 @@ html, body{
 }
 .global{
   padding: 50px;
-  color: #f0f9ff;
+  color: #0a0a0a;
   margin-top: 80px;
-  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftechbeasts.com%2Fwp-content%2Fuploads%2F2016%2F05%2Fmountain_nature_elegant_wallpaper_3f.jpg&f=1&nofb=1);
+  /* background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Ftechbeasts.com%2Fwp-content%2Fuploads%2F2016%2F05%2Fmountain_nature_elegant_wallpaper_3f.jpg&f=1&nofb=1); */
   background-repeat: no-repeat;
+  background-color: #CDD5D1;
   background-position: center;
   background-size: cover;
   opacity: 0.9;
+  font-family: 'Open Sans', arial, sans-serif;
+  
+  text-decoration: none;
 }
 /* .global .curve{
   position: absolute;
@@ -125,7 +130,7 @@ html, body{
   margin-bottom: 0;
 }
 .global ul a{
-  color: #fff;
+  color: rgb(7, 7, 7);
   text-decoration: none;
   transition: 0.3s;
 }
