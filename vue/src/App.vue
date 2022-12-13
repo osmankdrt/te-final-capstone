@@ -25,13 +25,9 @@ export default {
 
 <style>
 #app {
-  /* width: 100%;
-  height:100vh;
-  display: flex; */
-  /* background-color: blue; */
  width: 100%;
   height:100vh;
-  background-color: #285943;
+  background-color: #2a6853;
   grid-template-areas:
   "header" "header" "header"
   "routerview" "routerview" "routerview"
@@ -63,28 +59,5 @@ export default {
    background-color: #FFF4E4;  
    grid-area: footer;
 }
-
-/* .header{
-   background-color: #1B998B; 
-  background-color: #FFF4E4;
-} */
-
- /* .appheader {
- display: flex;
- } */
-/* .routerview {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-   grid-area: routerview; 
-   background-color: #2d3047;
-  height: 85vh; 
-} */
-/* 
- .footer{
-    background-color: #FFF4E4;
- } */
-
-
 
 </style>

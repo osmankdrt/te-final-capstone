@@ -79,7 +79,7 @@ export default {
   align-items: baseline;
   align-content: center;
   text-align: end;
-  font-size: large;
+ font-size: 25px;
 }
 
 a.router-link-exact-active.router-link-active {
