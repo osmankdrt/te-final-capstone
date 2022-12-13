@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS card;
 DROP TABLE IF EXISTS deck;
 DROP TABLE IF EXISTS card_deck;
+DROP TABLE IF EXISTS study_session;
 
 
 CREATE TABLE users (
@@ -42,6 +43,18 @@ CREATE TABLE card_deck
 	CONSTRAINT fk_card_deck_deck FOREIGN KEY (deck_id) REFERENCES deck(deck_id),
 	CONSTRAINT fk_card_deck_card FOREIGN KEY (card_id) REFERENCES card(card_id)
 
+);
+
+CREATE TABLE study_session
+(
+    session_id SERIAL,
+    user_id int NOT NULL,
+    question_correct int NOT NULL,
+    question_incorrect int NOT NULL,
+    total int NOT NULL,
+
+    CONSTRAINT pk_study_session PRIMARY KEY (session_id),
+    CONSTRAINT fk_study_session FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 COMMIT TRANSACTION;
