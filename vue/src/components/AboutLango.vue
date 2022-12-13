@@ -15,6 +15,13 @@
                 <p>We are Lango. We offer a creative flashcard learning style for languages. We <br /> take pride in our work and everything we create is executed with precision and love.</p>
                 <img  class="res-image" src='../assets/kids.jpg'/>
             </div> <!-- end container -->
+            <div class= "services">
+              <h2 class="service">services</h2>
+             <p>This are our samples of our Decks, Cards, And you could start a studySeation <br /> helps you truck your Scores. Ones The User LogIn Or Register. Home you enjoy it.</p>
+                <img  class="Decks-img" src='../assets/decks.jpg'/>
+                  <img  class="Cards-img" src='../assets/cards.jpg'/>
+                  <img  class="Cards-img" src='../assets/studyset.jpg'/>
+              </div>
         </section> <!-- end section-style -->  
         <section class="section-style team">
             <div class="container">
@@ -133,7 +140,29 @@ name: 'about-lango'
   position: relative;
   z-index: 5;
 }
-
+.service {
+  font-size: 3em;
+  font-weight: 300;
+  color: #222;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 5;
+}
+.service:after {
+  content: "";
+  display: block;
+  border: 1px solid; 
+  width: 100px;
+  margin: 10px auto 0px auto;
+}
+.Decks-img{
+  padding: 10px;
+  width: 40vw;
+}
+.Cards-img{
+  padding: 20px;
+  width: 36vw;
+}
 .section-intro:after {
   content: "";
   display: block;

@@ -90,4 +90,21 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#login {
+ 
+  height: 100%;
+}
+
+.text-center {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+} 
+</style>
