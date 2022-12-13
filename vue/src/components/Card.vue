@@ -208,48 +208,4 @@ p.card-text {
   flex-direction: column;
   justify-content: flex-end;
 }
-
-/* .flip-card {
-  display: inline-block;
-  width: 200px;
-  height: 260px;
-   border: 1px solid #CCC; 
-  margin: 40px 0;
-  perspective: 600px;
-} */
-
-/* .inner-card {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  transform-origin: center right;
-  transition: transform .5s;
-} */
-
-/* .cards.is-flipped {
-  transform: translateX(-100%) rotateY(-180deg);
-}
-
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  line-height: 260px;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 40px;
-  backface-visibility: hidden;
-}
-
- .front-card {
-  background: crimson;
-} 
-
-.back-card {
-   background: slateblue; 
-  transform: rotateY(180deg);
-} */
 </style>
