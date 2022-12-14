@@ -2,10 +2,11 @@
     <body>
         <section class="billboard clearfix">
             <div class="container">
-                <h1>CREATIVE IDEAS</h1>
+                <h1>CREATIVE MINDS</h1>
+                <h2 class="page">You can be your own teacher</h2>
                 <ul class="cta-buttons">
                 <li>
-                <router-link class="learn-more" :to="{ name: 'login' }">LEARN MORE</router-link></li>
+                <router-link class="learn-more" :to="{ name: 'login' }"><strong>GET STARTED</strong></router-link></li>
                 </ul>
             </div> <!-- end container -->
         </section> <!-- end billboard -->
@@ -30,8 +31,8 @@
                 <li class="member-profile prof-1">
                     <h3 class="tm-name">Binyam Tekae</h3>
                     <h4 class="tm-role">Software Developer</h4>
-                    <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href="https://www.linkedin.com/in/binyam-tekae/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
+                    <p class="tm-info">Binyam is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
+                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
                 <li class="member-profile prof-2">
@@ -39,20 +40,23 @@
                     <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
                     <a class="social" href="https://www.linkedin.com/in/ianwest614/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
-                    <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
-                </li> <!-- end member profile -->
+
+                    <p class="tm-info">Ian is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
                 <li class="member-profile prof-3">
                     <h3 class="tm-name">Osman Burgazli</h3>
-                    <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
                     <a class="social" href="https://www.linkedin.com/in/osmanburgazli/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
+
+                    <p class="tm-info">Osman is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
+                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
+
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
                 <li class="member-profile prof-4">
                     <h3 class="tm-name">Istar Hashi</h3>
                     <h4 class="tm-role">Software Developer</h4>
-                    <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href="https://www.linkedin.com/in/istar-hashi/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
+                    <p class="tm-info">Istar is the woman responsible for most of the graphic design. She is also a famous super hero by night.</p>
+                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
                 </ul> <!-- end team profiles -->
@@ -79,8 +83,9 @@ name: 'about-lango'
   margin: 0 auto;
 }
 .billboard {
-  height: 700px;
+  height: 900px;
   width: 100%;
+  
   background-image: url('../assets/learn.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -92,37 +97,46 @@ name: 'about-lango'
   text-align: center;
   margin: 250px 0 30px 0;
   font-size: 5em;
-  color: #fff;
+  color: rgb(2, 0, 0);
   letter-spacing: 10px;
   font-style: 'Open Sans';
   font-weight: 300;
+}
+.billboard h2 {
+  text-align: center;
+   color: rgb(2, 0, 0);
 }
 .cta-buttons {
   text-align: center;
   font-style: inherit;
   font-weight: 400;
+  color: #222;
 }
 
 .cta-buttons li {
   display: inline-block;
+ font-size: 35px;
+ 
 }
 
 .cta-buttons a {
   display: inline-block;
   padding: 20px 40px;
-  color: #fff;
+  color: rgb(14, 11, 11);
   margin: 20px;
 }
 
 .learn-more {
-  border: 2px solid #fff;
-  transition: .5s;
+  border: 3px solid rgb(8, 7, 7);
+  transition: .3s;
   border-radius: 10px;
+  color: rgb(236, 223, 223);
+  
 }
 
 .learn-more:hover {
-  background-color: #fff;
-  color: #444;
+  background-color: rgb(241, 227, 227);
+  color: rgb(7, 0, 0);
 }
 .section-style {
   width: 100%;
@@ -141,10 +155,11 @@ name: 'about-lango'
   z-index: 5;
 }
 .service {
-  font-size: 3em;
+  font-size: 4em;
   font-weight: 300;
-  color: #222;
+  color: rgb(7, 1, 1);
   margin-bottom: 60px;
+  margin-top: 50px;
   position: relative;
   z-index: 5;
 }

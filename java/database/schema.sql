@@ -54,6 +54,7 @@ CREATE TABLE study_session
     question_incorrect int NOT NULL,
     total int NOT NULL,
 
+
     CONSTRAINT pk_study_session PRIMARY KEY (session_id),
     CONSTRAINT fk_study_session_user FOREIGN KEY (user_id) REFERENCES users(user_id),
     CONSTRAINT fk_study_session_deck FOREIGN KEY (deck_id) REFERENCES deck(deck_id)

@@ -3,21 +3,21 @@
     <!-- Study Session Button -->
     <span class="study">
       <button
-        class="btn btn-primary studyButton"
+        class="btn btn-lg btn-primary studyButton"
         v-on:click="toggleStudySession"
         v-if="!studySessionBool && cards.length != 0"
       >
         Start Study Session
       </button>
       <button
-        class="btn btn-danger studyButton"
+        class="btn btn-lg btn-danger studyButton"
         v-on:click="toggleStudySession(), restartStudySession()"
         v-if="studySessionBool"
       >
-        End Study Session
+        Cancel Study Session
       </button>
       <button
-        class="btn btn-primary studyButton"
+        class="btn btn-lg btn-primary studyButton"
         v-on:click="addStudySession"
         v-if="studySessionBool"
       >
@@ -168,7 +168,8 @@ export default {
         deckID: 0,
         questionCorrect: 0,
         questionIncorrect: 0,
-        total: 0
+        total: 0,
+        date: 0
       }
     };
   },
@@ -221,7 +222,7 @@ export default {
       studySession.questionCorrect = this.questionCorrect;
       studySession.questionIncorrect = this.questionIncorrect;
       studySession.total = this.questionCorrect + this.questionIncorrect;
-
+      
       flashCardService.addStudySession(studySession).then((response) => {
         if (response.status === 201) {
           this.$router.go();
@@ -271,6 +272,7 @@ export default {
 .study {
   display: flex;
   justify-content: center;
+  margin-top: 15px;
 }
 
 h2 {

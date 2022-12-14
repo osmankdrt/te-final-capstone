@@ -52,7 +52,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .header {
   display: flex;
@@ -80,6 +79,7 @@ export default {
   align-items: baseline;
   align-content: center;
   text-align: end;
+  font-size: larger;
 }
 
 a.router-link-exact-active.router-link-active {
