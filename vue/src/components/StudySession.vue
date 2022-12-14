@@ -19,8 +19,12 @@ export default {
           },
           xaxis: {
             categories: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            label: {
+              text: 'Study Sessions'
+            }
             
-          }
+          },
+          colors: ['#5cb85c', '#d9534f']
         },
         series: [{
           name: 'Questions Correct',
