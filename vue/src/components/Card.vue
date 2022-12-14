@@ -134,14 +134,6 @@ export default {
         }
       });
     },
-    // toggleCSS(){
-    //         let cards = document.querySelectorAll('.cards');
-    //         cards.forEach((card)=>{
-    //         card.addEventListener('click', function() {
-    //         card.classList.toggle('is-flipped');
-    //         });
-    //     });
-    //     },
   },
   computed: {},
 };
