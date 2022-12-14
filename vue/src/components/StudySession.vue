@@ -1,6 +1,6 @@
 <template>
    <div>
-     <apexchart width="500" type="bar" :options="chartOptions" :series="fillBarOut" ></apexchart>
+     <apexchart width="500" type="bar" :options="chartOptions" :series="fillBarsOut" ></apexchart>
    </div>
 </template>
 
@@ -65,7 +65,7 @@ computed: {
   //   return questionsIncorrect
   // }
 
-  fillBarOut() {
+  fillBarsOut() {
     return [{name: 'Questions Correct', data: this.addQuestionsCorrect()}, {name: 'Questions Incorrect', data: this.addQuestionsIncorrect()}]
   },
   fillAxis() {
