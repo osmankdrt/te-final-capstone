@@ -17,7 +17,7 @@
             </div> <!-- end container -->
             <div class= "services">
               <h2 class="service">services</h2>
-             <p>This are our samples of our Decks, Cards, And you could start a studySeation <br /> helps you truck your Scores. Ones The User LogIn Or Register. Home you enjoy it.</p>
+             <p>This are our samples of our Decks, Cards, And you could start a study session <br /> helps you track your Scores. Once The User LogIn Or Register. Hope you enjoy it.</p>
                 <img  class="Decks-img" src='../assets/decks.jpg'/>
                   <img  class="Cards-img" src='../assets/cards.jpg'/>
                   <img  class="Cards-img" src='../assets/studyset.jpg'/>
@@ -31,28 +31,28 @@
                     <h3 class="tm-name">Binyam Tekae</h3>
                     <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
+                    <a class="social" href="https://www.linkedin.com/in/binyam-tekae/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
                 <li class="member-profile prof-2">
                     <h3 class="tm-name">Ian West</h3>
                     <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
+                    <a class="social" href="https://www.linkedin.com/in/ianwest614/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
                 <li class="member-profile prof-3">
                     <h3 class="tm-name">Osman Burgazli</h3>
                     <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
+                    <a class="social" href="https://www.linkedin.com/in/osmanburgazli/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
                 <li class="member-profile prof-4">
                     <h3 class="tm-name">Istar Hashi</h3>
                     <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
+                    <a class="social" href="https://www.linkedin.com/in/istar-hashi/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
                 </ul> <!-- end team profiles -->
