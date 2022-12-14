@@ -1,12 +1,14 @@
 <template>
+<div class="main">
+  <div class = "editButtons">
+    <button type="button" class="btn btn-primary" id="edit" v-on:click.prevent="toggleDisplayForm">✏️</button>
+    <button type="button" class="btn btn-primary" id="delete" v-on:click="deleteDeck" >❌</button>
+    
+    </div>
   <div class="decks">
     <router-link :to="{name:'cardView', params: {id: deck.deckID}}" class="deck" tag="div">
      
-     <div class = "editButtons">
-    <button type="button" class="btn btn-primary" v-on:click.prevent="toggleDisplayForm">✏️</button>
-    <button type="button" class="btn btn-primary" v-on:click="deleteDeck" >❌</button>
-    
-    </div>
+     
 
      <div class="titleAndDesc" v-show="!displayForm">
       <h3 class="deck-title"> {{deck.deckTitle}} </h3>
@@ -22,44 +24,11 @@
         <button class="Save btn btn-primary" v-on:click.prevent="updateDeck">Save</button>
         <button class="Save btn btn-danger" v-on:click.prevent="toggleDisplayForm">Cancel</button>
     </div>
-    
-
-   <!-- <div
-        class="deckShadow"
-        v-on:click.prevent="toggleDisplayForm"
-        v-show="!displayForm"
-      >
-        <div class="plus radius" />
-      </div> -->
-      
-  <!-- <div class="deckFormCard">
-      <div class="form-group">
-        <label for="deckName" class="deckName"> Deck Name </label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="deckToUpdate.deckTitle"
-            required
-        />
-        <label for="deckDescription" class="deckDescription">
-            Deck Description
-        </label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="deckToUpdate.deckDescription"
-            required
-          />
-        </div>
-      </div> -->
-
-
-
-
     </router-link>
     
   
     </div>
+  </div>
  
 
 </template>
@@ -89,8 +58,7 @@ export default {
      this.deleteDeckID = this.deck.deckID
      flashCardService.deleteDeck(this.deleteDeckID).then(response => {
        if(response.status === 204) {
-         this.$router.go()
-
+         this.$router.go();
        }
      }) 
    },
@@ -157,13 +125,22 @@ h3.deck-title {
   color: #0B3954;
   text-shadow: 1px 1px #072333;
   font-weight: bold;
+  margin-top: 36px;
 
 
 }
 
-.editButtons{
+/* .editButtons{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+} */
+
+#edit {
+  transform: translate(40px, 100px);
+}
+
+#delete {
+  transform: translate(155px, 100px);
 }
 
 .btn {
@@ -174,5 +151,10 @@ h3.deck-title {
 p.description {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+}
+
+.main {
+  margin: 0px;
+  margin-bottom: 55px;
 }
 </style>
