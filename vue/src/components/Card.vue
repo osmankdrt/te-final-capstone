@@ -25,7 +25,8 @@
         <!-- Front of Card -->
         <div class="front-card">
           <p class="card-title" v-show="!show">{{ card.cardTitle }}</p>
-          <p class="card-tags" v-show="!show">{{ card.tags }}</p>
+                      <!-- Tags are stored in database, but no search feature implemented -->
+          <!-- <p class="card-tags" v-show="!show">{{ card.tags }}</p> -->
         </div>
 
         <!-- Back of Card -->
@@ -148,6 +149,7 @@ export default {
 
 <style scoped>
 .cards {
+  display: flex;
   align-content: center;
   border: 7px solid;
   border-color: #0B3954;
@@ -164,9 +166,11 @@ p.card-text {
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-wrap: wrap;
   color: #2B4141;
   padding: 5px;
-  font-size: 2vh;
+  font-size: large;
+  font-weight: bold;
   overflow-y: auto;
 }
 .card-title {
@@ -197,15 +201,18 @@ p.card-text {
   margin: 10px;
 }
 
-.card-tags {
+/* .card-tags {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   padding: 5px;
-}
+} */
 
 .studySessionButtons {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+.flip-card {
+  margin-top: 50px;
 }
 </style>
