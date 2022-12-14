@@ -12,7 +12,7 @@ listDecks() {
 },
 
 addDecks(deck) {
-    return axios.post('/decks', deck)
+    return http.post('/decks', deck)
 },
 
 listCards() {
@@ -50,7 +50,7 @@ listCards() {
  },
 
  listStudySessionsByUser() {
-   return http.get(`/studysessions`)
+   return http.get(`/studysessions/1`)
  }
 
  

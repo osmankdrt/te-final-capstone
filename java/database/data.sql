@@ -7,7 +7,6 @@ INSERT INTO deck (deck_title, deck_description) VALUES ('Commonly Used Phrases i
 INSERT INTO deck (deck_title, deck_description) VALUES ('Common Turkish Phrases', 'Learn common Turkish phrases or words to surprise your friends and coworkers');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Common Used Phrases in Eritrean ', 'Learn common Eritrean phrases or words to surprise your family');
 
-
 INSERT INTO card (flashcard_body, card_title, tags) VALUES ('Salaam', 'Hello', '#Somali, #greeting');
 INSERT INTO card (flashcard_body, card_title, tags) VALUES ('Sidee tahay?', 'How are you?', '#Somali, #question');
 INSERT INTO card (flashcard_body, card_title, tags) VALUES ('Magacayga wa', 'My name is: ','#Somali, #introduction');

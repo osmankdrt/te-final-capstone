@@ -10,6 +10,7 @@ import CardView from '../views/CardView.vue'
 import StudySessionView from '../views/StudySessionView'
 import StopwatchView from '../views/StopwatchView'
 
+
 Vue.use(Router)
 
 /**

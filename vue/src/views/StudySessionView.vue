@@ -1,5 +1,7 @@
 <template>
+<div>
   <study-session/>
+</div>
 </template>
 
 <script>
