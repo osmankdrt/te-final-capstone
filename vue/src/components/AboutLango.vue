@@ -174,6 +174,7 @@ name: 'about-lango'
 }
 .study-img{
   padding: 30px;
+  padding: 20px;
   width: 36vw;
 }
 .section-intro:after {
