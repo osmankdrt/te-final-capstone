@@ -317,6 +317,7 @@ h2 {
 .cardEditButtons {
   display: flex;
   justify-content: space-between;
+  align-content: flex-start;
 }
 
 .btn.btn-primary {
@@ -335,7 +336,6 @@ h2 {
 .card-iterator {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
 .progress {
