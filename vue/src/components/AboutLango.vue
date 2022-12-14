@@ -3,9 +3,10 @@
         <section class="billboard clearfix">
             <div class="container">
                 <h1>CREATIVE MINDS</h1>
+                <h2 class="page">You can Be your own teacher</h2>
                 <ul class="cta-buttons">
                 <li>
-                <router-link class="learn-more" :to="{ name: 'login' }">LEARN MORE</router-link></li>
+                <router-link class="learn-more" :to="{ name: 'login' }">GET STARTED</router-link></li>
                 </ul>
             </div> <!-- end container -->
         </section> <!-- end billboard -->
@@ -20,7 +21,7 @@
              <p>This are our samples of our Decks, Cards, And you could start a study session <br /> helps you track your Scores. Once The User LogIn Or Register. Hope you enjoy it.</p>
                 <img  class="Decks-img" src='../assets/decks.jpg'/>
                   <img  class="Cards-img" src='../assets/cards.jpg'/>
-                  <img  class="Cards-img" src='../assets/studyset.jpg'/>
+                  <img  class="study-img" src='../assets/study.jpg'/>
               </div>
         </section> <!-- end section-style -->  
         <section class="section-style team">
@@ -31,23 +32,19 @@
                     <h3 class="tm-name">Binyam Tekae</h3>
                     <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Binyam is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
-                    <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
+                    <a class="social" href=""><i class="fa-brands fa-linkedin"></i></a>
+                   
                 </li> <!-- end member profile -->
                 <li class="member-profile prof-2">
                     <h3 class="tm-name">Ian West</h3>
                     <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
                     <a class="social" href="https://www.linkedin.com/in/ianwest614/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
-
-                    <p class="tm-info">Ian is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
                 <li class="member-profile prof-3">
                     <h3 class="tm-name">Osman Burgazli</h3>
+                    <h4 class="tm-role">Software Developer</h4>
                     <p class="tm-info">Bruce is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
                     <a class="social" href="https://www.linkedin.com/in/osmanburgazli/" target="_blank"><font-awesome-icon icon="fab fa-linkedin-in" /></a>
-
-                    <p class="tm-info">Osman is the man responsible for most of the graphic design. He is also a famous super hero by night.</p>
-                    <a class="social" href=""><img src="http://youngist.org/images/icon-social-twitter.svg" /></a>
 
                     <img class="member-photo" src="http://www.salesthroughservice.com/wp-content/uploads/2016/08/02_man.png.pagespeed.ce_.DsQWH7NpKI.png"/>
                 </li> <!-- end member profile -->
@@ -82,7 +79,7 @@ name: 'about-lango'
   margin: 0 auto;
 }
 .billboard {
-  height: 700px;
+  height: 835px;
   width: 100%;
   background-image: url('../assets/learn.jpeg');
   background-repeat: no-repeat;
@@ -95,37 +92,46 @@ name: 'about-lango'
   text-align: center;
   margin: 250px 0 30px 0;
   font-size: 5em;
-  color: #fff;
+  color: rgb(12, 2, 2);
   letter-spacing: 10px;
   font-style: 'Open Sans';
   font-weight: 300;
+}
+.page {
+  text-align: center;
+  font-size: 3em;
+  color: rgb(12, 1, 1);
+  letter-spacing: 1px;
 }
 .cta-buttons {
   text-align: center;
   font-style: inherit;
   font-weight: 400;
+  font-size: 40px;
+  
 }
 
 .cta-buttons li {
   display: inline-block;
+  color: #222;
 }
 
 .cta-buttons a {
   display: inline-block;
   padding: 20px 40px;
-  color: #fff;
+  color: rgb(12, 4, 4);
   margin: 20px;
 }
 
 .learn-more {
-  border: 2px solid #fff;
+  border: 5px solid rgb(41, 40, 40);
   transition: .5s;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .learn-more:hover {
-  background-color: #fff;
-  color: #444;
+  background-color: rgb(122, 187, 149);
+  color: rgb(22, 12, 12);
 }
 .section-style {
   width: 100%;
@@ -160,9 +166,13 @@ name: 'about-lango'
 }
 .Decks-img{
   padding: 10px;
-  width: 43vw;
+  width: 40vw;
 }
 .Cards-img{
+  padding: 30px;
+  width: 35vw;
+}
+.study-img{
   padding: 30px;
   width: 36vw;
 }
