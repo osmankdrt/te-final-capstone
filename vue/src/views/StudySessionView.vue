@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class = "bg">
   <study-session/>
 </div>
 </template>
@@ -13,5 +13,4 @@ export default {
 </script>
 
 <style>
-
 </style>

@@ -1,7 +1,6 @@
 <template>
    <div>
-     <apexchart width="500" type="bar" :options="chartOptions" :series="series" ></apexchart>
-     <div><button>Update</button></div>
+     <apexchart width="500" type="bar" :options="chartOptions" :series="fillBarOut" ></apexchart>
    </div>
 </template>
 
@@ -14,15 +13,18 @@ export default {
         studySessions: [],
         chartOptions: {
           chart: {
+            type: 'bar',
+            stacked: true,
             id: 'vuechart-example'
           },
           xaxis: {
-            categories: []
+            categories: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            
           }
         },
         series: [{
           name: 'Questions Correct',
-          data: [1, 2, 3]
+          data: []
         },
         {
           name: 'Questions Incorrect',
@@ -32,50 +34,67 @@ export default {
     },
 created() {
     flashCardService.listStudySessionsByUser().then((response) => {
-        this.studySessions = response.data
-    })
-    this.studySessions.forEach()
+        this.studySessions = response.data;
+    }) 
+    
 },
 computed: {
-  retrieveStudySessionIDs() {
-    let sessionIDs = [];
-    this.studySessions.forEach(studysession => {
-      sessionIDs.push(studysession.studySessionID)
+  // retrieveStudySessionIDs() {
+  //   let sessionIDs = [];
+  //   this.studySessions.forEach(studysession => {
+  //     sessionIDs.push(studysession.studySessionID)
     
-    })
-    return sessionIDs
-  },
-  retrieveQuestionCorrect() {
-    let questionsCorrect = [];
-    this.studySessions.forEach(studysession => {
-      questionsCorrect.push(studysession.questionCorrect)
-      this.series[0].data.push(studysession.questionCorrect)
+  //   })
+  //   return sessionIDs
+  // },
+  // retrieveQuestionCorrect() {
+  //   let questionsCorrect = [];
+  //   this.studySessions.forEach(studysession => {
+  //     questionsCorrect.push(studysession.questionCorrect)
+  //     this.series[0].data.push(studysession.questionCorrect)
     
-    })
-    return questionsCorrect
+  //   })
+  //   return questionsCorrect
+  // },
+  // retrieveQuestionIncorrect() {
+  //   let questionsIncorrect = [];
+  //   this.studySessions.forEach(studysession => {
+  //     questionsIncorrect.push(studysession.questionIncorrect)
+  //     this.series[1].data.push(studysession.questionIncorrect)
+  //   })
+  //   return questionsIncorrect
+  // }
+
+  fillBarOut() {
+    return [{name: 'Questions Correct', data: this.addQuestionsCorrect()}, {name: 'Questions Incorrect', data: this.addQuestionsIncorrect()}]
   },
-  retrieveQuestionIncorrect() {
-    let questionsIncorrect = [];
-    this.studySessions.forEach(studysession => {
-      questionsIncorrect.push(studysession.questionIncorrect)
-      this.series[1].data.push(studysession.questionIncorrect)
-    })
-    return questionsIncorrect
+  fillAxis() {
+    return {categories: this.addSessionIds}
   }
 },
   methods: {
-    updateChart() {
-   
-     
-      
-    },
-    addQuestionsCorrect() {
-    this.questionsCorrect.forEach((element) => {
-      this.series[0].data.push(element)
-      this.$router.go()
+  addSessionIds() {
+    let sessionIDs = [];
+    this.studySessions.forEach(studysession => {
+      sessionIDs.push(studysession.studySessionID)
     })
-  
-  }
+    return sessionIDs;
+  },
+
+  addQuestionsCorrect() {
+      let data = []
+    this.studySessions.forEach(studysession => {
+      data.push(studysession.questionCorrect)
+    })
+    return data;
+  },
+  addQuestionsIncorrect() {
+      let data = []
+    this.studySessions.forEach(studysession => {
+      data.push(studysession.questionIncorrect)
+    })
+    return data;
+  },
 }
 }
 </script>
