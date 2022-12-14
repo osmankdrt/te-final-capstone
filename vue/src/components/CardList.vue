@@ -317,6 +317,7 @@ h2 {
 .cardEditButtons {
   display: flex;
   justify-content: space-between;
+  align-content: flex-start;
 }
 
 .btn.btn-primary {
@@ -335,7 +336,6 @@ h2 {
 .card-iterator {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
 .progress {
@@ -378,6 +378,7 @@ h1 {
   background-position: center;
   background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
   background-repeat: no-repeat;
+  
 }
 .radius {
   /* plus sign on deck shadow */
