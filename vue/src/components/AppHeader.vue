@@ -9,13 +9,13 @@
       <div class="homeLink">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
       </div>
-      <div class="decksLink">
-        <router-link v-bind:to="{ name: 'deck' }">Decks</router-link
-        >&nbsp;&nbsp;
+      <div class="decksLink" v-if="isUser">
+        <router-link  v-bind:to="{ name: 'deck' }">Decks</router-link
+        >
       </div>
-      <div class="sessionsLink">
-        <router-link v-bind:to="{ name: 'studysession' }">Study Sessions</router-link
-        >&nbsp;&nbsp;
+      <div class="sessionsLink" v-if="isUser">
+        <router-link  v-bind:to="{ name: 'studysession' }">Study Sessions</router-link
+        >
       </div>
       <div class="loginLink">
         <button class="btn btn-light" v-show="$store.state.token == ''">
@@ -50,9 +50,18 @@ export default {
       this.show = !this.show;
     },
   },
+   computed: {
+        isUser() {
+            if (Object.keys(this.$store.state.user).length > 0 ) {
+                return this.$store.state.user.authorities[0].name == 'ROLE_USER';
+            }
+            return false;
+        }
+    }
 };
 </script>
 <style scoped>
+
 .header {
   display: flex;
   align-items: center;
@@ -63,6 +72,7 @@ export default {
   justify-content: space-between;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  overflow: hidden;
 }
 
 .logoBox {
@@ -109,6 +119,7 @@ h1 {
 .homeLink {
   padding: 10px 15px;
   margin-right: 20px;
+
 }
 
 .decksLink {

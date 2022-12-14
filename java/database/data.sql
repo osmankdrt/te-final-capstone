@@ -5,7 +5,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 INSERT INTO deck (deck_title, deck_description) VALUES ('Commonly Used Phrases in Somali ', 'Learn common Somali phrases or words to surprise your family');
 INSERT INTO deck (deck_title, deck_description) VALUES ('Common Turkish Phrases', 'Learn common Turkish phrases or words to surprise your friends and coworkers');
-INSERT INTO deck (deck_title, deck_description) VALUES ('Common Used Phrases in Eritrea ', 'Learn common Eritrea phrases or words to surprise your family');
+INSERT INTO deck (deck_title, deck_description) VALUES ('Common Used Phrases in Eritrean ', 'Learn common Eritrean phrases or words to surprise your family');
 
 INSERT INTO card (flashcard_body, card_title, tags) VALUES ('Salaam', 'Hello', '#Somali, #greeting');
 INSERT INTO card (flashcard_body, card_title, tags) VALUES ('Sidee tahay?', 'How are you?', '#Somali, #question');

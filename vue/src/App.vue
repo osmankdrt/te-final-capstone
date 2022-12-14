@@ -31,7 +31,7 @@ export default {
   grid-template-areas:
   "header" "header" "header"
   "routerview" "routerview" "routerview"
-  "routerview" "routerview" "routerview"
+  "routerview" "routerview" "routerview"q
   "footer" "footer" "footer"
 }
 

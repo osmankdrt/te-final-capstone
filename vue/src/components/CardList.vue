@@ -378,6 +378,7 @@ h1 {
   background-position: center;
   background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
   background-repeat: no-repeat;
+  
 }
 .radius {
   /* plus sign on deck shadow */

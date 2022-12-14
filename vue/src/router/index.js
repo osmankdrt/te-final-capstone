@@ -8,6 +8,7 @@ import store from '../store/index'
 import Deck from '../views/Deck.vue'
 import CardView from '../views/CardView.vue'
 import StudySessionView from '../views/StudySessionView'
+import StopwatchView from '../views/StopwatchView'
 
 
 Vue.use(Router)
@@ -80,9 +81,16 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
-
-
+    },
+    {
+      path: '/stopwatch',
+      name: 'StopwatchView',
+      component: StopwatchView,
+      meta: {
+        requiresAuth: false
+      }
     }
+
   
   
   ]

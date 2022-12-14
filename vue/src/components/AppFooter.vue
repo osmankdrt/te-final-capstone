@@ -13,9 +13,9 @@
           <div class="col-sm-6 col-md-2">
               <h6>Services</h6>
               <ul>
-                <li><a href="#">Email Marketing</a> </li>
-                <li><a href="#">Campaigns</a> </li>
-                <li><a href="#">Branding</a> </li>
+                <li><a href="#">Study Seation</a> </li>
+                <li><a href="#">deck</a> </li>
+                <li><a href="#">Cards</a> </li>
                 <li><a href="#">Offline</a> </li>
               </ul>
           </div>
