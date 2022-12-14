@@ -93,4 +93,8 @@ export default {
   outline: none;
   background: transparent;
 }
+
+#username {
+  margin-bottom: 20px;
+}
 </style>

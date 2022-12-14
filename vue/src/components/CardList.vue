@@ -4,7 +4,7 @@
     <span class="study">
       <button
         class="btn btn-lg btn-primary studyButton"
-        v-on:click="toggleStudySession(), startTimer()"
+        v-on:click="toggleStudySession(), startTimer(), displayCardForm=false"
         v-if="!studySessionBool && cards.length != 0"
       >
         Start Study Session
@@ -63,17 +63,20 @@
     <!-- List of Cards -->
     <div class="cardsList">
       <!-- Card Silhoutte -->
+      <div class="time" v-if="studySessionBool">
+          00:00:00
+        </div>
       <div
         class="cardShadow"
         v-on:click.prevent="toggleDisplayForm"
         v-show="!displayCardForm"
       >
-        <div class="plus radius" v-if="!studySessionBool" />
+      
+      
+      <div class="plus radius" v-if="!studySessionBool" />
 
         <!-- Study Session Timer -->
-        <div class="time" v-if="studySessionBool">
-          00:00:00
-        </div>
+        
         
         <div
           class="timer"
@@ -207,7 +210,11 @@ export default {
   },
   methods: {
     toggleDisplayForm() {
-      this.displayCardForm = !this.displayCardForm;
+      if(this.studySessionBool == true){
+        this.displayCardForm = false;
+      }else {
+        this.displayCardForm = !this.displayCardForm;
+      }
     },
     toggleStudySession() {
       this.studySessionBool = !this.studySessionBool;
@@ -482,6 +489,7 @@ h1 {
   align-self: flex-start;
   font-size: 50px;
   color: white;
+  transform: translate(250px, 40px);
 }
 </style>
 
