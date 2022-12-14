@@ -169,10 +169,10 @@ name: 'about-lango'
 }
 .Decks-img{
   padding: 10px;
-  width: 40vw;
+  width: 43vw;
 }
 .Cards-img{
-  padding: 20px;
+  padding: 30px;
   width: 36vw;
 }
 .section-intro:after {
