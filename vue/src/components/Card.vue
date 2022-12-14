@@ -148,6 +148,7 @@ export default {
 
 <style scoped>
 .cards {
+  display: flex;
   align-content: center;
   border: 7px solid;
   border-color: #0B3954;
@@ -164,9 +165,10 @@ p.card-text {
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-wrap: wrap;
   color: #2B4141;
   padding: 5px;
-  font-size: 2vh;
+  font-size: large;
   overflow-y: auto;
 }
 .card-title {
@@ -207,5 +209,8 @@ p.card-text {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+.flip-card {
+  margin-top: 35px;
 }
 </style>
