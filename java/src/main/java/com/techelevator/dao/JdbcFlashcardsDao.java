@@ -62,6 +62,11 @@ public class JdbcFlashcardsDao implements FlashcardsDao{
     public void deleteDeck(int deckId) {
         int firstCardId = firstCardId(deckId);
         int lastCardId = lastCardId(deckId);
+
+        String sqlDeleteFromStudySession = "DELETE FROM study_session " +
+                "WHERE deck_id = ?";
+        jdbcTemplate.update(sqlDeleteFromStudySession, deckId);
+
         String sqlDeleteFromCardDeck = "DELETE FROM card_deck WHERE card_id BETWEEN ? AND ?";
         jdbcTemplate.update(sqlDeleteFromCardDeck, firstCardId, lastCardId);
 

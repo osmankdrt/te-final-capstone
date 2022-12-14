@@ -47,7 +47,8 @@ INSERT INTO card_deck (deck_id, card_id) VALUES (2,12);
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,13);
 INSERT INTO card_deck (deck_id, card_id) VALUES (2,14);
 
-INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (1, 1, 2, 2, 4);
+INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (1, 1, 3, 4, 7);
+INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (1, 1, 5, 2, 7);
 
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,15);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,16);
@@ -55,7 +56,6 @@ INSERT INTO card_deck (deck_id, card_id) VALUES (3,17);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,18);
 INSERT INTO card_deck (deck_id, card_id) VALUES (3,19);
 
-INSERT INTO study_session (user_id, deck_id, question_correct, question_incorrect, total) VALUES (1, 1, 2, 2, 4);
 
 
 

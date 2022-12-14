@@ -1,6 +1,6 @@
 <template>
    <div>
-     <apexchart width="500" type="bar" :options="chartOptions" :series="fillBarOut" ></apexchart>
+     <apexchart width="500" type="bar" :options="chartOptions" :series="fillBarsOut" ></apexchart>
    </div>
 </template>
 
@@ -19,8 +19,12 @@ export default {
           },
           xaxis: {
             categories: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            label: {
+              text: 'Study Sessions'
+            }
             
-          }
+          },
+          colors: ['#5cb85c', '#d9534f']
         },
         series: [{
           name: 'Questions Correct',
@@ -65,7 +69,7 @@ computed: {
   //   return questionsIncorrect
   // }
 
-  fillBarOut() {
+  fillBarsOut() {
     return [{name: 'Questions Correct', data: this.addQuestionsCorrect()}, {name: 'Questions Incorrect', data: this.addQuestionsIncorrect()}]
   },
   fillAxis() {
