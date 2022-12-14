@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="h3 mb-3 font-weight-normal" id="signIn">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -31,15 +31,13 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <router-link :to="{ name: 'register' }" id="needAcc">Need an account?</router-link>
+      <button type="submit" id="submit">Sign in</button>
     </form>
   </div>
 </template>
-
 <script>
 import authService from "../services/AuthService";
-
 export default {
   name: "login",
   components: {},
@@ -65,36 +63,56 @@ export default {
         })
         .catch(error => {
           const response = error.response;
-
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
     }
-    
   }
 };
 </script>
-
 <style scoped>
 #login {
- 
   height: 100%;
 }
-
 .text-center {
+  
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: black;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
-  background: transparent;
+  background: linear-gradient(to bottom, #ff9966 0%, #99ffcc 56%);
 }
 
-#username {
+.form-control{
   margin-bottom: 20px;
+  
 }
+
+#needAcc {
+  /* text-decoration: none; */
+  color: black;
+}
+
+.form-signin{
+  padding: 20px;
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+#submit {
+  background: linear-gradient(to bottom right, #ff9966 0%, #99ffcc 80%);
+  color: black;
+  border-radius: 10px;
+  border-color: white;
+}
+
+#signIn{
+color: grey;}
 </style>
