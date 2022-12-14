@@ -4,14 +4,14 @@
     <span class="study">
       <button
         class="btn btn-lg btn-primary studyButton"
-        v-on:click="toggleStudySession"
+        v-on:click="toggleStudySession(), startTimer()"
         v-if="!studySessionBool && cards.length != 0"
       >
         Start Study Session
       </button>
       <button
         class="btn btn-lg btn-danger studyButton"
-        v-on:click="toggleStudySession(), restartStudySession()"
+        v-on:click="toggleStudySession(), restartStudySession(), stopTimer(), resetTimer()"
         v-if="studySessionBool"
       >
         Cancel Study Session
@@ -70,22 +70,14 @@
       >
         <div class="plus radius" v-if="!studySessionBool" />
 
-        <!--this is part of the flip card from the method that is commented out 
-       <ul class="flashcard-list">
-      <li v-on:click="toggleCard(card)" v-for="(card, index) in cards">
-        <transition name="flip">
-          <p v-bind:key="card.flipped" class="card">
-              {{ card.flipped ? card.back : card.front }}
-              <span v-on:click="cards.splice(index, 1)" class="delete-card">X</span>
-          </p>
-        </transition>
-      </li>
-    </ul> -->
-
         <!-- Study Session Timer -->
+        <div class="time" v-if="studySessionBool">
+          00:00:00
+        </div>
+        
         <div
           class="timer"
-          style="--duration: 120; --size: 100"
+          style="--duration: 60; --size: 100"
           v-if="studySessionBool"
         >
           <div class="mask" v-if="studySessionBool"></div>
@@ -147,6 +139,7 @@
 </template>
 
 <script>
+// import StopwatchTimer from "../components/StopwatchTimer.vue";
 import flashCardService from "../services/FlashCardService.js";
 import Card from "../components/Card.vue";
 export default {
@@ -170,11 +163,17 @@ export default {
         questionIncorrect: 0,
         total: 0,
         date: 0
+      },
+      timer: {
+          time_el: null,
+          seconds: 0,
+          interval: null,
       }
     };
   },
   components: {
     Card,
+    // StopwatchTimer
   },
   computed: {
     emptyDeck() {
@@ -242,15 +241,46 @@ export default {
     questionCorrectCounter() {
       this.questionCorrect += 1;
     },
+
     questionIncorrectCounter() {
       this.questionIncorrect += 1;
     },
 
-    // This may help flip the card
-    //  methods: {
-    // toggleCard: function(card){
-    //   card.flipped = !card.flipped;
-    // },
+    updateTimer(){
+        this.timer.seconds++;
+        let hours = Math.floor(this.timer.seconds / 3600);
+        let mins = Math.floor((this.timer.seconds - (hours * 3600)) / 60);
+        let secs = this.timer.seconds % 60;
+        this.timer.time_el = document.querySelector(".time");
+          if(secs < 10){
+               secs = '0' + secs;
+          }
+          if(mins < 10){
+               mins = '0' + mins;
+          }
+          if(hours < 10){
+               hours = '0' + hours;
+          }
+
+          this.timer.time_el.innerHTML = `${hours}:${mins}:${secs}`;
+    },
+    startTimer() {
+            // if(this.timer.interval){
+            //     return
+            // }
+        this.timer.interval = setInterval(this.updateTimer, 1000)
+    },
+
+    stopTimer() {
+            clearInterval(this.timer.interval);
+            this.timer.interval = null;
+    },
+
+    resetTimer() {
+            this.stopTimer;
+            this.timer.seconds = 0;
+            this.timer.time_el.innerHTML = '00:00:00';
+    },
   },
 
   created() {
@@ -289,6 +319,7 @@ h2 {
 }
 .cardShadow {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
@@ -300,6 +331,22 @@ h2 {
   box-shadow: 5px 5px 3px #00000062;
   opacity: 0.4;
 }
+
+.cardShadowDuringStudy{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  height: 300px;
+  width: 250px;
+  margin: 40px;
+  background-color: #dbd5d579;
+  box-shadow: 5px 5px 3px #00000062;
+  opacity: 1;
+}
+
 .cardFormCard {
   justify-content: space-around;
   align-items: center;
@@ -427,6 +474,14 @@ h1 {
     background: #0496ff;
     -webkit-transform: rotate(-180deg);
   }
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  font-size: 50px;
+  color: white;
 }
 </style>
 
