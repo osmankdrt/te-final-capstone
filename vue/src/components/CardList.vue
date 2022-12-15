@@ -216,6 +216,8 @@ export default {
       }else {
         this.displayCardForm = !this.displayCardForm;
       }
+      this.newCard.cardTitle = '';
+      this.newCard.cardText = '';
     },
     toggleStudySession() {
       this.studySessionBool = !this.studySessionBool;

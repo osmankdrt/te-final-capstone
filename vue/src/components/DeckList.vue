@@ -72,6 +72,8 @@ export default {
   methods: {
     toggleDisplayForm() {
       this.displayForm = !this.displayForm;
+      this.newDeck.deckTitle = '';
+      this.newDeck.deckDescription = '';
     },
     addDeck() {
       flashCardService.addDecks(this.newDeck).then((response) => {
