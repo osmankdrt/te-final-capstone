@@ -69,8 +69,8 @@
             v-model="cardToUpdate.cardText"
             class="form-control"
           />
-          <label for="tags" class="tags"> Card Tags </label>
-          <input type="text" v-model="cardToUpdate.tags" class="form-control" />
+          <!-- <label for="tags" class="tags"> Card Tags </label>
+          <input type="text" v-model="cardToUpdate.tags" class="form-control" /> -->
           <button class="Save btn btn-primary" v-on:click.prevent="updateCard">
             Save
           </button>
