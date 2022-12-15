@@ -113,13 +113,14 @@
             v-model="newCard.cardText"
             required
           />
-          <label for="cardText" class="cardText"> Card Tags </label>
+          <!-- Functions but no search feature for searching tags -->
+          <!-- <label for="cardText" class="cardText"> Card Tags </label>
           <input
             type="text"
             class="form-control"
             v-model="newCard.tags"
             required
-          />
+          /> -->
         </div>
       </div>
 
