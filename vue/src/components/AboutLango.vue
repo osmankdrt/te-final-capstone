@@ -2,7 +2,7 @@
     <body>
         <section class="billboard clearfix">
             <div class="container">
-                <h1>CREATIVE MINDS</h1>
+                <h1 class ="creative">CREATIVE MINDS</h1>
                 <h2 class="page">You can be your own teacher</h2>
                 <ul class="cta-buttons">
                 <li>
@@ -139,10 +139,11 @@ name: 'about-lango'
   border: 5px solid rgb(41, 40, 40);
   transition: .5s;
   border-radius: 15px;
+  color: #52AD9C;
 }
 
 .learn-more:hover {
-  background-color: rgb(122, 187, 149);
+  background-color: #52AD9C;
   color: rgb(22, 12, 12);
 }
 .section-style {
@@ -161,6 +162,7 @@ name: 'about-lango'
   margin-bottom: 60px;
   position: relative;
   z-index: 5;
+  font-weight: bold;
 }
 .service {
   font-size: 3em;
@@ -169,6 +171,7 @@ name: 'about-lango'
   margin-bottom: 60px;
   position: relative;
   z-index: 5;
+  font-weight: bold;
 }
 .service:after {
   content: "";
@@ -182,22 +185,20 @@ name: 'about-lango'
   border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 20px;
 }
 .Decks-img{
-  width: 25vw;
-  border-radius: 20px;
+  margin: 10px;
+  border-radius: 15px;
 }
 .Cards-img{
-  
-  width: 25vw;
-  border-radius: 20px;
+  margin: 10px;
+  border-radius: 15px;
 }
 .study-img{
- 
-  width: 25vw;
-  border-radius: 20px;
+  margin: 10px;
+  border-radius: 15px;
 }
 .section-intro:after {
   content: "";
@@ -218,6 +219,7 @@ section p {
 .section-style .res-image {
   display: inline-block;
   margin-top: 60px;
+  margin-bottom: 60px;
   border-radius: 50%;
 }
 
@@ -279,4 +281,15 @@ section p {
     height: 140px;
     object-fit: cover;
 }
+
+h1.creative {
+  font-weight: bold;
+  color: #0b3954;
+}
+
+h2.page {
+  margin-bottom: 15px;
+  color: #0b3954;
+}
+
 </style>
