@@ -32,7 +32,7 @@
         required
       />
       <router-link :to="{ name: 'register' }" id="needAcc">Need an account?</router-link>
-      <button type="submit" id="submit">Sign in</button>
+      <button class ="btn btn-primary" type="submit" id="submit">Sign in</button>
     </form>
   </div>
 </template>
@@ -95,7 +95,7 @@ export default {
 
 #needAcc {
   /* text-decoration: none; */
-  color: white;
+  color: #0B3954;
 }
 
 .form-signin{
@@ -104,14 +104,13 @@ export default {
   border-width: 2px;
   display: flex;
   flex-direction: column;
+   background-color: #F2E8CF;
+  box-shadow: 6px 6px 3px #0000008c;
+   border: 7px solid;
+  border-color: #0B3954;
+  border-radius: 10px;
 }
 
-#submit {
-  background: #e9e6ff;
-  color: black;
-  border-radius: 10px;
-  border-color: white;
-}
 
 #signIn{
 color: #0b3954;
