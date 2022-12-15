@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class = "bg">
      <apexchart width="500" type="bar" :options="chartOptions" :series="fillBarsOut" ></apexchart>
    </div>
 </template>
@@ -104,5 +104,14 @@ computed: {
 </script>
 
 <style scoped>
+
+.bg{
+  background-color: #F2E8CF;
+  border-radius: 15px;
+  margin: 20px;
+  border: 7px solid;
+  border-color: #0B3954;
+  box-shadow: 6px 6px 3px #0000008c;
+}
 
 </style>
