@@ -33,7 +33,11 @@ export default {
         {
           name: 'Questions Incorrect',
           data: []
-        }]
+        },
+         {
+          name: 'Total Questions Answered',
+          data: []
+        },]
       }
     },
 created() {
@@ -70,7 +74,7 @@ computed: {
   // }
 
   fillBarsOut() {
-    return [{name: 'Questions Correct', data: this.addQuestionsCorrect()}, {name: 'Questions Incorrect', data: this.addQuestionsIncorrect()}]
+    return [{name: 'Questions Correct', data: this.addQuestionsCorrect()}, {name: 'Questions Incorrect', data: this.addQuestionsIncorrect()},]
   },
   fillAxis() {
     return {categories: this.addSessionIds}
@@ -99,6 +103,14 @@ computed: {
     })
     return data;
   },
+  totalQuestionsAnswered() {
+    let data = []
+    this.studySessions.forEach(studysession => {
+      data.push(studysession.questionCorrect)
+      data.push(studysession.questionIncorrect)
+    })
+    return data;
+  }
 }
 }
 </script>
