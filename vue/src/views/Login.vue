@@ -76,26 +76,26 @@ export default {
   height: 100%;
 }
 .text-center {
-  
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: black;
+  color: white;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
-  background: linear-gradient(to bottom, #ff9966 0%, #99ffcc 56%);
+  background: #2a6853;
 }
 
 .form-control{
+  
   margin-bottom: 20px;
   
 }
 
 #needAcc {
   /* text-decoration: none; */
-  color: black;
+  color: white;
 }
 
 .form-signin{
@@ -107,12 +107,13 @@ export default {
 }
 
 #submit {
-  background: linear-gradient(to bottom right, #ff9966 0%, #99ffcc 80%);
+  background: #e9e6ff;
   color: black;
   border-radius: 10px;
   border-color: white;
 }
 
 #signIn{
-color: grey;}
+color: #0b3954;
+}
 </style>
