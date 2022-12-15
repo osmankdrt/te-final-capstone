@@ -19,9 +19,11 @@
             <div class= "services">
               <h2 class="service">SERVICES</h2>
              <p>These are our samples of the decks, and cards. You could start a study session  <br />which helps you keep track of your scores and enhance your learning process. What are you waiting for get started now!</p>
+                <div class="screenshots">
                 <img  class="Decks-img" src='../assets/decks.jpg'/>
-                  <img  class="Cards-img" src='../assets/cards.jpg'/>
-                  <img  class="study-img" src='../assets/study.jpg'/>
+                <img  class="Cards-img" src='../assets/cards.jpg'/>
+                <img  class="study-img" src='../assets/study.jpg'/>
+                </div>
               </div>
         </section> <!-- end section-style -->  
         <section class="section-style team">
@@ -149,6 +151,7 @@ name: 'about-lango'
   display: inline-block;
   text-align: center;
   font-family: inherit;
+  background-color: #f2e8cf73;
 }
 
 .section-intro {
@@ -174,18 +177,27 @@ name: 'about-lango'
   width: 100px;
   margin: 10px auto 0px auto;
 }
+
+.screenshots{
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
 .Decks-img{
-  padding: 10px;
-  width: 40vw;
+  width: 25vw;
+  border-radius: 20px;
 }
 .Cards-img{
-  padding: 30px;
-  width: 35vw;
+  
+  width: 25vw;
+  border-radius: 20px;
 }
 .study-img{
-  padding: 30px;
-  padding: 20px;
-  width: 36vw;
+ 
+  width: 25vw;
+  border-radius: 20px;
 }
 .section-intro:after {
   content: "";
