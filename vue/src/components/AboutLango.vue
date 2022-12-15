@@ -3,7 +3,7 @@
         <section class="billboard clearfix">
             <div class="container">
                 <h1>CREATIVE MINDS</h1>
-                <h2 class="page">You can Be your own teacher</h2>
+                <h2 class="page">You can be your own teacher</h2>
                 <ul class="cta-buttons">
                 <li>
                 <router-link class="learn-more" :to="{ name: 'login' }">GET STARTED</router-link></li>
