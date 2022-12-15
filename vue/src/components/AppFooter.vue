@@ -7,16 +7,18 @@
         <div class="row">
           <div class="col-md-6 col-md-3">
             <h6>Meet our family</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Our family was created in 2022 with hopes of helping people all around the world to gain a better understanding of different languages.
+              We started out simply just working out of a shoe box and now on to bigger and better things!
+            </p>
           </div>
 
           <div class="col-sm-6 col-md-2">
               <h6>Services</h6>
               <ul>
-                <li><a href="#">Study Seation</a> </li>
-                <li><a href="#">deck</a> </li>
+                <li><a href="#">Study Sessions</a> </li>
+                <li><a href="#">Decks</a> </li>
                 <li><a href="#">Cards</a> </li>
-                <li><a href="#">Offline</a> </li>
+                <li><a href="#">Graphs</a> </li>
               </ul>
           </div>
 
@@ -157,7 +159,7 @@ html, body{
   border: 2px solid #05ff05;
   box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4);
   margin: 10px;
-  color: #fff;
+  color: rgb(5, 5, 5);
   opacity: 0.7;
   transition: 0.3s ease-in-out;
 }
